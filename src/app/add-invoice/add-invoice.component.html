@@ -1,0 +1,286 @@
+<section id ="menu">
+    <div class="logo">
+        <i class="fa-solid fa-bars"> <span>INVOICE</span></i>
+    </div>
+    <div class="items">
+        <li><a href="#" routerLink="dashboard" (click) ="navigateToDashboard()" >DASHBOARD</a></li>
+        <li><a href="#" routerLink="/lead" (click)="navigateToLeadPage()" >LEAD</a></li>
+        <li><a href="#">DEAL</a></li>
+        <li><a href="#">QUOTE</a></li>
+        <li><a href="#" routerLink="/invoice" (click)="navigateToInvoicePage()">INVOICE</a></li>
+        <li><a href="#" routerLink="/settings" (click)="navigateToSettingsPage()" >SETTIGS</a></li>
+    </div>
+    <div class="log-out-btn">
+        <button (click)="openDialog()" mat-raised-button color="primary">LOGOUT</button>
+    </div>
+</section>
+
+
+<section id="interface">
+
+   <div class="navigation-bar">
+
+    <div class="page-title">
+        <h3 class="i-name">Add Content</h3>
+    </div>
+
+    <div class="progress-steps">
+        <div class="sub-progress">
+             <div class="tick">
+                <i class="fa-regular fa-circle-check"></i>
+             </div>
+             <div class="progress-status">
+                <p>Select Template</p>
+             </div>   
+        </div>
+        <div class="sub-progress">
+              <div class="tick">
+                <i class="fa-regular fa-circle-check"></i>
+             </div>
+             <div class="progress-status">
+                <p>Add Content</p>
+             </div>
+        </div>
+        <div class="sub-progress">
+            <div class="tick">
+                <i class="fa-regular fa-circle-check"></i>
+             </div>
+             <div class="progress-status">
+                <p>Preview & Share</p>
+             </div>
+        </div>
+    </div>
+    <div class="save-cont-btn">
+        <button mat-raised-button> Save & Continue</button>
+    </div>
+
+   </div>
+
+   <div class="main-invoice-content">
+    <div class="page-title">
+        <h2>Invoice</h2>
+    </div>
+
+    <div class="logo-plus-inputs">
+        <div class="img-logo">
+           <div class="img-logo">
+            <i class="fa-solid fa-image"></i>
+           </div>
+            <div class="sub-content-more">
+                <div class="heading-title">
+                    <h3 class="heading-title">Sender</h3>
+                </div>
+                <div class="sender-content">
+                    <div class="content-edit">
+                         <div class="content-heading">
+                            <h5>Mzansi Institute of Excellence</h5>
+                         </div>
+                       <div>
+                         <button class="edit-btn" (click)="openEditDialogBox()">Edit</button>
+                       </div>
+                    </div>
+
+                    <div class="content-infor">
+                        <p class="paragraph-text"> Lorem ipsum dolor sit amet 
+                            consectetur adipisicing elit. Magni cumque nesciunt 
+                            aspernatur nulla et est nam modi obcaecati voluptatum 
+                            veritatis ut harum tempore doloremque, sunt laboriosam 
+                            laudantium commodi molestiae minus!.</p>
+                       </div>
+                </div>
+            </div>
+        </div>
+        
+    
+        <div class="input-infor-box">
+              <div class="input-group mb-9">
+                <label for="">Invoice Number:</label>
+                <input formControlName="name" type="text" class="form-control form-control bg-light fs-6 custom-height">
+              </div>
+
+              <div class="input-group mb-9">
+                <label for="">Invoice Date:</label>
+                <input formControlName="name" type="text" class="form-control form-control bg-light fs-6 custom-height">
+              </div>
+
+              <div class="input-group mb-9">
+                <label for="">Due Date:</label>
+                <input formControlName="name" type="text" class="form-control form-control bg-light fs-6 custom-height">
+              </div>
+              <div class="reciever-content">
+               <div class="main-content-reciever">
+                <div class="heading-title">
+                    <h3 class="heading-title">Receiver</h3>
+                </div>
+                <div class="action-receiver">
+                    <button class="edit-btn" style="width: 165px;" (click)="selectReceiver()">Select Receiver  <i class="fa-solid fa-arrow-down-long"></i></button>
+                </div>
+               </div>
+               <div class="div-add-new-btn">
+                 <p class="add-new-text">Add New</p>
+               </div>
+              </div>      
+        </div>
+
+        <div class="invoice-preview">
+            <h3 class="text-heading">Invoice Preview</h3>
+            <div class="preview-invoice-container">
+
+            </div>
+            <div class="btn-actions-invoice">
+                <button mat-raised-button color="primary">Edit Style</button>
+                <button mat-raised-button color="primary">Payment Method</button>
+                <button mat-raised-button color="primary">Tax</button>
+                <button mat-raised-button color="primary">Reminder</button>
+                <button mat-raised-button color="primary">Reccuring</button>
+            </div>
+        </div>
+
+
+        </div>
+    </div>
+
+    <div class="bottom-body">
+
+        <div class="body-cont-text-area">
+
+            <div class="content-text-area">
+                <h3 class="heading">Section Label <i class="fa-solid fa-link"></i></h3>
+            </div>
+            <div class="close-btn">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+        </div>
+
+        <div class="text-area-box-container">
+            <div class="heading-content">
+                <ul class="list">
+                    <li><i class="fa-solid fa-arrow-rotate-left"></i></li>
+                    <li><i class="fa-solid fa-arrow-rotate-right"></i></li>
+                    <li><i class="fa-solid fa-bold"></i></li>
+                    <li><i class="fa-solid fa-italic"></i></li>
+                    <li><i class="fa-solid fa-align-left"></i></li>
+                    <li><i class="fa-solid fa-align-center"></i></li>
+                    <li><i class="fa-solid fa-align-right"></i></li>
+                    <li><i class="fa-solid fa-list"></i></li>
+                </ul>
+            </div>
+            
+            <div class="text-area-input">
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+            </div>
+            <div class="add-new-section-btn">
+                <button mat-raised-button color="primary">+ Add New Section</button>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">DESCRIPTION</th>
+                  <th scope="col">QUANTITY</th>
+                  <th scope="col">RATE</th>
+                  <th scope="col">AMOUNT</th>
+                  <th scope="col"><i class="fa-solid fa-ellipsis"></i></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+               
+                <!-- Add more rows as needed -->
+              </tbody>
+            </table>
+            <div class="add-new-section-btn">
+                <button mat-raised-button color="primary">+ Add Item</button>
+            </div>
+            
+
+            <div class="pricing-container">
+                <div></div>
+                <div class="total-pricing">
+                    <h3>Subtotal:</h3>
+                    <hr>
+                    <h3>Total Price:</h3>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="body-cont-text-area">
+
+            <div class="content-text-area">
+                <h3 class="heading">Note <i class="fa-solid fa-link"></i></h3>
+            </div>
+            <div class="close-btn">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+        </div>
+
+        <div class="text-area-box-container">
+            <div class="heading-content">
+                <ul class="list">
+                    <li><i class="fa-solid fa-arrow-rotate-left"></i></li>
+                    <li><i class="fa-solid fa-arrow-rotate-right"></i></li>
+                    <li><i class="fa-solid fa-bold"></i></li>
+                    <li><i class="fa-solid fa-italic"></i></li>
+                    <li><i class="fa-solid fa-align-left"></i></li>
+                    <li><i class="fa-solid fa-align-center"></i></li>
+                    <li><i class="fa-solid fa-align-right"></i></li>
+                    <li><i class="fa-solid fa-list"></i></li>
+                </ul>
+            </div>
+            
+            <div class="text-area-input">
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+            </div>
+    </div>
+
+    <div class="body-cont-text-area">
+
+        <div class="content-text-area">
+            <h3 class="heading">Terms & Conditions <i class="fa-solid fa-link"></i></h3>
+        </div>
+        <div class="close-btn">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+    </div>
+
+    <div class="text-area-box-container">
+        <div class="heading-content">
+            <ul class="list">
+                <li><i class="fa-solid fa-arrow-rotate-left"></i></li>
+                <li><i class="fa-solid fa-arrow-rotate-right"></i></li>
+                <li><i class="fa-solid fa-bold"></i></li>
+                <li><i class="fa-solid fa-italic"></i></li>
+                <li><i class="fa-solid fa-align-left"></i></li>
+                <li><i class="fa-solid fa-align-center"></i></li>
+                <li><i class="fa-solid fa-align-right"></i></li>
+                <li><i class="fa-solid fa-list"></i></li>
+            </ul>
+        </div>
+        
+        <div class="text-area-input">
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+        </div>
+
+        <div class="add-new-section-btn">
+            <button mat-raised-button color="primary">+ Add New Section</button>
+        </div>
+
+        <div class="signature-content">
+            <button mat-raised-button color="primary"><i class="fa-solid fa-cloud-arrow-up"></i> Authorized Signature</button>
+        </div>
+
+
+
+    
+
+
+

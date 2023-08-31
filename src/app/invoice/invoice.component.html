@@ -1,0 +1,42 @@
+<section id ="menu" class="menu">
+    <div class="logo">
+       <h3 class="pagae-title">Invoice</h3>
+    </div>
+    <div class="items">
+        <li><a href="#" rounterLink="dashboard">DASHBOARD</a></li>
+        <li><a href="#" routerLink="/lead" (click)="navigateToLeadPage()">LEAD</a></li>
+        <li><a href="#">DEAL</a></li>
+        <li><a href="#">QUOTE</a></li>
+        <li><a href="#" rounterLink="/invoice" (click)="navigateToInvoicePage()">INVOICE</a></li>
+        <li><a href="#" routerLink="/settings" (click)=" navigateToSettingsPage()">SETTIGS</a></li>
+    </div>
+    <div class="log-out-btn">
+        <button (click)="openDialog()" mat-raised-button color="primary">LOGOUT</button>
+    </div> 
+</section>
+<section id="interface">
+    <div class="invoice-container">
+        <h4 class="i-name">My Invoice</h4>
+        <div class="add-invoice-div">
+            <button mat-raised-button color="primary" class="add-invoice-btn" (click)="openAddInvoicePage()" routerLink="/add-invoice" > + Add Invoice</button>
+        </div>
+    </div>
+
+    <div class="invoice-table">
+        <div class="doc-div-container">
+            <i class="fa-solid fa-file-invoice-dollar"></i>
+        </div>
+        <div class="doc-div-container">
+            <i class="fa-solid fa-file"></i>
+        </div>
+        <div class="search-container">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" class="search-input" placeholder=" Search Invoice">
+        </div>
+    </div>
+
+    <div class="show-invoice-table">
+       
+    </div>
+
+</section>

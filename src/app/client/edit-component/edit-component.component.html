@@ -1,0 +1,43 @@
+<div mat-dialog-title>
+    <h1>Edit Client</h1>
+</div>
+<div mat-dialog-content>
+    <form>
+        <div class="details">
+            <div class="input-group mb-3" class="input-field-label">
+                <label for="">Contact Name</label>
+                <input type="text" formControlName="contact_name" class="form-control form-control bg-light fs-6 custom-height">
+            </div>
+            <div class="input-group mb-3" class="input-field-label">
+                <label for="">Email</label>
+                <input  type="email" formControlName="email" class="form-control form-control bg-light fs-6 custom-height">
+            </div>
+         </div>
+         <div class="details">
+            <div class="input-group mb-3" class="input-field-label">
+                <label for="">Mobile</label>
+                <input type="number" formControlName="mobile" class="form-control form-control bg-light fs-6 custom-height">
+            </div>
+            <div class="input-group mb-3" class="input-field-label">
+                <label for="">Type</label>
+                <input  type="text" formControlName="type" class="form-control form-control bg-light fs-6 custom-height">
+            </div>
+         </div>
+         <div class="details">
+            <div class="input-group mb-3" class="input-field-label">
+                <label for="">Author</label>
+                <input type="text" formControlName="author" class="form-control form-control bg-light fs-6 custom-height" id="date-input">
+            </div>
+            <div class="input-group mb-3" class="input-field-label">
+                <label for="">Date</label> 
+                <input matInput [matDatepicker]="picker" formControlName="date" placeholder="Choose a date" class="form-control form-control bg-light fs-6 custom-height" id="date-picker">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </div>
+         </div>
+
+         <div mat-dialog-actions>
+            <button mat-raised-button>Cancel</button>
+            <button mat-raised-button color="primary">Save</button>
+        </div>
+</form>

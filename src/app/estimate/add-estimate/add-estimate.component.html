@@ -1,0 +1,35 @@
+<div mat-dialog-title>
+    <h1>Add Estimate Here</h1>
+</div>
+    <div mat-dialog-content>
+        <form [formGroup]="estimateForm" (ngSubmit)="onSubmit()">
+            <div class="details">
+                <div class="input-group mb-3" class="input-field-label">
+                    <label for="">Contact Name</label>
+                    <input type="text" formControlName="contact_name" class="form-control form-control bg-light fs-6 custom-height">
+                </div>
+    
+                <div class="input-group mb-3" class="input-field-label">
+                    <label for="">Total</label> 
+                    <input  type="number" formControlName="total" class="form-control form-control bg-light fs-6 custom-height">
+                </div>
+             </div>
+             <div class="details">
+                <div class="input-group mb-3" class="input-field-label">
+                    <label for="">Status</label>
+                    <input type="text"  formControlName="status" class="form-control form-control bg-light fs-6 custom-height">
+                </div>
+                <div class="input-group mb-3" class="input-field-label">
+                    <label for="">Date</label> 
+                
+                    <input matInput [matDatepicker]="picker" formControlName="date"placeholder="Choose a date" class="form-control form-control bg-light fs-6 custom-height" id="date-picker">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </div>
+             </div> 
+    <div mat-dialog-actions>
+        <button mat-raised-button [mat-dialog-close]="false">Cancel</button>
+        <button mat-raised-button color="primary" type="submit">{{data? 'Update':'Save'}}</button>
+    </div>
+</form>
+</div>

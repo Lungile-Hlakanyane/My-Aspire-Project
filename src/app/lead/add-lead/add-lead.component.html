@@ -1,0 +1,132 @@
+<div mat-dialog-title>
+    <h1>Add New Lead</h1>
+    <h4>Add New Lead here</h4>
+</div>
+
+
+<div mat-dialog-content>
+  <div class="details">
+      <div class="input-group mb-3" class="input-field-label">
+          <label for="">Person</label>
+          <input type="text" class="form-control form-control bg-light fs-6 custom-height">
+      </div>
+      <div class="input-group mb-3" class="input-field-label">
+          <label for="">Organization</label> 
+          <input  type="text" class="form-control form-control bg-light fs-6 custom-height">
+      </div>
+   </div>
+
+<div class="details">
+    <div class="input-group mb-3" class="input-field-label">
+        <label for="">Email</label>
+        <input  type="email" class="form-control form-control bg-light fs-6 custom-height">
+    </div>
+    <div class="input-group mb-3" class="input-field-label">
+        <label for="">Mobile</label>
+        <input type="password" class="form-control form-control bg-light fs-6 custom-height">
+    </div>
+ </div>
+
+ <div class="details">
+   
+    <div class="input-group mb-3" class="input-field-label">
+      
+        <mat-form-field>
+           
+            <mat-label>Select Country</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let country of countries" [value]="country.value">
+                {{country.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+    </div>    
+    <div class="input-group mb-3" class="input-field-label">   
+        <mat-form-field>
+            <mat-label>Region</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let region of  regions" [value]="region.value">
+                {{region.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+    </div>
+ </div>
+
+ <div class="details">
+    <div class="input-group mb-3" class="input-field-label">
+        <label for="">Budget</label>
+        <input  type="email" class="form-control form-control bg-light fs-6 custom-height">
+    </div>
+    <div class="input-group mb-3" class="input-field-label">
+        <mat-form-field>
+            <mat-label>USD$</mat-label>
+            <mat-select>
+              <mat-option *ngFor="let currency of currencies" [value]="currency.value">
+                {{currency.viewValue}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+    </div>
+ </div>
+
+
+ <div class="details">
+    <div class="input-group mb-3" class="input-field-label">
+        <label for="">Level</label>
+        <div clas="add-lead-div">
+            <button mat-raised-button color="primary"> + Add Lead</button>
+         </div>
+       
+    </div>
+    <div class="input-group mb-3" class="input-field-label">
+        <label for="">Tag</label>
+        <div clas="add-lead-div">
+            <button mat-raised-button> + Add Lead</button>
+         </div>
+        
+    </div>
+ </div>
+
+ <div class="details">
+    <div class="input-group mb-3" class="input-field-label">
+        <label for="">Description</label>
+    </div>
+ </div>
+
+ <div class="details">
+    <mat-form-field class="example-full-width">
+        <textarea matInput></textarea>
+    </mat-form-field>
+ </div>
+
+ <div class="details">
+    <div class="input-group mb-3" class="input-field-label">
+        <label for="">Note</label>
+    </div>
+ </div>
+
+ <div class="details">
+    <mat-form-field class="example-full-width">
+        <textarea matInput></textarea>
+    </mat-form-field>
+ </div>
+
+
+ <div class="details">
+    <div class="input-group mb-3" class="input-field-label">
+        <label for="">Image</label>
+    </div>
+ </div>
+ <div class="details">
+    <div class="upload-img-btn">
+        <input type="file" id="imageInput" style="display: none" (change)="handleImageUpload($event)" accept="image/*">
+        <button mat-raised-button color="primary" (click)="openFileInput()"> <i class="fa-solid fa-cloud-arrow-up"></i> Upload</button>
+      </div>
+ </div>
+
+ 
+<div mat-dialog-actions class="button-action-container"> 
+    <button mat-raised-button>Cancel</button>
+    <button mat-raised-button color="primary">Save</button>
+</div>

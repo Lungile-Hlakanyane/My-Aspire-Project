@@ -1,0 +1,157 @@
+<section id ="menu" class="menu">
+    <div class="logo">
+       <h3 class="pagae-title">Settings</h3>
+    </div>
+    <div class="items">
+        <li><a href="#" routerLink="/dashboard" (click) ="navigateToDashboard()" >DASHBOARD</a></li>
+        <li><a href="#" routerLink="/lead" (click)="navigateToLeadPage()" >LEAD</a></li>
+        <li><a href="#">DEAL</a></li>
+        <li><a href="#">QUOTE</a></li>
+        <li><a href="#" routerLink="/invoice" (click)="navigateToInvoicePage()">INVOICE</a></li>
+        <li><a href="#" routerLink="/settings" (click)="navigateToSettingsPage()" >SETTIGS</a></li>
+    </div>
+    <div class="log-out-btn">
+        <button (click)="openDialog()" mat-raised-button color="primary">LOGOUT</button>
+    </div>
+</section>
+<section id="interface">
+ <div class="interface-container">
+    <div class="settings-options">
+        <div class="items">
+            <li><a href="#" routerLink="/settings">General</a></li>
+            <li><a href="#" routerLink="/lead-settings">Lead</a></li>
+            <li><a href="#" routerLink="/deal-settings">Deal</a></li>
+            <li (click)="toggleEstimateInvoice()">Estimate & Invoice </li>
+            <div class="options-container-displayed" [ngClass]="{'show':showEstimateInvoiceOptions}">
+                <ul class="show-more-options">
+                    <li><a href="" routerLink="/common-settigs">Common</a></li>
+                    <li><a href="" routerLink="/estimate-settings">Estimate</a></li>
+                    <li><a href="" routerLink="/invoice-settings"></a>Invoice</li>
+                </ul>
+            </div>
+            <li><a href="#">Project</a></li>
+            <li><a href="#" routerLink="/bank-settings">Payment</a></li>
+            <li><a href="#">Email Template</a></li>
+            <li><a href="#">Task & Activity</a></li>
+            <li><a href="#">Tag</a></li>
+            <li><a href="#">Custom Field</a></li>
+            <li><a href="#">Integration</a></li>
+        </div>
+    </div>
+    <div class="second-div">
+        <h4 class="i-name">Estimate and Invoice: Common Settings</h4>
+        <div class="common-settings-menu">
+            <ul>
+                <li><a href="" class="active-selected-link">Currency</a></li>
+                <li><a href="">Quantity Type</a></li>
+                <li><a href="">Tax</a></li>
+                <li><a href="">Fee</a></li>
+                <li><a href="">Discount</a></li>
+            </ul>
+        </div>
+        <div class="sub-commn-settings">
+            <label for="">Currency</label>
+            <div class="currency-input">
+                <div class="input-group mb-3">
+                    <input formControlName="text" placeholder="USD($)" type="text" class="form-control form-control bg-light fs-6 custom-height">
+                </div>
+            </div>
+            <label for="">Language</label>
+            <div class="currency-input">
+                <div class="input-group mb-3">
+                    <input formControlName="text" placeholder="English"  type="text" class="form-control form-control bg-light fs-6 custom-height">
+                </div>
+            </div>
+            <div class="save-common-btn">
+                <button mat-raised-button color="primary">Save</button>
+            </div>
+        </div>
+        <div class="more-common-sub-settings">
+            <span class="type">Quantity Type</span>
+            <div class="first-div">
+                <div class="first-actions">
+                    <div class="menu-icons">
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+                    <div class="temp-condition" id="pink">
+                        <span>Unit</span>
+                    </div>
+                </div>
+                <div class="second-actions">
+
+                     <div class="edit-icon-div">
+                        <i class="fa-solid fa-pencil"></i>
+                    </div>
+                    <div class="delete-icon-div">
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
+                </div>
+            </div>
+            <span class="type">Text Fields</span>
+            <div class="first-div">
+                <div class="first-actions">
+                    <div class="menu-icons">
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+                    <div class="temp-condition" id="pink">
+                        <span>Unit</span>
+                    </div>
+                </div>
+                <div class="second-actions">
+
+                     <div class="edit-icon-div">
+                        <i class="fa-solid fa-pencil"></i>
+                    </div>
+                    <div class="delete-icon-div">
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="last-divs">
+            <span class="type">Fee Fields</span>
+            <div class="first-div">
+                <div class="first-actions">
+                    <div class="menu-icons">
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+                    <div class="temp-condition" id="pink">
+                        <span>Unit</span>
+                    </div>
+                </div>
+                <div class="second-actions">
+
+                     <div class="edit-icon-div">
+                        <i class="fa-solid fa-pencil"></i>
+                    </div>
+                    <div class="delete-icon-div">
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
+                </div>
+            </div>
+
+            <span class="type">Discount Fields</span>
+            <div class="first-div">
+            
+                <div class="first-actions">
+                    <div class="menu-icons">
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+                    <div class="temp-condition" id="pink">
+                        <span>Unit</span>
+                    </div>
+                </div>
+                <div class="second-actions">
+
+                     <div class="edit-icon-div">
+                        <i class="fa-solid fa-pencil"></i>
+                    </div>
+                    <div class="delete-icon-div">
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+ </div>
+</section>

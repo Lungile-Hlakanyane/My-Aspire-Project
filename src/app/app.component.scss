@@ -1,0 +1,93 @@
+
+@import "~@fortawesome/fontawesome-free/css/all.css";
+.main-div mat-card{
+    padding:15px;
+}
+
+.intro-text{
+    color:#000;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.sub-intro-text{
+    color:#585858;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 25px;
+    padding-top:10px;
+    padding-bottom: 10px;
+}
+
+.sign-in-link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom: 15%;
+    color:#8a8a8a;
+}
+
+
+//Other styeles for main page
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+*{
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+
+body{
+    background: #ececec;
+}
+
+.box-area{
+    width: 930px ;
+}
+
+.curve-corners{
+    background: #103cbe;
+    border-radius: 10px;
+}
+
+.right-box{
+    padding:40px 30px 40px 40px;
+}
+::placeholder{
+    font-size: 16px;
+}
+
+.custom-height{
+  height:40px;
+  width:100px;
+}
+
+.center-btn-link{
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+
+.create-account{
+    padding-top: 30px;
+}
+
+.forgot a{
+  text-decoration: none;
+  color:rgb(143, 143, 143)
+}
+/* ------------------ For small devices--------------------*/
+@media only screen and (max-width:768px) {
+    .box-area{
+        margin:0;
+    }
+    .left-box{
+        height:100px;
+        overflow:hidden;
+    }
+    .right-box{
+        padding:20px;
+    }
+}

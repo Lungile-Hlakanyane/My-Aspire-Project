@@ -1,0 +1,98 @@
+<section id ="menu">
+    <div class="logo">
+        <i class="fa-solid fa-bars"> <span>Invoice</span></i>
+    </div>
+    <div class="items">
+        <li><a href="#" routerLink="/dashboard" (click) ="navigateToDashboard()" >DASHBOARD</a></li>
+        <li><a href="#" routerLink="/lead" (click)="navigateToLeadPage()" >LEAD</a></li>
+        <li><a href="#">DEAL</a></li>
+        <li><a href="#">QUOTE</a></li>
+        <li><a href="#" routerLink="/invoice" (click)="navigateToInvoicePage()">INVOICE</a></li>
+        <li><a href="#" routerLink="/settings" (click)="navigateToSettingsPage()" >SETTIGS</a></li>
+    </div>
+    <div class="log-out-btn">
+        <button (click)="openDialog()" mat-raised-button color="primary">LOGOUT</button>
+    </div>
+</section>
+
+
+<section id="interface">
+    <div class="invoice-container">
+
+       <div class="title-of-page">
+         <h4 class="i-name">Estimate</h4>
+       </div>
+
+        <div class="add-invoice-div">
+            <button mat-raised-button color="primary" class="add-invoice-btn" (click)="openAddEstimateForm()"> + Add Estimate</button>
+            <button mat-raised-button><i class="fa-solid fa-ellipsis"></i></button>
+        </div>
+    </div>
+    <div class="invoice-table">
+        <div class="move-up">
+            <div class="doc-div-container">
+                <i class="fa-solid fa-file-invoice-dollar"></i>
+            </div>
+            <div class="doc-div-container">
+                <i class="fa-solid fa-file"></i>
+            </div>
+            <div class="search-container">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" class="search-input" placeholder=" Search Estimate" [(ngModel)]="searchTerm" (keyup)="applyFilter()">
+            </div>
+        </div>
+    </div>
+
+    <div class="show-invoice-table">
+            <table mat-table [dataSource]="estimateData" matSort matSortActive="date" matSortDirection="asc">
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef>Estimate Id</th>
+                    <mat-checkbox></mat-checkbox>
+                    <td mat-cell *matCellDef="let estimate">{{ estimate.id}}</td>
+                  </ng-container>
+                <ng-container matColumnDef="contact_name">
+                  <th mat-header-cell *matHeaderCellDef>Contact Name</th>
+                  <td mat-cell *matCellDef="let estimate">{{ estimate.contact_name }}</td>
+                </ng-container>
+              
+                <ng-container matColumnDef="total">
+                  <th mat-header-cell *matHeaderCellDef>Total</th>
+                  <td mat-cell *matCellDef="let estimate">{{ estimate.total }}</td>
+                </ng-container>
+              
+                <ng-container matColumnDef="status">
+                  <th mat-header-cell *matHeaderCellDef>Status</th>
+                  <td mat-cell *matCellDef="let estimate">{{ estimate.status }}</td>
+                </ng-container>
+              
+                <ng-container matColumnDef="date">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Date</th>
+                  <td mat-cell *matCellDef="let estimate">{{ estimate.date | date: 'dd/MM/yyyy' }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="action">
+                   <th mat-header-cell *matHeaderCellDef mat-sort-header>Actions</th>
+
+                   
+                   <td mat-cell *matCellDef="let estimate">
+                   <button mat-icon-button [matMenuTriggerFor]="menu"><i class="fa-solid fa-ellipsis"></i></button>
+                  
+                  <mat-menu #menu="matMenu">
+                  <button mat-menu-item (click)="openEditForm(estimate)">Edit</button>
+                  <button mat-menu-item (click)="openDeleteEstimateDialog(estimate.id)">Delete</button>
+                 </mat-menu>
+                 </td>
+                </ng-container>
+
+                <!-- <ng-container matColumnDef="action">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Actions</th>
+                    <td mat-cell *matCellDef="let estimate">{{ estimate.action }} <i class="fa-solid fa-ellipsis"></i></td>
+                  </ng-container> -->
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+              
+              <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+</section>

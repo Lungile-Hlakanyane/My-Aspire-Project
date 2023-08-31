@@ -1,0 +1,135 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "leads":[],
+  "clients": [
+    {
+      "contact_name": "Lunga",
+      "email": "lunga@gmail.com",
+      "author": "Lunga",
+      "mobile": 642242118,
+      "type": "Person",
+      "date": "2023-08-07T22:00:00.000Z",
+      "id": 1
+    },
+    {
+      "contact_name": "Mxolisi",
+      "email": "mxolisi@gmail.com",
+      "author": "Lucky",
+      "mobile": 9763636,
+      "type": "Person",
+      "date": "2023-08-05T22:00:00.000Z",
+      "id": 2
+    },
+    {
+      "contact_name": "Thabang",
+      "email": "thabang@gmail.com",
+      "author": "Thabo",
+      "mobile": 875652762,
+      "type": "Person",
+      "date": "2025-05-10T22:00:00.000Z",
+      "id": 3
+    }
+  ],
+  "invoice": [
+    {
+      "month": "jan",
+      "invoice": 2,
+      "colorcode": "blue"
+    },
+    {
+      "month": "feb",
+      "invoice": 4,
+      "colorcode": "blue"
+    },
+    {
+      "month": "mar",
+      "invoice": 2,
+      "colorcode": "blue"
+    },
+    {
+      "month": "apr",
+      "invoice": 2,
+      "colorcode": "blue"
+    },
+    {
+      "month": "may",
+      "invoice": 5,
+      "colorcode": "blue"
+    },
+    {
+      "month": "jun",
+      "invoice": 4,
+      "colorcode": "blue"
+    },
+    {
+      "month": "jul",
+      "invoice": 3,
+      "colorcode": "blue"
+    },
+    {
+      "month": "aug",
+      "invoice": 2,
+      "colorcode": "blue"
+    },
+    {
+      "month": "sep",
+      "invoice": 1,
+      "colorcode": "blue"
+    },
+    {
+      "month": "oct",
+      "invoice": 1,
+      "colorcode": "blue"
+    },
+    {
+      "month": "nov",
+      "invoice": 3,
+      "colorcode": "blue"
+    },
+    {
+      "month": "dec",
+      "invoice": 5,
+      "colorcode": "blue"
+    }
+  ],
+  "estimates": [
+    {
+      "contact_name": "Lungile",
+      "total": "2340990",
+      "status": "Paid",
+      "date": "2023-08-06T22:00:00.000Z",
+      "id": 1
+    },
+    {
+      "contact_name": "Luyanda",
+      "total": 66687783,
+      "status": "Pending",
+      "date": "2023-07-31T22:00:00.000Z",
+      "id": 2
+    }
+  ],
+  "registerd_users": [
+    {
+      "name": "admin",
+      "email": "admin@gmail.com",
+      "password": "Admin@123",
+      "id": 1
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+<section id ="menu">
+    <div class="logo">
+        <i class="fa-solid fa-bars"> <span>INVOICE</span></i>
+    </div>
+    <div class="items">
+        <li><a href="#" routerLink="dashboard" (click) ="navigateToDashboard()" >DASHBOARD</a></li>
+        <li><a href="#" routerLink="/lead" (click)="navigateToLeadPage()" >LEAD</a></li>
+        <li><a href="#">DEAL</a></li>
+        <li><a href="#">QUOTE</a></li>
+        <li><a href="#" routerLink="/invoice" (click)="navigateToInvoicePage()">INVOICE</a></li>
+        <li><a href="#" routerLink="/settings" (click)="navigateToSettingsPage()" >SETTIGS</a></li>
+    </div>
+    <div class="log-out-btn">
+        <button (click)="openDialog()" mat-raised-button color="primary">LOGOUT</button>
+    </div>
+</section>
+
+
+<section id="interface" class="interface">
+
+    <div class="main-profile-content">
+        <div class="profile-info-div">
+            <div class="profile-icon-div">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <div class="info-details-edit">
+                <div class="contact-name">
+                    <h1>{{client.contact_name}}</h1>
+                </div>
+                <div class="edit-btn">
+                    <button mat-raised-button color="primary" (click)="openEditForm(client)">Edit</button>
+                </div>
+            </div>
+            <div class="more-details-info">
+                <h4 class="email">{{client.email}}</h4> <br>
+                <h4 class="organization">Organization: </h4>
+            </div>
+        </div>
+        <div class="status-profile">
+            <div>
+                <p>Status: <button mat-raised-button color="primary">Active</button></p>
+            </div>
+            <div class="options-btn-div">
+                <button mat-raised-button class="options-btn" color="primary"><i class="fa-solid fa-ellipsis"></i></button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="more-more-options">
+
+        <div class="horizontal-line"></div>
+
+    </div>
+    <div class="more-options">
+        <ul class="list-options">
+            <li>Tag: <button mat-raised-button class="add-tag-btn" color="primary">+ Add Tag</button></li>
+            <li>Project: 0</li>
+            <li>Deal: 0</li>
+        </ul>
+    </div>
+
+    <div class="div-main-container">
+        
+        <div class="add-more-infor">
+
+            
+            <div class="navigation">
+                <ul>
+                    <li>Task & Activity</li>
+                    <li>Note</li>
+                    <li>File</li>
+                    <li>Invoice</li>
+                    <li>Estimate</li>
+                    <li>Project</li>
+                </ul>
+            </div>
+
+            <div class="main-content-body">
+
+                <div class="add-task">
+                    <h4 class="add-task-title">Add task & activity</h4>
+                    <ul class="btn-list">
+                         <li><i class="fa-solid fa-calendar-days"></i></li>
+                         <li><i class="fa-solid fa-circle-check"></i></li>
+                         <li><i class="fa-solid fa-flag"></i></li>
+                        <li><button class="save-button" mat-raised-button color="primary">Save</button></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="extra-btns">
+                <h4 class="exta-butns-title">My Work</h4>
+                <div class="btn">
+                    <button mat-raised-button color="primary">Todo</button>
+                    <button mat-raised-button color="primary">In Progress</button>
+                    <button mat-raised-button color="primary">Done</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="additional-div-container">
+        <h3><strong>Additional Information</strong></h3>
+        <br>
+        <p>Mobile:</p>
+        <p>{{client.mobile}}</p>
+        <br>
+        <p>Website:</p>
+        <br>
+        <p>Address:</p>
+        <p>AL Mahamah, Bahrain</p>
+    </div>
+</section>

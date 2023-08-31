@@ -1,0 +1,203 @@
+<section id ="menu">
+    <div class="logo">
+        
+        <i class="fa-solid fa-bars"> <span>INVOICE</span></i>
+    </div>
+    <div class="items">
+        <li><a href="#" routerLink="/dashboard" (click) ="navigateToDashboard()" >DASHBOARD</a></li>
+        <li><a href="#" routerLink="/lead" (click)="navigateToLeadPage()" >LEAD</a></li>
+        <li><a href="#">DEAL</a></li>
+        <li><a href="#">QUOTE</a></li>
+        <li><a href="#" routerLink="/invoice" (click)="navigateToInvoicePage()">INVOICE</a></li>
+        <li><a href="#" routerLink="/settings" (click)="navigateToSettingsPage()" >SETTIGS</a></li>
+    </div>
+    <div class="log-out-btn">
+        <button (click)="openDialog()" mat-raised-button color="primary">LOGOUT</button>
+    </div>
+   
+</section>
+
+<section id="interface">
+    <h3 class="i-name">Overview</h3>
+    <div class="values">
+        <div class="val-box">
+
+            <a href="#" routerLink="/clients"> <i class="fa-solid fa-address-book" style="color:#fff;"></i></a>
+           
+            <div>
+                <span>Total Clients</span>
+                <h4>{{getTotalClients()}}</h4>
+            </div>
+        </div>
+
+        <div class="val-box">
+           
+
+
+            <a href="" routerLink="/lead"><i class="fa-solid fa-users" style="color:#fff;"></i></a>
+
+
+            <div>
+                <span>Total Lead</span>
+                <h4>0</h4>
+            </div>
+        </div>
+
+        <div class="val-box">
+            <i class="fa-solid fa-handshake" style="color:#fff;"></i>
+            <div>
+                <span>Total Deal</span>
+                <h4>1</h4>
+            </div>
+        </div>
+
+        <div class="val-box">
+
+            <a href="" routerLink="/invoice"><i class="fa-solid fa-file-invoice" style="color:#fff;"></i></a>
+            
+            <div>
+                <span>  
+
+                Total Invoices
+
+                </span>
+                <h4>{{getTotalInvoices()}}</h4>
+            </div>
+        </div>
+
+        <div class="val-box">
+            <a href="" routerLink="/estimate"> <i class="fa-solid fa-file" style="color:#fff;"></i></a>
+            <div>
+                <span>Total Estimate</span>
+                <h4>{{getTotalEstimates()}}</h4>
+            </div>
+        </div>
+
+        <div class="val-box">
+            <i class="fa-solid fa-folder" style="color:#fff;"></i>
+            <div>
+                <span>Total Project</span>
+                <h4>0</h4>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- BE CAREFULL DONT DELETE -->
+    <div class="activity">
+        <div class="latest-tasks">
+            <h3 class="title">Latest Tasks & Activity</h3>
+            <div class="add-task-div">
+                <h4 class="sub-heading">Add task & activity</h4>
+                <div class="buttons">
+                    <button class="bottom-right-btn">Save</button>
+                </div>
+            </div>
+            <div class="certificate-div">
+                <h4 class="subtitle">Do a certificate</h4>
+                <div class="actions-to-do">
+                    <div class="time">
+                        <span><i class="fa-regular fa-clock"></i></span>
+                    </div>
+                    <div class="to-do">
+                        <button>Todo</button>
+                    </div>
+                    <div class="size">
+                        <button>Medium</button>
+                    </div>
+                    <div class="options">
+                        <span><i class="fa-solid fa-ellipsis"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="lead-summary">
+                <h3 class="title">Lead</h3>
+                <!-- IMPLEMENTATION HERE -->
+                <div class="lead-summary-container-header">
+                    <div class="lead-summary-container">
+                       <div class="color" id="orange" style="background:#c2764b;"></div>
+                       <div class="temp-name">Hot</div>
+                       <div class="percent-size">0%</div>
+                    </div>
+
+                    <div class="lead-summary-container">
+                        <div class="color" id="red" style="background:#f15151;"> </div>
+                        <div class="temp-name">Warm</div>
+                        <div class="percent-size">0%</div>
+                     </div>
+
+                     <div class="lead-summary-container">
+                        <div class="color" id="green" style="background:#4cd874;" ></div>
+                        <div class="temp-name">Cold</div>
+                        <div class="percent-size">0%</div>
+                     </div>
+                    
+                </div>
+        </div>
+    </div>
+    <!-- END BE CAREFULL DONT DELETE -->
+
+
+    <div class="activity">
+        <div class="latest-tasks">
+            <h3 class="title">Estimate</h3>
+            <div class="div-image-chart">
+              
+                <div class="row">
+                    <div class="col-lg-10">
+                        <canvas id="estimateChart">
+                            
+                            <canvas id="estimateChart"></canvas>
+                        </canvas>
+                    </div>
+                </div> 
+
+            </div>
+        </div>
+    </div>
+      <!-- BE CAREFULL DONT DELETE -->
+      <div class="activity">
+        <div class="latest-tasks">
+            <h3 class="title">Invoice</h3>
+            <div class="div-image-chart">
+
+
+                <div class="row">
+                    <div class="col-lg-10">
+                        <canvas id="piechart">
+                            <canvas id="piechart"></canvas>
+                        </canvas>
+                    </div>
+                </div> 
+
+            </div>
+        </div>
+
+        <div class="help-supp-container">
+
+                 <div class="headphone-container">
+                    <i class="fa-solid fa-headphones"></i>
+                 </div>
+
+                 <div class="heading">
+                    <h3 class="title">Help and Support</h3>
+                 </div>
+               
+                 <div class="supp-texts">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Ullam atque in cupiditate ducimus provident? Tempora.</p>
+                 </div>
+
+                 <div class="action-btns">
+                    <button class="active-primary-btn">See Documentation</button>
+                    <button class="un-active-primary-btn">Contact with us</button>
+                 </div>
+
+
+                <!-- IMPLEMENTATION HERE -->
+        </div>
+    </div>
+    <!-- END BE CAREFULL DONT DELETE -->
+</section> 

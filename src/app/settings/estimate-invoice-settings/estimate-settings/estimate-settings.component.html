@@ -1,0 +1,136 @@
+<section id ="menu" class="menu">
+    <div class="logo">
+        
+       <h3 class="pagae-title">Settings</h3>
+    </div>
+    <div class="items">
+        <li><a href="#" routerLink="/dashboard" (click) ="navigateToDashboard()" >DASHBOARD</a></li>
+        <li><a href="#" routerLink="/lead" (click)="navigateToLeadPage()" >LEAD</a></li>
+        <li><a href="#">DEAL</a></li>
+        <li><a href="#">QUOTE</a></li>
+        <li><a href="#" routerLink="/invoice" (click)="navigateToInvoicePage()">INVOICE</a></li>
+        <li><a href="#" routerLink="/settings" (click)="navigateToSettingsPage()" >SETTIGS</a></li>
+    </div>
+    <div class="log-out-btn">
+        <button (click)="openDialog()" mat-raised-button color="primary">LOGOUT</button>
+    </div>
+   
+</section>
+
+<section id="interface">
+<div class="interface-container">
+
+    <div class="settings-options">
+        <div class="items">
+            <li><a href="#" routerLink="/settings">General</a></li>
+            <li><a href="#" routerLink="/lead-settings">Lead</a></li>
+            <li><a href="#" routerLink="/deal-settings">Deal</a></li>
+            <li (click)="toggleEstimateInvoice()">Estimate & Invoice </li>
+            <div class="options-container-displayed" [ngClass]="{'show':showEstimateInvoiceOptions}">
+                <ul class="show-more-options">
+                    <li><a href="" routerLink="/common-settigs">Common</a></li>
+                    <li><a href="" routerLink="/estimate-settings">Estimate</a></li>
+                    <li><a href="" routerLink="/invoice-settings">Invoice</a></li>
+                </ul>
+            </div>
+            <li><a href="#">Project</a></li>
+            <li><a href="#" routerLink="/bank-settings">Payment</a></li>
+            <li><a href="#">Email Template</a></li>
+            <li><a href="#">Task & Activity</a></li>
+            <li><a href="#">Tag</a></li>
+            <li><a href="#">Custom Field</a></li>
+            <li><a href="#">Integration</a></li>
+        </div>
+    </div>
+
+    <div class="second-div">
+        <h4 class="i-name">Estimate and Invoice: Estimate Settings</h4>
+        <div class="common-settings-menu">
+            <ul>
+                <li><a href="" class="active-selected-link">General</a></li>
+                <li><a href="">Reminder</a></li>
+            </ul>
+        </div>
+        <div class="sub-commn-settings">
+            
+            <label for="">Estimate Number Prefix</label>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control form-control bg-light fs-6 custom-height">
+            </div>
+            
+            <div class="save-btn-div">
+                <button mat-raised-button color="primary"> Save</button>
+            </div>
+
+            <div class="second-div">
+                <div class="common-settings-menu">
+                    <ul>
+                        <li><a href="" class="active-selected-link">General</a></li>
+                        <li><a href="">Reminder</a></li>
+                    </ul>
+                </div>
+    
+                <div class="toggle-slider-div">
+                    <div class="toggle-slider-title">
+                        <span>Status</span>
+                    </div>
+                    <div class="toggle-slider" style="padding-left: 30px;">
+                        <mat-slide-toggle  [checked]="toggleValue"
+                        (change)="onToggleChange($event)"></mat-slide-toggle>
+                    </div>
+                </div>
+
+                <div class="rem-div">
+                    <span>Reminder</span>
+                    <div class="checkbox-div">
+                        <p>
+                            <mat-checkbox>On Due Date</mat-checkbox>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="more-check-box">
+                    
+                    <div class="check-box-first-div">
+                        <span>Reminder Before</span>
+                        <p>
+                            <mat-checkbox>1 Day</mat-checkbox>
+                        </p>
+                        <p>
+                            <mat-checkbox>7 Days</mat-checkbox>
+                        </p>
+                        <p>
+                            <mat-checkbox>15 Days</mat-checkbox>
+                        </p>
+                    </div>
+                    <div class="check-box-first-div" id="second-div-check">
+                        <span>Reminder After</span>
+                        <p>
+                            <mat-checkbox>1 Day</mat-checkbox>
+                        </p>
+                        <p>
+                            <mat-checkbox>7 Days</mat-checkbox>
+                        </p>
+                        <p>
+                            <mat-checkbox>15 Days</mat-checkbox>
+                        </p>
+                    </div>
+
+                   
+                </div>
+                <div class="save-btn-div">
+                    <button mat-raised-button color="primary"> Save</button>
+                </div>
+        </div>
+        <div class="more-common-sub-settings">
+            
+            
+            
+
+            
+
+
+
+    
+
+

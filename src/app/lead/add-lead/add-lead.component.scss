@@ -1,0 +1,24 @@
+.details{
+    display:flex;
+}
+
+.input-field-label{
+    display: inline;
+    padding: 10px;
+}
+
+.example-full-width{
+    width:100%;
+}
+
+.log-out-btn{
+    margin-left: 20px;
+    position: relative;
+    left:20px;
+}
+
+.button-action-container{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 50px;
+}

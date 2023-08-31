@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center align-items-center">
+    <div class="container d-flex justify-content-center align-items-center min-vh-50">
+      <div class="col-md-6 right-box">
+        <div class="row align-items-center-center">
+            <div class="header-text- mb-4">
+                <h4>Welcome back</h4>
+                <h1>Enter your details below.</h1>
+            </div>
+           
+           <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <div class="label-text">
+                <label for="">Email:</label>
+                <div class="val-msg-email">
+                    <span style="color: red;" *ngIf="email && email.invalid && email.touched">This input field is invalid</span>
+                  </div>
+              </div>
+              <div class="input-group mb-3">
+                  <input formControlName="email"  type="email" class="form-control form-control bg-light fs-6 custom-height">
+              </div>
+              
+              <div class="label-text">
+                <label for="">Password:</label>
+              </div>
+              <div class="val-msg-pswrd">
+                <span style="color: red;" *ngIf="password && password.invalid && password.touched">This input field is invalid</span>
+              </div>
+              <div class="input-group mb-1">
+                  <input  formControlName="password"  type="password" class="form-control form-control bg-light fs-6 custom-height">
+              </div>
+              <div class="input-group mb-1 d-flex justify-content-evenly">
+                  <div class="form-check">
+                      <input type="checkbox" class="form-check-input" id="form-check">
+                      <label for="form-check" class="form-check-label text-secondary"><small>Remember Me</small></label>
+                  </div>
+                  <div class="forgot">
+                      <small><a href="#" routerLink="/forgot-password" (click)="navigateToForgotPassword()">Forgot Password?</a></small>
+                  </div>
+              </div>
+           </form>
+        </div>
+        <div class="input-group-lg mb-3">
+            <button class="btn btn-lg btn-primary w-100 fs-6" [disabled]="loginForm.invalid" (click)="login()">Login</button>
+        </div>
+  
+        <div class="row align-items-center-center center-btn-link">
+            <small>Don't have an account? <a href="#" routerLink="/register-page" (click)=" navigateToRegisterPage()"> Sign up</a></small>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+

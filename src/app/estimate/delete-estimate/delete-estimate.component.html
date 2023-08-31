@@ -1,0 +1,10 @@
+<div matDialogTitle>
+    <h1>Delete Estimate</h1>
+</div>
+<div mat-dialog-content>
+    <h3>Are you sure you want to delete this estimate?</h3>
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button (click)="onNoClick()">Cancel</button>
+    <button mat-raised-button color="primary" (click)="deleteEstimate()">Yes</button>
+</div>

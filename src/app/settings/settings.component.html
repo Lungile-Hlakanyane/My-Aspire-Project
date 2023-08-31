@@ -1,0 +1,161 @@
+<section id ="menu" class="menu">
+        <div class="logo">
+            
+           <h3 class="pagae-title">Settings</h3>
+        </div>
+        <div class="items">
+            <li><a href="#" routerLink="dashboard" (click) ="navigateToDashboard()" >DASHBOARD</a></li>
+            <li><a href="#" routerLink="/lead" (click)="navigateToLeadPage()" >LEAD</a></li>
+            <li><a href="#">DEAL</a></li>
+            <li><a href="#">QUOTE</a></li>
+            <li><a href="#" routerLink="/invoice" (click)="navigateToInvoicePage()">INVOICE</a></li>
+            <li><a href="#" routerLink="/settings" (click)="navigateToSettingsPage()" >SETTIGS</a></li>
+        </div>
+        <div class="log-out-btn">
+            <button (click)="openDialog()" mat-raised-button color="primary">LOGOUT</button>
+        </div>
+       
+    </section>
+    
+   <section id="interface">
+    <div class="interface-container">
+
+        <div class="settings-options">
+            <div class="items">
+                <li><a href="#" routerLink="/settings">General</a></li>
+                <li><a href="#" routerLink="/lead-settings">Lead</a></li>
+                <li><a href="#" routerLink="/deal-settings">Deal</a></li>
+                <li (click)="toggleEstimateInvoice()">Estimate & Invoice </li>
+                <div class="options-container-displayed" [ngClass]="{'show':showEstimateInvoiceOptions}">
+                    <ul class="show-more-options">
+                        <li><a href="" routerLink="/common-settigs">Common</a></li>
+                        <li><a href="" routerLink="/estimate-settings">Estimate</a></li>
+                        <li><a href="" routerLink="/invoice-settings">Invoice</a></li>
+                    </ul>
+                </div>
+                <li><a href="#">Project</a></li>
+                <li><a href="#" routerLink="/bank-settings">Payment</a></li>
+                <li><a href="#">Email Template</a></li>
+                <li><a href="#">Task & Activity</a></li>
+                <li><a href="#">Tag</a></li>
+                <li><a href="#">Custom Field</a></li>
+                <li><a href="#">Integration</a></li>
+            </div>
+        </div>
+
+
+        <div class="second-div">
+            <h4 class="i-name">General Setting</h4>
+
+            <div class="interface-sub-settings">
+               <div class="option">
+                 <span class="option-1">Business</span>
+               </div>
+        
+               <div class="option">
+                <span class="option-2">White Label</span>
+              </div>
+            </div>
+        
+           <form [formGroup]=" settingsForm" (ngSubmit)="storeUserSettings()">
+            <div class="info-form">
+                <div class="label-text">
+                    <label for="">Name</label>
+                  </div>
+
+
+                  <div class="val-msg-email">
+                    <span style="color: red; font-weight: bold;" *ngIf="name && name.invalid && name.touched">This input field is invalid</span>
+                </div>
+
+                  <div class="input-group mb-9">
+                    <input formControlName="name" type="text" class="form-control form-control bg-light fs-6 custom-height" placeholder="Name of business">
+                </div>
+               </div>
+            
+               <div class="horizontal-input">
+                   <div class="details">
+
+
+
+                    <div class="input-group mb-9" class="input-field-label">
+                        <label for="">Website</label>
+
+
+
+
+
+
+                        <div class="val-msg-email">
+                            <span style="color: red; font-weight: bold;" *ngIf="website && website.invalid && website.touched">This input field is invalid</span>
+                        </div>
+
+                        <input formControlName="website" type="text" class="form-control form-control bg-light fs-6 custom-height">
+
+
+                    </div>
+                    <div class="input-group mb-9" class="input-field-label">
+                        <label for="">Email</label>
+
+
+                        <div class="val-msg-email">
+                            <span style="color: red; font-weight: bold;" *ngIf="email && email.invalid && email.touched">This input field is invalid</span>
+                        </div>
+                        <input  formControlName="email" type="text" class="form-control form-control bg-light fs-6 custom-height">
+                    </div>
+                 </div> 
+               </div>
+            
+               <div class="horizontal-input">
+                <div class="details">
+                 <div class="input-group mb-9" class="input-field-label">
+                     <label for="">Mobile</label>
+
+
+                     <div class="val-msg-email">
+                        <span style="color: red; font-weight: bold;" *ngIf="mobile && mobile.invalid && mobile.touched">This input field is invalid</span>
+                    </div>
+                     <input formControlName="mobile" type="email" class="form-control form-control bg-light fs-6 custom-height">
+                 </div>
+                 <div class="input-group mb-9" class="input-field-label">
+                     <label for="">Zip Code</label>
+
+
+                     <div class="val-msg-email">
+                        <span style="color: red; font-weight: bold;" *ngIf="zipcode && zipcode.invalid && zipcode.touched">This input field is invalid</span>
+                    </div>
+                     <input formControlName="zipcode" type="text" class="form-control form-control bg-light fs-6 custom-height">
+                 </div>
+              </div> 
+            </div>
+            
+            <div class="info-form">
+                <div class="label-text">
+                    <label for="">Address</label>
+                  </div>
+                  <div class="val-msg-email">
+                    <span style="color: red; font-weight: bold;" *ngIf="address && address.invalid && address.touched">This input field is invalid</span>
+                </div>
+                  <div class="input-group mb-9">
+
+                    
+                    <input formControlName="address" type="text" class="form-control form-control bg-light fs-6 custom-height" >
+                </div>
+               </div>
+            
+            
+               <div class="details">
+                <div class="upload-img-btn">
+                    <button mat-raised-button color="primary"> <i class="fa-solid fa-cloud-arrow-up"></i> Upload Logo</button>
+                </div>
+             </div>
+           </form>        
+         <div class="details">
+            <div class="save-info-btn">
+                <button mat-raised-button color="primary">Save</button>
+            </div>
+         </div>
+        </div>
+    </div>
+    
+</section>
