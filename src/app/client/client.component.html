@@ -24,7 +24,7 @@
             <button mat-raised-button><i class="fa-solid fa-ellipsis"></i></button>
         </div>
     </div>
-    <div class="invoice-table">
+    <div class="invoice-table" *ngIf="clients.length>0">
         <div class="move-up">
             <div class="doc-div-container">
                 <i class="fa-solid fa-file-invoice-dollar"></i>
@@ -40,60 +40,84 @@
     </div>
 
     <div class="show-invoice-table">
+
+
+      <ng-template #noClients class="no-clients-container">
+
+        <div class="lead-content" id="show-when-no-clients">
+          <div class="lead-content-file">
+            <i class="fa-solid fa-file-circle-plus"></i>
+            <p>You have not added any Client yet.</p>
+            <button mat-raised-button color="primary" (click)="openAddClientDialogBox()">+ Let's start Adding</button>
+          </div>
+        </div>
+
+      </ng-template>
+
+      <ng-container *ngIf="clients.length>0; else noClients">
+
         <mat-table [dataSource]="dataSource" matSort matSortActive="date" matSortDirection="asc">
-            <ng-container matColumnDef="contact_name">
-              <mat-header-cell *matHeaderCellDef class="heading-title">Contact Name</mat-header-cell>
-              <mat-cell *matCellDef="let client"> <p>
-                <mat-checkbox class="client-check-box"></mat-checkbox>
-              </p><span class="profile-icon" (click)="navigateToClientProfile(client.id)"><i class="fa-solid fa-user"></i> </span> {{ client.contact_name }}</mat-cell>
-            </ng-container>
-          
-            <ng-container matColumnDef="email">
-              <mat-header-cell *matHeaderCellDef class="heading-title">Email</mat-header-cell>
-              <mat-cell *matCellDef="let client">{{ client.email }}</mat-cell>
-            </ng-container>
-          
-            <ng-container matColumnDef="mobile">
-              <mat-header-cell *matHeaderCellDef class="heading-title">Mobile</mat-header-cell>
-              <mat-cell *matCellDef="let client">{{ client.mobile }}</mat-cell>
-            </ng-container>
-          
-            <ng-container matColumnDef="type">
-              <mat-header-cell *matHeaderCellDef class="heading-title">Type</mat-header-cell>
-              <mat-cell *matCellDef="let client">{{ client.type }}</mat-cell>
-            </ng-container>
-
-            <ng-container matColumnDef="author">
-                <mat-header-cell *matHeaderCellDef class="heading-title">Author</mat-header-cell>
-                <mat-cell *matCellDef="let client">{{ client.author }}</mat-cell>
-              </ng-container>
-
-            <ng-container matColumnDef="date">
-                <mat-header-cell *matHeaderCellDef class="heading-title">Date</mat-header-cell>
-                <mat-cell *matCellDef="let client">{{ client.date | date: 'dd/MM/yyyy' }}</mat-cell>
-            </ng-container>
-
-            <ng-container matColumnDef="actions">
-              <mat-header-cell *matHeaderCellDef class="heading-title">Action</mat-header-cell>
-
-
-              <ng-container matColumnDef="action">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header>Actions</th>
-                <td mat-cell *matCellDef="let client">
-                  <button mat-icon-button [matMenuTriggerFor]="menu">
-                    <i class="fa-solid fa-ellipsis"></i>
-                  </button>
-                  <mat-menu #menu="matMenu">
-                    <button mat-menu-item (click)="openEditForm(client)">Edit</button>
-                    <button mat-menu-item (click)="openDeleteClietDialog(client.id)">Delete</button>
-                  </mat-menu>
-                </td>
-              </ng-container>
-                          
+          <ng-container matColumnDef="contact_name">
+            <mat-header-cell *matHeaderCellDef class="heading-title">Contact Name</mat-header-cell>
+            <mat-cell *matCellDef="let client"> <p>
+              <mat-checkbox class="client-check-box"></mat-checkbox>
+            </p><span class="profile-icon" (click)="navigateToClientProfile(client.id)"><i class="fa-solid fa-user"></i> </span> {{ client.contact_name }}</mat-cell>
           </ng-container>
-            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-            <mat-row *matRowDef="let client; columns: displayedColumns;"></mat-row>
-          </mat-table>
+        
+          <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef class="heading-title">Email</mat-header-cell>
+            <mat-cell *matCellDef="let client">{{ client.email }}</mat-cell>
+          </ng-container>
+        
+          <ng-container matColumnDef="mobile">
+            <mat-header-cell *matHeaderCellDef class="heading-title">Mobile</mat-header-cell>
+            <mat-cell *matCellDef="let client">{{ client.mobile }}</mat-cell>
+          </ng-container>
+        
+          <ng-container matColumnDef="type">
+            <mat-header-cell *matHeaderCellDef class="heading-title">Type</mat-header-cell>
+            <mat-cell *matCellDef="let client">{{ client.type }}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="author">
+              <mat-header-cell *matHeaderCellDef class="heading-title">Author</mat-header-cell>
+              <mat-cell *matCellDef="let client">{{ client.author }}</mat-cell>
+            </ng-container>
+
+          <ng-container matColumnDef="date">
+              <mat-header-cell *matHeaderCellDef class="heading-title">Date</mat-header-cell>
+              <mat-cell *matCellDef="let client">{{ client.date | date: 'dd/MM/yyyy' }}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef class="heading-title">Action</mat-header-cell>
+
+            <ng-container matColumnDef="action">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Actions</th>
+              <td mat-cell *matCellDef="let client">
+                <button mat-icon-button [matMenuTriggerFor]="menu">
+                  <i class="fa-solid fa-ellipsis"></i>
+                </button>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item (click)="openEditForm(client)">Edit</button>
+                  <button mat-menu-item (click)="openDeleteClietDialog(client.id)">Delete</button>
+                </mat-menu>
+              </td>
+            </ng-container>
+                        
+        </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let client; columns: displayedColumns;"></mat-row>
+        </mat-table>
+
+        
+      </ng-container>
+
+
+      <div class="table-pagination-container" *ngIf="clients.length>0">
           <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      </div>
+
+
     </div>
 </section>

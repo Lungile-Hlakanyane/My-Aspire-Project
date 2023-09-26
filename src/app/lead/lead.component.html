@@ -1,44 +1,87 @@
-<section id ="menu">
-    <div class="logo">
-        <i class="fa-solid fa-bars"> <span>INVOICE</span></i>
-    </div>
-    <div class="items">
-        <li><a href="#" routerLink="/dashboard" (click) ="navigateToDashboard()" >DASHBOARD</a></li>
-        <li><a href="#" routerLink="/lead" (click)="navigateToLeadPage()" >LEAD</a></li>
-        <li><a href="#">DEAL</a></li>
-        <li><a href="#">QUOTE</a></li>
-        <li><a href="#" routerLink="/invoice" (click)="navigateToInvoicePage()">INVOICE</a></li>
-        <li><a href="#" routerLink="/settings" (click)="navigateToSettingsPage()" >SETTIGS</a></li>
-    </div>
-    <div class="log-out-btn">
-        <button (click)="openDialog()" mat-raised-button color="primary">LOGOUT</button>
-    </div>
+<section id ="menu" class="menu">
+  <div class="logo">
+     <h3 class="pagae-title">Invoice</h3>
+  </div>
+  <div class="items">
+      <li><a href="#" rounterLink="dashboard">DASHBOARD</a></li>
+      <li><a href="#" routerLink="/lead" (click)="navigateToLeadPage()">LEAD</a></li>
+      <li><a href="#">DEAL</a></li>
+      <li><a href="#">QUOTE</a></li>
+      <li><a href="#" rounterLink="/invoice" (click)="navigateToInvoicePage()">INVOICE</a></li>
+      <li><a href="#" routerLink="/settings" (click)=" navigateToSettingsPage()">SETTIGS</a></li>
+  </div>
+  <div class="log-out-btn">
+      <button (click)="openDialog()" mat-raised-button color="primary">LOGOUT</button>
+  </div> 
 </section>
-<section id="lead-whole-container">
-<div class="lead-whole-container">
-    <div class="page-title">
-        <h2>Lead</h2>
-    </div>
-        <div class="actions">
-            <div clas="add-lead-div">
-                <button mat-raised-button color="primary" (click)=" openAddLeadForm()"> + Add Lead</button>
-             </div>
-            <div class="edit-lead-div">
-                <button mat-raised-button><i class="fa-solid fa-ellipsis"></i></button>
+
+<section id="interface">
+  <div class="invoice-container">
+      <h4 class="i-name">Leads</h4>
+      <div class="add-invoice-div">
+          <button mat-raised-button color="primary" class="add-invoice-btn" (click)="openAddLeadForm()"> + Add Lead</button>
+      </div>
+  </div>
+  <div class="invoice-table">
+      <div class="doc-div-container">
+          <i class="fa-solid fa-file-invoice-dollar"></i>
+      </div>
+      <div class="doc-div-container">
+          <i class="fa-solid fa-file"></i>
+      </div>
+      <div class="search-container">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" class="search-input" placeholder=" Search Lead" [(ngModel)]="searchTerm" (keyup)="applyFilter()">
+      </div>
+  </div>
+
+  <div class="leads-stages">
+     <div class="title"><h4 class="leads">Leads Stages Here</h4></div>
+     <div class="add-stage-button">
+      <button mat-raised-button color="primary" (click)="openAddLeadStage()">+Add Stage</button>
+     </div>
+  </div>
+
+  <div class="whole-stages-container">
+    <div class="stages-container" class="stages-container" cdkDropList id="new-lead-list" (cdkDropListDropped)="onDropLead($event)">
+      <div class="column">
+        <div class="heading-text-edit-icon">
+          <div class="stage-name-content" id="looped">
+            <h3 class="title">New Lead</h3>
+            <div id="looped" *ngFor="let lead of leads" cdkDrag>
+              <div class="name_plus_action_currency">
+                <div  class="name">
+                  <span (click)="displayMoreLeadInfo()">{{lead.person}}</span><br>
+                </div>
+                <div class="action-icons">
+                  <i class="fa-solid fa-trash" (click)="openDeleteLeadDialog(lead.id)"></i>
+                </div>
+              </div>
+              <span class="currency">{{lead.budget | currency}}</span>
             </div>
+          </div>
+          <div class="action-icons">
+            <div class="vertical-divider"></div>
+          </div>
         </div>
+      </div>
     </div>
-    <div class="search-div-conatiner">
-       <div class="search-container">
-        <i class="fa-solid fa-magnifying-glass"></i>   
-        <input type="text" class="search-input" placeholder=" Search Lead">
-       </div>
-    </div>
-    <div class="lead-content">
-        <div class="lead-content-file">
-            <i class="fa-solid fa-file-circle-plus"></i>
-             <p>You have not added any Lead yet.</p>
-             <button mat-raised-button color="primary" color="primary" (click)="openAddLeadForm()">+ Let's start Adding</button>
+  
+    <!-- Other Stages -->
+    <div class="stages-container" *ngFor="let stage of stageList" cdkDropList [id]="stage.id" (cdkDropListDropped)="onDropLead($event)">
+      <div class="column">
+        <div class="heading-text-edit-icon">
+          <div class="stage-name-content">
+            <h3>{{ stage.stage_name }}</h3>
+          </div>
+          <div class="action-icons">
+            <span><i class="fa-solid fa-pen-to-square" (click)="openEditLeadStageForm(stage)"></i></span>
+            <span><i class="fa-solid fa-trash" (click)="openDeleteLeadStageDialogBox(stage.id)"></i></span>
+            <div class="vertical-divider"></div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
+
 </section>

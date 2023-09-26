@@ -17,6 +17,7 @@ export class DashboardComponent implements OnInit{
   invoices:any[] =[];
   estimates:any[] =[];
   clients:any[] =[];
+  leads:any[] =[];
 
   constructor(private _dialog:MatDialog,private _router:Router,
     private _chartService:ChartServiceService,private _http:HttpClient
@@ -41,7 +42,7 @@ export class DashboardComponent implements OnInit{
       })
 
       //fetch all the invoices
-      this._http.get<any[]>('http://localhost:3000/invoice').subscribe(data=>{
+      this._http.get<any[]>('http://localhost:3000/invoices').subscribe(data=>{
         this.invoices = data;
       })
 
@@ -49,6 +50,10 @@ export class DashboardComponent implements OnInit{
       this._http.get<any[]>('http://localhost:3000/estimates').subscribe(data=>{
         this.estimates = data;
       });
+
+      this._http.get<any[]>('http://localhost:3000/leads').subscribe(data=>{
+        this.leads = data;
+      })
 
       //all method for invoice
       this._chartService.getChartInfor().subscribe(result=>{
@@ -143,7 +148,6 @@ export class DashboardComponent implements OnInit{
 
   openDialog():void{
     const dialogRef = this._dialog.open(ConfrmDialogComponent);
-
     dialogRef.afterClosed().subscribe((result)=>{
       if(result){
         this._router.navigateByUrl('/login');
@@ -169,7 +173,7 @@ export class DashboardComponent implements OnInit{
 
 
   getTotalInvoices():number{
-    return this.invoices.reduce((total,current)=>total + current.invoice,0);
+    return this.invoices.length;
   }
 
   getTotalEstimates():number{
@@ -178,5 +182,9 @@ export class DashboardComponent implements OnInit{
 
   getTotalClients():number{
     return this.clients.length;
+  }
+
+  getTotalLeads():number{
+    return this.leads.length;
   }
 }

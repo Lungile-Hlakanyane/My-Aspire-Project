@@ -1,0 +1,147 @@
+<div mat-dialog-title>
+    <h1>Add Invoice</h1>
+</div>
+<div mat-dialog-content>
+    <mat-tab-group>
+        <mat-tab label="Add Content">
+
+            <div mat-dialog-content>
+
+                <form [formGroup]="invoiceForm" (ngSubmit)="onSubmit()">
+            
+                    <!-- Invoice title -->
+                <p>Invoice Title</p>
+                <div class="details">
+            
+                    <div class="input-group mb-3" class="input-field-label">
+                        <label for="">Invoice Number</label>
+                        <input type="number" formControlName="invoice_number" [class.is-invalid]="f['invoice_number'].invalid && f['invoice_number'].touched" class="form-control form-control bg-light fs-6 custom-height">
+                    </div>
+            
+                    <div class="input-group mb-3" class="input-field-label">
+                        <label for="">Invoice Date</label> 
+                        <input matInput [matDatepicker]="invoiceDatePicker" formControlName="invoice_date" [class.is-invalid]="f['invoice_date'].invalid && f['invoice_date'].touched" placeholder="Choose a date" class="form-control form-control bg-light fs-6 custom-height" id="invoice-date-picker">
+                        <mat-datepicker-toggle matSuffix [for]="invoiceDatePicker"></mat-datepicker-toggle>
+                        <mat-datepicker #invoiceDatePicker></mat-datepicker>
+                    </div>
+                       
+                 </div>
+                 <div class="details">
+            
+                    <div class="input-group mb-3" class="input-field-label">
+                        <label for="">Invoice Due Date</label> 
+                        <input matInput [matDatepicker]="dueDatePicker" formControlName="due_date" [class.is-invalid]="f['due_date'].invalid && f['due_date'].touched"  placeholder="Choose a date" class="form-control form-control bg-light fs-6 custom-height" id="due-date-picker">
+                        <mat-datepicker-toggle matSuffix [for]="dueDatePicker"></mat-datepicker-toggle>
+                        <mat-datepicker #dueDatePicker></mat-datepicker>
+                    </div>
+                    
+                 </div>
+                <!-- End Invoice title here -->
+            
+                <!-- Invoice sender -->
+                <br>
+                <br>
+                <p>Sender Details here</p>
+                <div class="details">
+                    <div class="input-group mb-3" class="input-field-label">
+                        <label for="">Contact Name</label>
+                        <input type="text" formControlName="sender_contact_name" [class.is-invalid]="f['sender_contact_name'].invalid && f['sender_contact_name'].touched" class="form-control form-control bg-light fs-6 custom-height">
+                    </div>
+                    <div class="input-group mb-3" class="input-field-label">
+                        <label for="">Email</label>
+                        <input  type="email" formControlName="sender_email" [class.is-invalid]="f['sender_email'].invalid && f['sender_email'].touched" class="form-control form-control bg-light fs-6 custom-height">
+                    </div>
+                 </div>
+                 <div class="details">
+                    <div class="input-group mb-3" class="input-field-label">
+                      
+                        <label for="">Physical Address</label>
+                        <input type="text" formControlName="sender_physical_address" [class.is-invalid]="f['sender_physical_address'].invalid && f['sender_physical_address'].touched" class="form-control form-control bg-light fs-6 custom-height">
+                    </div>
+                    <div class="input-group mb-3" class="input-field-label">
+                      
+                        <label for="">Mobile</label>
+                        <input type="number" formControlName="sender_mobile" [class.is-invalid]="f['sender_physical_address'].invalid && f['sender_physical_address'].touched" class="form-control form-control bg-light fs-6 custom-height">
+                    </div>
+                 </div>
+                 <!-- End Sender details here -->
+            
+            
+                <!-- Receiver details here -->
+                <br>
+                <br>
+                <p>Receiver Details here</p>
+                <div class="details">
+                    <div class="input-group mb-3" class="input-field-label">
+                        <label for="">Contact Name</label>
+                        <input type="text" formControlName="receiver_contact_name" [class.is-invalid]="f['receiver_contact_name'].invalid && f['receiver_contact_name'].touched" class="form-control form-control bg-light fs-6 custom-height">
+                    </div>
+                    <div class="input-group mb-3" class="input-field-label">
+                        <label for="">Email</label>
+                        <input  type="email" formControlName="receiver_email" [class.is-invalid]="f['receiver_email'].invalid && f['receiver_email'].touched" class="form-control form-control bg-light fs-6 custom-height">
+                    </div>
+                 </div>
+                 <div class="details">
+                    <div class="input-group mb-3" class="input-field-label">
+                      
+                        <label for="">Physical Address</label>
+                        <input type="text" formControlName="receiver_physical_address" [class.is-invalid]="f['receiver_physical_address'].invalid && f['receiver_physical_address'].touched" class="form-control form-control bg-light fs-6 custom-height">
+                    </div>
+                    <div class="input-group mb-3" class="input-field-label">
+                      
+                        <label for="">Mobile</label>
+                        <input type="number" formControlName="receiver_mobile" [class.is-invalid]="f['receiver_mobile'].invalid && f['receiver_mobile'].touched" class="form-control form-control bg-light fs-6 custom-height">
+                    </div>
+                 </div>
+                 <!--End Receiver details here -->
+            
+                
+                <!-- Invoice Main Content -->
+                <br>
+                <br>
+                <p>Main Invoice content here</p>
+                <div class="details">
+                    <div class="input-group mb-3" class="input-field-label">
+                        <label for="">Title</label>
+                        <input type="text" formControlName="title" [class.is-invalid]="f['title'].invalid && f['title'].touched" class="form-control form-control bg-light fs-6 custom-height">
+                    </div>
+                    <div class="input-group mb-3" class="input-field-label">
+                        
+                        <label for="">Description</label>
+                        <input  type="text" formControlName="description" [class.is-invalid]="f['description'].invalid && f['description'].touched" class="form-control form-control bg-light fs-6 custom-height">
+                    </div>
+                 </div>
+                 <div class="details">
+                    <div class="input-group mb-3" class="input-field-label">
+                      
+                        <label for="">Quantity</label>
+                        <input type="number" formControlName="quantity" [class.is-invalid]="f['quantity'].invalid && f['quantity'].touched" class="form-control form-control bg-light fs-6 custom-height">
+                    </div>
+                    <div class="input-group mb-3" class="input-field-label">
+                      
+                        <label for="">Rate</label>
+                        <input type="number" formControlName="rate" [class.is-invalid]="f['rate'].invalid && f['rate'].touched" class="form-control form-control bg-light fs-6 custom-height">
+                    </div>
+                 </div>
+                 <div class="details">
+                    <div class="input-group mb-3" class="input-field-label">
+                        <label for="">Amount</label>
+                        <input type="number" formControlName="amount" [class.is-invalid]="f['amount'].invalid && f['amount'].touched" class="form-control form-control bg-light fs-6 custom-height">
+                    </div>
+                 </div>
+                </form>
+            </div>
+        </mat-tab>
+        <mat-tab label="Select Template">
+            <h1>Select Template Here</h1>
+             <p>Templates are not available for now</p>
+        </mat-tab>
+        <mat-tab label="Preview">
+            <h1>Preview Here</h1>
+        </mat-tab>
+    </mat-tab-group>
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button (click)="onCancelClick()">Cancel</button>
+    <button mat-raised-button color="primary" (click)="onSubmit()">Save</button>
+</div>

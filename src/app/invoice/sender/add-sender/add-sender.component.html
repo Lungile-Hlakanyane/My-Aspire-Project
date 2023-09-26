@@ -1,0 +1,37 @@
+<div mat-dialog-title>
+    <h1>Edit Sender Infor Here</h1>
+</div>
+<div>
+    <form [formGroup]="senderForm" (ngSubmit)="onSubmit()">
+
+        <div class="details">
+
+            <div class="input-group mb-3" class="input-field-label">
+              
+                <label for="">Contact Name</label>
+                <input type="text" formControlName="contact_name" class="form-control form-control bg-light fs-6 custom-height">
+            </div>
+            <div class="input-group mb-3" class="input-field-label">
+                
+                <label for="">Email</label>
+                <input  type="email" formControlName="email" class="form-control form-control bg-light fs-6 custom-height">
+            </div>
+         </div>
+
+         <div class="details">
+            <div class="input-group mb-3" class="input-field-label">
+                <label for="">Physical Address</label>
+                <input type="text" formControlName="physical_address" class="form-control form-control bg-light fs-6 custom-height">
+            </div>
+            <div class="input-group mb-3" class="input-field-label"> 
+                <label for="">Mobile</label>
+                <input  type="number" formControlName="mobile" class="form-control form-control bg-light fs-6 custom-height">
+            </div>
+         </div>
+        <div mat-dialog-actions>
+            <button mat-raised-button (click)="closeDialogBox()">Cancel</button>
+            <button mat-raised-button color="primary" type="submit">Save</button>
+        </div>
+    </form>
+</div>
+

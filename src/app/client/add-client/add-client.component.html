@@ -7,25 +7,23 @@
             <div class="input-group mb-3" class="input-field-label">
               
                 <label for="">Contact Name</label>
-                <input type="text" formControlName="contact_name" class="form-control form-control bg-light fs-6 custom-height">
+                <input type="text" formControlName="contact_name" [class.is-invalid]="f['contact_name'].invalid && f['contact_name'].touched" class="form-control form-control bg-light fs-6 custom-height">
             </div>
             <div class="input-group mb-3" class="input-field-label">
                 
                 <label for="">Email</label>
-                <input  type="email" formControlName="email" class="form-control form-control bg-light fs-6 custom-height">
+                <input type="email" formControlName="email" [class.is-invalid]="f['email'].invalid && f['email'].touched" class="form-control form-control bg-light fs-6 custom-height">
             </div>
          </div>
     
          <div class="details">
             <div class="input-group mb-3" class="input-field-label">
                 <label for="">Mobile</label>
-                <input type="number" formControlName="mobile" class="form-control form-control bg-light fs-6 custom-height">
+                <input type="number" formControlName="mobile" [class.is-invalid]="f['mobile'].invalid && f['mobile'].touched" class="form-control form-control bg-light fs-6 custom-height">
             </div>
             <div class="input-group mb-3" class="input-field-label">
                 <label for="">Type</label>
-                
-
-                <input  type="text" formControlName="type" class="form-control form-control bg-light fs-6 custom-height">
+                <input  type="text" formControlName="type" [class.is-invalid]="f['type'].invalid && f['type'].touched" class="form-control form-control bg-light fs-6 custom-height">
             </div>
          </div>
          
@@ -33,18 +31,16 @@
             <div class="input-group mb-3" class="input-field-label">
                 <label for="">Author</label>
                 
-               
-                <input type="text" formControlName="author" class="form-control form-control bg-light fs-6 custom-height" id="date-input">
+                <input type="text" formControlName="author" [class.is-invalid]="f['author'].invalid && f['author'].touched" class="form-control form-control bg-light fs-6 custom-height" id="date-input">
             </div>
             <div class="input-group mb-3" class="input-field-label">
                 <label for="">Date</label> 
             
-                <input matInput [matDatepicker]="picker" formControlName="date" placeholder="Choose a date" class="form-control form-control bg-light fs-6 custom-height" id="date-picker">
+                <input matInput [matDatepicker]="picker" formControlName="date" [class.is-invalid]="f['date'].invalid && f['date'].touched"  placeholder="Choose a date" class="form-control form-control bg-light fs-6 custom-height" id="date-picker">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
             </div>
          </div>
-
 
          <div mat-dialog-actions>
             <button mat-raised-button [mat-dialog-close]="false">Cancel</button>

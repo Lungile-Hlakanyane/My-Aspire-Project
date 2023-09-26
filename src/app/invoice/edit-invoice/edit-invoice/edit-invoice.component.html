@@ -1,0 +1,87 @@
+<div mat-dialog-title>
+    <h1>Edit Invoice</h1>
+</div>
+<div mat-dialog-content>
+    
+    <form>
+
+        <div class="details">
+            <div class="input-group mb-3" class="input-field-label">
+              
+                <label for="">Invoice Number</label>
+                <input type="text" formControlName="contact_name" class="form-control form-control bg-light fs-6 custom-height">
+            </div>
+            <div class="input-group mb-3" class="input-field-label">
+                <label for="">Invoice Date</label> 
+            
+                <input matInput [matDatepicker]="picker" formControlName="dueDate" placeholder="Choose a date" class="form-control form-control bg-light fs-6 custom-height" id="date-picker">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </div>
+         </div>
+
+
+         <div class="details">
+            <div class="input-group mb-3" class="input-field-label">
+                <label for="">Due Date</label> 
+            
+                <input matInput [matDatepicker]="picker" formControlName="dueDate" placeholder="Choose a date" class="form-control form-control bg-light fs-6 custom-height" id="date-picker">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </div>
+            <div class="input-group mb-3" class="input-field-label">
+                
+                <label for="">Title</label>
+                <input  type="text" formControlName="email" class="form-control form-control bg-light fs-6 custom-height">
+            </div>
+         </div>
+
+         <div class="details">
+            <div class="input-group mb-3" class="input-field-label">
+              
+                <label for="">Quantity</label>
+                <input type="number" formControlName="contact_name" class="form-control form-control bg-light fs-6 custom-height">
+            </div>
+            <div class="input-group mb-3" class="input-field-label">
+              
+                <label for="">Rate</label>
+                <input type="number" formControlName="contact_name" class="form-control form-control bg-light fs-6 custom-height">
+            </div>
+         </div>
+
+         <div class="details">
+            <div class="input-group mb-3" class="input-field-label">
+              
+                <label for="">Quantity</label>
+                <input type="number" formControlName="contact_name" class="form-control form-control bg-light fs-6 custom-height">
+            </div>
+            <div class="input-group mb-3" class="input-field-label">
+                
+                <label for="">Rate</label>
+                <input  type="number" formControlName="email" class="form-control form-control bg-light fs-6 custom-height">
+            </div>
+         </div>
+
+
+         <div class="details">
+            <div class="input-group mb-3" class="input-field-label">
+              
+                <label for="">Amount</label>
+                <input type="number" formControlName="contact_name" class="form-control form-control bg-light fs-6 custom-height">
+            </div>
+            <div class="input-group mb-3" class="input-field-label">
+                
+                <label for="">Description</label>
+                <input  type="text" formControlName="email" class="form-control form-control bg-light fs-6 custom-height">
+            </div>
+         </div>
+
+
+
+    </form>
+
+</div>
+<div mat-dialog-actions>
+ <button mat-raised-button>Cancel</button>
+ <button mat-raised-button color="primary">Update</button>
+</div>

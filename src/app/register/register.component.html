@@ -9,37 +9,22 @@
           <form [formGroup]="registerForm" (ngSubmit)="register()">
             <div class="label-text">
               <label for="">Name:</label>
-              <div class="name-val-msg">
-                <span style="color:red;" *ngIf="name && name.invalid && name.touched">This input field is invalid</span>
-              </div>
             </div>
-            
             <div class="input-group mb-3">
-                <input formControlName="name" type="text" class="form-control form-control bg-light fs-6 custom-height">
+                <input formControlName="name" [class.is-invalid]="f['name'].invalid && f['name'].touched" type="text" class="form-control form-control bg-light fs-6 custom-height">
             </div>
-            
-
             <div class="label-text">
               <label for="">Email:</label>
             </div>
-            <div class="email-val-msg">
-              <span style="color:red;" *ngIf="email && email.invalid && email.touched">This input field is invalid</span>
-            </div>
             <div class="input-group mb-3">
-                <input formControlName="email" type="email" class="form-control form-control bg-light fs-6 custom-height">
+                <input formControlName="email" [class.is-invalid]="f['email'].invalid && f['email'].touched" type="email" class="form-control form-control bg-light fs-6 custom-height">
             </div>
-            
-  
             <div class="label-text">
               <label for="">Password:</label>
             </div>
-            <div class="password-val-msg">
-              <span style="color:red;" *ngIf="password && password.invalid && password.touched">This input field is invalid</span>
-            </div>   
             <div class="input-group mb-1">
-                <input formControlName="password" type="password" class="form-control form-control bg-light fs-6 custom-height">
+                <input formControlName="password" [class.is-invalid]="f['password'].invalid && f['password'].touched" type="password" class="form-control form-control bg-light fs-6 custom-height">
             </div>
-           
           </form>
 
       <div class="input-group-lg mb-3 create-account">

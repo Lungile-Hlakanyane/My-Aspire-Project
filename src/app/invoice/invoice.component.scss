@@ -278,3 +278,17 @@ body{
     height: 35px;
     border: #E5E7EB solid 1px;
 }
+
+#show-when-no-clients{
+    padding-top: 150px;
+    position: relative;
+    top:95%;
+    left:38%;
+}
+
+
+#show-when-no-clients i{
+    display: flex;
+    font-size: 40px;
+    color: #2b15a7;
+}

@@ -1,0 +1,81 @@
+<section id ="menu">
+    <div class="logo">
+        <i class="fa-solid fa-bars"> <span>INVOICE</span></i>
+    </div>
+    <div class="items">
+        <li><a href="#" routerLink="/dashboard" (click) ="navigateToDashboard()" >DASHBOARD</a></li>
+        <li><a href="#" routerLink="/lead" (click)="navigateToLeadPage()" >LEAD</a></li>
+        <li><a href="#">DEAL</a></li>
+        <li><a href="#">QUOTE</a></li>
+        <li><a href="#" routerLink="/invoice" (click)="navigateToInvoicePage()">INVOICE</a></li>
+        <li><a href="#" routerLink="/settings" (click)="navigateToSettingsPage()" >SETTIGS</a></li>
+    </div>
+    <div class="log-out-btn">
+        <button (click)="openDialog()" mat-raised-button color="primary">LOGOUT</button>
+    </div>
+</section>
+
+<div class="container" id="container">
+    <div class="address-infor-icon">
+        <div class="address">
+            <p class="address-text">{{invoice.sender_contact_name}}</p>
+            <p>{{invoice.sender_physical_address}}</p>
+            <p>{{invoice.sender_email}}</p>
+            <p>+27 {{invoice.sender_mobile}}</p>
+        </div>
+        <div class="sys-icon">
+            <h1 class="system-icon">Invoice</h1>
+        </div>
+    </div>
+    <div class="second-address">
+        <div class="address">
+            <p class="address-text">{{invoice.receiver_contact_name}}</p>
+            <p>{{invoice.receiver_physical_address}}</p>
+            <p>{{invoice.receiver_email}}</p>
+            <p>+27 {{invoice.receiver_mobile}}</p>
+        </div>
+        <div class="invoiice-infor-details" *ngIf="selectedInvoice">
+            <h3>Invoice: {{ invoice.invoice_number}}</h3>
+            <h3>Invoce Date: {{ invoice.invoice_date |date :'dd/MM/yyyy'}}</h3>
+            <h3>Due Date: <span>{{ invoice.due_date |date :'dd/MM/yyyy'}}</span>   </h3>
+        </div>
+    </div>
+
+    <div class="invoice-table">
+        <mat-table [dataSource]="invoices">
+
+            <ng-container matColumnDef="item">
+                <mat-header-cell *matHeaderCellDef class="heading-title">Item</mat-header-cell>
+                <mat-cell *matCellDef="let invoice">{{ invoice.title }}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="unitPrice">
+                <mat-header-cell *matHeaderCellDef class="heading-title">Unit Price</mat-header-cell>
+                <mat-cell *matCellDef="let invoice">{{ invoice.unitPrice }}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="description">
+                <mat-header-cell *matHeaderCellDef class="heading-title">Description</mat-header-cell>
+                <mat-cell *matCellDef="let invoice">{{ invoice.description }}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="quantity">
+                <mat-header-cell *matHeaderCellDef class="heading-title">Quantity</mat-header-cell>
+                <mat-cell *matCellDef="let invoice">{{ invoice.quantity }}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="amount">
+                <mat-header-cell *matHeaderCellDef class="heading-title">Amount</mat-header-cell>
+                <mat-cell *matCellDef="let invoice">{{ invoice.amount | currency }}</mat-cell>
+            </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let invoice; columns: displayedColumns;"></mat-row>
+        </mat-table>
+      </div>    
+</div>
+
+<div class="total-amount-div">
+    <p>Subtotal: {{total}} </p>
+    <p>Total: {{total}} </p>
+</div>

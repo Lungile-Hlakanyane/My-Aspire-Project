@@ -532,3 +532,18 @@ table {
 .clients-contaier-options-displayed.show{
     max-height: 1000px;
 }
+
+.no-clients-container{
+    position: absolute;
+    top:500px;
+}
+
+.no-clients-container #show-when-no-clients{
+    margin-top: 500px;
+}
+
+.show-when-no-clients i{
+    font-size: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}

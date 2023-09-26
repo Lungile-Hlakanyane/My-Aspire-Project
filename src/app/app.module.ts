@@ -13,7 +13,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { LoginComponent } from './login/login.component';
 import {MatSelectModule} from '@angular/material/select';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { FPasswordComponent } from './f-password/f-password.component';
 import { UpdatePasswordComponent } from './update-password/update-password.component';
@@ -27,8 +27,6 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { SettingsComponent } from './settings/settings.component';
 import { InvoiceComponent } from './invoice/invoice.component';
 import {MatTableModule} from '@angular/material/table';
-import { AddInvoiceComponent } from './add-invoice/add-invoice.component';
-import { EditDialogBoxComponent } from './edit-dialog-box/edit-dialog-box.component';
 import { ClientComponent } from './client/client.component';
 import { EstimateComponent } from './estimate/estimate.component';
 import { LeadSettingsComponent } from './settings/lead-settings/lead-settings.component';
@@ -52,6 +50,18 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatMenuModule } from '@angular/material/menu';
 import { DeleteEstimateComponent } from './estimate/delete-estimate/delete-estimate.component';
 import { EditComponentComponent } from './client/edit-component/edit-component.component';
+import { DeleteLeadComponent } from './lead/delete-lead/delete-lead/delete-lead.component';
+import { DeleteInvoiceComponent } from './invoice/delete-invoice/delete-invoice/delete-invoice.component';
+import { EditInvoiceComponent } from './invoice/edit-invoice/edit-invoice/edit-invoice.component';
+import { AddSenderComponent } from './invoice/sender/add-sender/add-sender.component';
+import { AddInvoiceComponent } from './invoice/add-invoice/add-invoice/add-invoice.component';
+import { InvoiceInforComponent } from './invoice/invoice-infor/invoice-infor.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import { AddStageComponent } from './lead/add-lead-stage/add-stage/add-stage.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { DeleteLeadStageComponent } from './lead/delete-lead-stage/delete-lead-stage.component';
+import { LeadInfoComponent } from './lead/lead-info/lead-info.component';
+
 
 @NgModule({
   declarations: [
@@ -66,11 +76,9 @@ import { EditComponentComponent } from './client/edit-component/edit-component.c
     AddLeadComponent,
     SearchBarComponent,
     SettingsComponent,
-    InvoiceComponent,
-    AddInvoiceComponent,
-    EditDialogBoxComponent,
     ClientComponent,
     EstimateComponent,
+    InvoiceComponent,
     LeadSettingsComponent,
     DealSettingsComponent,
     EstimateInvoiceSettingsComponent,
@@ -85,6 +93,15 @@ import { EditComponentComponent } from './client/edit-component/edit-component.c
     AddEstimateComponent,
     DeleteEstimateComponent,
     EditComponentComponent,
+    DeleteLeadComponent,
+    DeleteInvoiceComponent,
+    EditInvoiceComponent,
+    AddSenderComponent,
+    AddInvoiceComponent,
+    InvoiceInforComponent,
+    AddStageComponent,
+    DeleteLeadStageComponent,
+    LeadInfoComponent,
   ],
   imports: [
     BrowserModule,
@@ -109,7 +126,10 @@ import { EditComponentComponent } from './client/edit-component/edit-component.c
     MatNativeDateModule,
     FormsModule,
     MatPaginatorModule,
-    MatMenuModule
+    MatMenuModule,
+    MatButtonModule,
+    MatTabsModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

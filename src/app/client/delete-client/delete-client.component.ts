@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
-
 @Component({
   selector: 'app-delete-client',
   templateUrl: './delete-client.component.html',
@@ -40,7 +39,7 @@ export class DeleteClientComponent implements OnInit {
         });
       },
       (error) => {
-        console.error('Error deleting client:', error);
+       
         this._snackBar.open('Error deleting client', 'Close', {
           duration: 3000,
           panelClass: ['error-snackbar']

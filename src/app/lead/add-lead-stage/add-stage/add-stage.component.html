@@ -1,0 +1,17 @@
+<div mat-dialog-title>
+    <h1>Add a Stage</h1>
+</div>
+<div mat-dialog-content>
+    <form [formGroup]="stageForm" (ngSubmit)="onSubmit()">
+        <div class="details">
+            <div class="input-group mb-3" class="input-field-label">
+                <label for="">Stage Name</label>
+                <input type="text" formControlName="stage_name" [class.is-invalid]="f['stage_name'].invalid && f['stage_name'].touched" class="form-control form-control bg-light fs-6 custom-height">
+            </div>
+         </div>
+         <div mat-dialog-actions>
+            <button mat-raised-button (click)="onCancelClick()">Cancel</button>
+            <button mat-raised-button color="primary" type="submit">{{data? 'Update':'Save'}}</button>
+        </div>
+    </form>
+</div>

@@ -9,7 +9,6 @@ import { AuthGuard } from './auth/auth.guard';
 import { LeadComponent } from './lead/lead.component';
 import { SettingsComponent } from './settings/settings.component';
 import { InvoiceComponent } from './invoice/invoice.component';
-import { AddInvoiceComponent } from './add-invoice/add-invoice.component';
 import { ClientComponent } from './client/client.component';
 import { EstimateComponent } from './estimate/estimate.component';
 import { LeadSettingsComponent } from './settings/lead-settings/lead-settings.component';
@@ -21,6 +20,7 @@ import { EstimateSettingsComponent } from './settings/estimate-invoice-settings/
 import { InvoiceSettingsComponent } from './settings/estimate-invoice-settings/invoice-settings/invoice-settings.component';
 import { AddClientComponent } from './client/add-client/add-client.component';
 import { ClientInfoComponent } from './client/client-info/client-info.component';
+import { InvoiceInforComponent } from './invoice/invoice-infor/invoice-infor.component';
 
 
 const routes: Routes = [
@@ -34,7 +34,6 @@ const routes: Routes = [
   {path: 'lead',component: LeadComponent},
   {path:'settings',component:SettingsComponent},
   {path:'invoice',component:InvoiceComponent},
-  {path:'add-invoice',component:AddInvoiceComponent},
   {path:'clients',component:ClientComponent},
   {path:'estimate',component:EstimateComponent},
   {path:'lead-settings',component:LeadSettingsComponent},
@@ -46,6 +45,7 @@ const routes: Routes = [
   {path:'invoice-settings',component:InvoiceSettingsComponent},
   {path:'add-client',component:AddClientComponent},
   {path:'client/:clientId', component: ClientInfoComponent },
+  {path:'invoice/:id',component:InvoiceInforComponent}
 ];
  
 @NgModule({

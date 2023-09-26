@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   constructor(private _router:Router,private _formBuilder:FormBuilder,
     private _http:HttpClient,private _snackBar:MatSnackBar){}
 
+    
   ngOnInit(): void {
     this.loginForm = this._formBuilder.group({
       email:['',Validators.required,Validators.email],//TODO: Fix email verification
@@ -26,13 +27,9 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  get email(){
-    return this.loginForm.get('email');
-  }
-
-  get password(){
-    return this.loginForm.get('password');
-  }
+ get f (){
+  return this.loginForm.controls;
+ }
 
   
   navigateToRegisterPage():void{

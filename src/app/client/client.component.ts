@@ -35,7 +35,6 @@ export class ClientComponent implements OnInit {
     this.showEstimateInvoiceOptions =!this.showEstimateInvoiceOptions;
   }
 
-
   @ViewChild(MatSort) sort!:MatSort;
   @ViewChild(MatPaginator) paginator!:MatPaginator;
 
@@ -45,7 +44,6 @@ export class ClientComponent implements OnInit {
   }
 
   toggleClientOptions(){
-    // this._snackBar.open('Ellipsis Clicked','OK');
     this.showClientOptions = !this.showClientOptions;
   }
 
@@ -60,23 +58,8 @@ export class ClientComponent implements OnInit {
       
     }
 
-    // Search for a client based on a client attributes or fields
-    filterClient(){
-      return this.clients.filter(client=>{
-        return (
-          client.contact_name.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-          client.email.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
-          client.mobile.includes(this.searchTerm) ||
-          client.author.includes(this.searchTerm)||
-          client.type.includes(this.searchTerm)||
-          client.date.includes(this.searchTerm)
-        );
-      })
-    }
-
   ngOnInit() {
 
-     // fetch clients from the API
      this._http.get<any[]>('http://localhost:3000/clients').subscribe(data=>{
       this.clients = data;
 
@@ -85,12 +68,12 @@ export class ClientComponent implements OnInit {
     });
     this._dataService.getClients().subscribe((data:Client[])=>{
       this.dataSource.data = data;
-      this.displayClientsOnConsole(data);
+     
     })
   }
 
   navigateToClientProfile(clientId: string) {
-    console.log('Navigating to client profile:', clientId);
+   
     this._router.navigate(['/client', clientId]);
   }
 
@@ -109,18 +92,17 @@ export class ClientComponent implements OnInit {
   
     this._http.delete(url).subscribe(
       () => {
-        // Remove the deleted client from the local array
+        
         this.clients = this.clients.filter(client => client.id !== clientId);
   
-        // Show snackbar notification
+       
         this._snackBar.open('Client successfully deleted', 'Close', {
           duration: 3000,
           panelClass: ['success-snackbar']
         });
       },
       (error) => {
-        
-        // Show snackbar notification for error
+      
         this._snackBar.open('Error deleting client', 'Close', {
           duration: 3000,
           panelClass: ['error-snackbar']
@@ -143,7 +125,6 @@ export class ClientComponent implements OnInit {
     const dialogRef = this._dialog.open(AddClientComponent);
   }
 
-
   navigateToDashboard():void{
     this._router.navigateByUrl('');
   }
@@ -155,7 +136,6 @@ export class ClientComponent implements OnInit {
   navigateToInvoicePage():void{
     this._router.navigateByUrl('');
   }
-
 
   navigateToSettingsPage():void{
     this._router.navigateByUrl('');

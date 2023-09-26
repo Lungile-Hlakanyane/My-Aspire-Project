@@ -29,9 +29,8 @@ export class AddClientComponent implements OnInit{
     })
   }
 
-  constructor(private _fb:FormBuilder,
-     private _dataService:ClientServiceService,
-     private _formBuilder:FormBuilder,
+  constructor(
+     private _fb:FormBuilder,
      private _snackBar:MatSnackBar,
      private _http:HttpClient,
      private _clientService:ClientService,
@@ -40,21 +39,20 @@ export class AddClientComponent implements OnInit{
 
     ){
     this.clientForm = this._fb.group({
-      contact_name: '',
-      email:'',
-      author:'',
-      mobile:'',
-      type:'',
-      date:''
+      contact_name: ['',Validators.required],
+      email:['',Validators.required,Validators.email],
+      author:['',Validators.required],
+      mobile:['',Validators.required],
+      type:['',Validators.required],
+      date:['',Validators.required]
     }); 
   }
 
+  get f (){
+    return this.clientForm.controls;
+  }
 
   onSubmit(){
-
-    //FOR TESTING PURPOSES ONLY
-    if(this.clientForm.valid){
-
       if(this.data){
 
         this._clientService.updateClient(this.data.id,this.clientForm.value).subscribe({
@@ -78,35 +76,6 @@ export class AddClientComponent implements OnInit{
           }
         })
       }
-    }
-    else{
-      this._snackBar.open('An error has occured!!','Ok');
-    }
-  }
-
-  //all methods for validations
-  get contactName(){
-    return this.clientForm.get('contact_name');
-  }
-
-  get email(){
-    return this.clientForm.get('email');
-  }
-
-  get mobile(){
-    return this.clientForm.get('mobile');
-  }
-
-  get type(){
-    return this.clientForm.get('type');
-  }
-
-  get author(){
-    return this.clientForm.get('author');
-  }
-
-  get date(){
-    return this.clientForm.get('date');
   }
 
 }

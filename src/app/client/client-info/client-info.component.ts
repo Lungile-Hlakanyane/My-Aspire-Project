@@ -31,12 +31,11 @@ export class ClientInfoComponent implements OnInit{
 
   ngOnInit():void{
     this._route.params.subscribe(params => {
-      const clientId = params['clientId'];
-      console.log('Client ID from ngOnInit:', clientId);
 
+      const clientId = params['clientId'];
+    
       this._http.get<any>(`http://localhost:3000/clients/${clientId}`).subscribe(response=>{
         this.client = response;
-        // console.log('Fetched Client Data: ',this.client);
       })
     }) 
   }

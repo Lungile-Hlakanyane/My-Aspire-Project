@@ -1,6 +1,5 @@
 <section id ="menu">
     <div class="logo">
-        
         <i class="fa-solid fa-bars"> <span>INVOICE</span></i>
     </div>
     <div class="items">
@@ -14,7 +13,6 @@
     <div class="log-out-btn">
         <button (click)="openDialog()" mat-raised-button color="primary">LOGOUT</button>
     </div>
-   
 </section>
 
 <section id="interface">
@@ -32,14 +30,11 @@
 
         <div class="val-box">
            
-
-
             <a href="" routerLink="/lead"><i class="fa-solid fa-users" style="color:#fff;"></i></a>
-
 
             <div>
                 <span>Total Lead</span>
-                <h4>0</h4>
+                <h4>{{getTotalLeads()}}</h4>
             </div>
         </div>
 

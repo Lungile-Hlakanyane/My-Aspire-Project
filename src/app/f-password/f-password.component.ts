@@ -24,6 +24,9 @@ export class FPasswordComponent implements OnInit{
     return this.forgotpasswordForm.get('email');
   }
   
+  get f (){
+    return this.forgotpasswordForm.controls;
+  }
 
   forgotPassword(){
     //implementation here

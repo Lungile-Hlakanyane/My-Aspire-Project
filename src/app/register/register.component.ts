@@ -27,6 +27,12 @@ ngOnInit(): void {
     })
 }
   
+
+get f (){
+  return this.registerForm.controls;
+ }
+
+
   navigateToLogin():void{
     this._router.navigateByUrl('/login');
   }

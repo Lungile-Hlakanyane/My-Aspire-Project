@@ -16,114 +16,78 @@
   "profile": {
     "name": "typicode"
   },
-  "leads":[],
-  "clients": [
+  "senders": {
+    "contact_name": "Lungile Hlakanyane",
+    "email": "lungilehlakanyane@gmail.com",
+    "physical_address": "27751 Namibia Rockland Mangaung Bloemfontein 9323",
+    "mobile": 642242118
+  },
+  "recievers": {},
+  "leads": [
     {
-      "contact_name": "Lunga",
-      "email": "lunga@gmail.com",
-      "author": "Lunga",
-      "mobile": 642242118,
-      "type": "Person",
-      "date": "2023-08-07T22:00:00.000Z",
+      "person": "Pick 'n Pay",
+      "organization": "Pick 'n Pay",
+      "email": "picknpay@gmail.com",
+      "mobile": "0585775",
+      "country": "south africa",
+      "region": "free state province",
+      "budget": "66565657",
+      "currency_type": "united states dollar ",
+      "description": "",
+      "note": "",
+      "id": 4
+    },
+    {
+      "person": "Luyanda",
+      "organization": "MookyNos",
+      "email": "luyanda@gmail.com",
+      "mobile": "085757585",
+      "country": "south africa",
+      "region": "free state province",
+      "budget": "900000",
+      "currency_type": "united states dollar ",
+      "description": "",
+      "note": "",
+      "id": 5
+    }
+  ],
+  "clients": [],
+  "stages": [
+    {
+      "stage_name": "Deal",
       "id": 1
     },
     {
-      "contact_name": "Mxolisi",
-      "email": "mxolisi@gmail.com",
-      "author": "Lucky",
-      "mobile": 9763636,
-      "type": "Person",
-      "date": "2023-08-05T22:00:00.000Z",
+      "stage_name": "Quotation",
       "id": 2
     },
     {
-      "contact_name": "Thabang",
-      "email": "thabang@gmail.com",
-      "author": "Thabo",
-      "mobile": 875652762,
-      "type": "Person",
-      "date": "2025-05-10T22:00:00.000Z",
+      "stage_name": "Win",
       "id": 3
     }
   ],
-  "invoice": [
+  "invoices": [
     {
-      "month": "jan",
-      "invoice": 2,
-      "colorcode": "blue"
-    },
-    {
-      "month": "feb",
-      "invoice": 4,
-      "colorcode": "blue"
-    },
-    {
-      "month": "mar",
-      "invoice": 2,
-      "colorcode": "blue"
-    },
-    {
-      "month": "apr",
-      "invoice": 2,
-      "colorcode": "blue"
-    },
-    {
-      "month": "may",
-      "invoice": 5,
-      "colorcode": "blue"
-    },
-    {
-      "month": "jun",
-      "invoice": 4,
-      "colorcode": "blue"
-    },
-    {
-      "month": "jul",
-      "invoice": 3,
-      "colorcode": "blue"
-    },
-    {
-      "month": "aug",
-      "invoice": 2,
-      "colorcode": "blue"
-    },
-    {
-      "month": "sep",
-      "invoice": 1,
-      "colorcode": "blue"
-    },
-    {
-      "month": "oct",
-      "invoice": 1,
-      "colorcode": "blue"
-    },
-    {
-      "month": "nov",
-      "invoice": 3,
-      "colorcode": "blue"
-    },
-    {
-      "month": "dec",
-      "invoice": 5,
-      "colorcode": "blue"
-    }
-  ],
-  "estimates": [
-    {
-      "contact_name": "Lungile",
-      "total": "2340990",
-      "status": "Paid",
-      "date": "2023-08-06T22:00:00.000Z",
+      "invoice_number": 1,
+      "invoice_date": "2023-09-02T22:00:00.000Z",
+      "due_date": "2023-09-27T22:00:00.000Z",
+      "sender_contact_name": "Lungile",
+      "sender_email": "lungile@gmail.com",
+      "sender_physical_address": "1 Sunnyside Pretoria Gauteng",
+      "sender_mobile": 98756575,
+      "receiver_contact_name": "Sinawo",
+      "receiver_email": "sinawo@gmail.com",
+      "receiver_physical_address": "2 JHB Gauteng",
+      "receiver_mobile": 97576585,
+      "title": "Acer Battery Laptop",
+      "description": "Acer Battery Laptop Invoice",
+      "quantity": 33,
+      "rate": 67,
+      "amount": 74848844,
       "id": 1
-    },
-    {
-      "contact_name": "Luyanda",
-      "total": 66687783,
-      "status": "Pending",
-      "date": "2023-07-31T22:00:00.000Z",
-      "id": 2
     }
   ],
+  "estimates": [],
   "registerd_users": [
     {
       "name": "admin",
