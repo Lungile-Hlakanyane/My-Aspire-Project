@@ -47,14 +47,15 @@
       <div class="column">
         <div class="heading-text-edit-icon">
           <div class="stage-name-content" id="looped">
-            <h3 class="title">New Lead</h3>
-            <div id="looped" *ngFor="let lead of leads" cdkDrag>
+            <h3 class="stage-name-title">New Lead</h3>
+            <div id="looped-lead" *ngFor="let lead of filteredLeads" cdkDrag>
               <div class="name_plus_action_currency">
                 <div  class="name">
                   <span (click)="displayMoreLeadInfo()">{{lead.person}}</span><br>
                 </div>
                 <div class="action-icons">
                   <i class="fa-solid fa-trash" (click)="openDeleteLeadDialog(lead.id)"></i>
+                  <i class="fa-solid fa-pen-to-square" (click)="openEditForm(lead)"></i>
                 </div>
               </div>
               <span class="currency">{{lead.budget | currency}}</span>
@@ -72,12 +73,12 @@
       <div class="column">
         <div class="heading-text-edit-icon">
           <div class="stage-name-content">
-            <h3>{{ stage.stage_name }}</h3>
+            <h3 class="stage-name-title">{{ stage.stage_name }}</h3>
           </div>
           <div class="action-icons">
             <span><i class="fa-solid fa-pen-to-square" (click)="openEditLeadStageForm(stage)"></i></span>
             <span><i class="fa-solid fa-trash" (click)="openDeleteLeadStageDialogBox(stage.id)"></i></span>
-            <div class="vertical-divider"></div>
+            <span>|</span>
           </div>
         </div>
       </div>

@@ -35,14 +35,18 @@ export class DeleteClientComponent implements OnInit {
         this._dialogRef.close('deleted');
         this._snackBar.open('Client successfully deleted', 'Close', {
           duration: 3000,
-          panelClass: ['success-snackbar']
+          panelClass: ['success-snackbar'],
+          horizontalPosition:'center',
+          verticalPosition:'top',
         });
       },
       (error) => {
        
         this._snackBar.open('Error deleting client', 'Close', {
           duration: 3000,
-          panelClass: ['error-snackbar']
+          panelClass: ['error-snackbar'],
+          horizontalPosition:'center',
+          verticalPosition:'top',
         });
       }
     );

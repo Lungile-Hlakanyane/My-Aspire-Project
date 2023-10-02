@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
-
+import { BehaviorSubject, Observable } from 'rxjs';;
 
 @Injectable({
   providedIn: 'root'
 })
 export class LeadService {
+
+  private leadsUrl = 'http://localhost:3000/leads';
 
   constructor(private _http:HttpClient) { 
   }
@@ -29,4 +30,9 @@ export class LeadService {
     const url = `http://localhost:3000/leads/${leadId}`;
     return this._http.delete(url);
   }    
+
+  updateLeadStage(leadId: number, newStageId: number):Observable<any>{
+    const updateUrl = `${this.leadsUrl}/${leadId}`;
+    return this._http.patch(updateUrl,{stageId:newStageId});
+  }
 }

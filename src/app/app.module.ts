@@ -61,7 +61,7 @@ import { AddStageComponent } from './lead/add-lead-stage/add-stage/add-stage.com
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DeleteLeadStageComponent } from './lead/delete-lead-stage/delete-lead-stage.component';
 import { LeadInfoComponent } from './lead/lead-info/lead-info.component';
-
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -129,7 +129,9 @@ import { LeadInfoComponent } from './lead/lead-info/lead-info.component';
     MatMenuModule,
     MatButtonModule,
     MatTabsModule,
-    DragDropModule
+    DragDropModule,
+    NgChartsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

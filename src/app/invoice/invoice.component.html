@@ -36,6 +36,7 @@
     </div>
 
     <div class="show-invoice-table">
+
         <ng-template #noClients class="no-clients-container">
           <div class="lead-content" id="show-when-no-clients">
             <div class="lead-content-file">
@@ -44,7 +45,6 @@
               <button mat-raised-button color="primary" (click)=" openDialogInvoicePage()">+ Let's start Adding</button>
             </div>
           </div>
-  
         </ng-template>
   
         <ng-container *ngIf="invoices.length>0; else noClients">

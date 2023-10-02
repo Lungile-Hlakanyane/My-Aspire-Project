@@ -57,7 +57,11 @@ export class AddClientComponent implements OnInit{
 
         this._clientService.updateClient(this.data.id,this.clientForm.value).subscribe({
           next:(val:any)=>{
-           this._snackBar.open('Client details edited successfully','OK');
+           this._snackBar.open('Client details edited successfully','OK',{
+             duration:3000,
+             horizontalPosition:'center',
+             verticalPosition:'top',
+           });
             this._dialogRef.close();
           },
           error:(err:any)=>{

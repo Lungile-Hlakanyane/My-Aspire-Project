@@ -33,11 +33,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
-import { AddEstimateComponent } from './estimate/add-estimate/add-estimate.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatMenuModule } from '@angular/material/menu';
 import { DeleteEstimateComponent } from './estimate/delete-estimate/delete-estimate.component';
-import { EditComponentComponent } from './client/edit-component/edit-component.component';
 import { DeleteInvoiceComponent } from './invoice/delete-invoice/delete-invoice/delete-invoice.component';
 import { EditInvoiceComponent } from './invoice/edit-invoice/edit-invoice/edit-invoice.component';
 
@@ -56,9 +54,7 @@ import { EditInvoiceComponent } from './invoice/edit-invoice/edit-invoice/edit-i
     CommonSettingsComponent,
     EstimateSettingsComponent,
     InvoiceSettingsComponent,
-    AddEstimateComponent,
     DeleteEstimateComponent,
-    EditComponentComponent,
     DeleteInvoiceComponent,
     EditInvoiceComponent,
   ],

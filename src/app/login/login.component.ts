@@ -63,11 +63,9 @@ export class LoginComponent implements OnInit {
       
         this.showSnackBar('Login Successful!');
       }else {
-     
         this.showSnackBar('Enter your correct login credentials to log in');
       }
     },err=>{
-     
       this.showSnackBar('Opps! Something went wrong');
     }
     )

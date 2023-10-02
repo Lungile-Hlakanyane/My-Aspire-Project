@@ -6,23 +6,23 @@
             <div class="details">
                 <div class="input-group mb-3" class="input-field-label">
                     <label for="">Contact Name</label>
-                    <input type="text" formControlName="contact_name" class="form-control form-control bg-light fs-6 custom-height">
+                    <input type="text" formControlName="contact_name" [class.is-invalid]="f['contact_name'].invalid && f['contact_name'].touched" class="form-control form-control bg-light fs-6 custom-height">
                 </div>
     
                 <div class="input-group mb-3" class="input-field-label">
                     <label for="">Total</label> 
-                    <input  type="number" formControlName="total" class="form-control form-control bg-light fs-6 custom-height">
+                    <input  type="number" formControlName="total" [class.is-invalid]="f['total'].invalid && f['total'].touched" class="form-control form-control bg-light fs-6 custom-height">
                 </div>
              </div>
              <div class="details">
                 <div class="input-group mb-3" class="input-field-label">
                     <label for="">Status</label>
-                    <input type="text"  formControlName="status" class="form-control form-control bg-light fs-6 custom-height">
+                    <input type="text"  formControlName="status" [class.is-invalid]="f['status'].invalid && f['status'].touched" total class=" form-control form-control bg-light fs-6 custom-height">
                 </div>
                 <div class="input-group mb-3" class="input-field-label">
                     <label for="">Date</label> 
                 
-                    <input matInput [matDatepicker]="picker" formControlName="date"placeholder="Choose a date" class="form-control form-control bg-light fs-6 custom-height" id="date-picker">
+                    <input matInput [matDatepicker]="picker" formControlName="date" placeholder="Choose a date" [class.is-invalid]="f['date'].invalid && f['date'].touched" class="form-control form-control bg-light fs-6 custom-height" id="date-picker">
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                 </div>

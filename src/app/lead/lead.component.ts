@@ -16,6 +16,7 @@ import { AddStageService } from './add-lead-stage/service/add-stage.service';
 import { CdkDragDrop, DragDropModule,moveItemInArray,transferArrayItem } from '@angular/cdk/drag-drop';
 import { DeleteLeadStageComponent } from './delete-lead-stage/delete-lead-stage.component';
 import { LeadInfoComponent } from './lead-info/lead-info.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -26,6 +27,8 @@ import { LeadInfoComponent } from './lead-info/lead-info.component';
   
 })
 export class LeadComponent implements OnInit {
+
+  filteredLeads:any[] =[];
 
   stageList:any[]=[];
 
@@ -123,14 +126,23 @@ export class LeadComponent implements OnInit {
     private _router:Router,
     private _dialog:MatDialog,
     private _leadService:LeadService,
-    private _addStageService:AddStageService
+    private _addStageService:AddStageService,
+    private _snackBar:MatSnackBar,
     ){}
 
-    applyFilter(){
-      this.dataSource.filter =this.searchTerm.trim().toLowerCase();
+    applyFilter() {
+      if (this.searchTerm) {
+        this.filteredLeads = this.leads.filter((lead) =>
+          lead.person.toLowerCase().includes(this.searchTerm.toLowerCase())
+        );
+      } else {
+        this.filteredLeads = this.leads.slice();
+      }
     }
 
     ngOnInit(): void {
+
+      this.filteredLeads = this.leads.slice();
 
       this._addStageService.getAllStages().subscribe((stages)=>{
         this.stageList = stages;
@@ -143,7 +155,6 @@ export class LeadComponent implements OnInit {
       this._leadService.getAllLeads().subscribe((data:Lead[])=>{
         this.dataSource.data = data;
       })
-    
     }
     
   @ViewChild(MatSort) sort!:MatSort;
@@ -158,6 +169,33 @@ export class LeadComponent implements OnInit {
     const dialogRef = this._dialog.open(AddLeadComponent);
   }
 
+  onDropLead(event: CdkDragDrop<Lead[]>): void {
+    
+    if (event.previousContainer === event.container) {
+
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+
+    } else {
+      
+      transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
+  
+      const movedLead = event.item.data;
+
+      const newStageId = Number(event.container.id);
+  
+      this._leadService.updateLeadStage(movedLead.id, newStageId).subscribe(
+        (response) => {
+          // this._snackBar.open('Moved Lead Successfully', 'Ok');
+          console.log('Moved Lead Successfully');
+        },
+        (error) => {
+          this._snackBar.open('Error: Unable to move Lead', 'Ok');
+        }
+      );
+    }
+  }
+  
+  
   openDialog():void{
     const dialogRef = this._dialog.open(ConfrmDialogComponent);
 
@@ -185,7 +223,6 @@ export class LeadComponent implements OnInit {
       data
     })
   }
-
 
   openEditForm(data:any){
     this._dialog.open(AddLeadComponent,{
@@ -219,26 +256,6 @@ export class LeadComponent implements OnInit {
     this._dialog.open(LeadInfoComponent);
   }
 
-  onDropLead(event: CdkDragDrop<any>): void {
-    if (event.previousContainer === event.container) {
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-    } else {
-      
-      const lead = event.item.data;
-      lead.stage = event.container.id;
-  
-      this.updateClientSideData(lead, event.container.id);
-  
-      this.updateLeadStage(lead).subscribe(() => {
-        transferArrayItem(
-          event.previousContainer.data,
-          event.container.data,
-          event.previousIndex,
-          event.currentIndex
-        );
-      });
-    }
-  }
   
   updateClientSideData(lead: any, newStage: string): void {
     const index = this.leads.findIndex((l) => l.id === lead.id);

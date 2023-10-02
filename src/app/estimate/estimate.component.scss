@@ -479,4 +479,25 @@ table {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 120px;
 }
+
+.centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+  }
+
+
+  .lead-content-file{
+    position: relative;
+    left:420px;
+    top:200px;
+  }
+
+  .lead-content-file i{
+    color: #190dc0;
+    font-size: 50px;
+    padding-bottom: 10px;
+  }

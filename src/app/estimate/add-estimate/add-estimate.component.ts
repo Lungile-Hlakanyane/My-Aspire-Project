@@ -29,10 +29,10 @@ export class AddEstimateComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data:any
     ){
       this.estimateForm = this._fb.group({
-        contact_name:'',
-        total:'',
-        status:'',
-        date:''
+        contact_name:['',Validators.required],
+        total:['',Validators.required],
+        status:['',Validators.required],
+        date:['',Validators.required]
       })
     }
  
@@ -40,61 +40,53 @@ export class AddEstimateComponent implements OnInit {
 
       this.estimateForm.patchValue(this.data);
 
-      //fetching all estimates from the JSON file
       this._http.get<any[]>('http://localhost:3000/estimates').subscribe(data=>{
         this.estimates = data;
-      })
-      
-        
+      })  
     }
 
     onSubmit(){
-
       if(this.estimateForm.valid){
         if(this.data){
-
           this._estimateService.updateEstimate(this.data.id,this.estimateForm.value).subscribe({
             next:(val:any)=>{
-              this._snackBar.open('Estimate edited successfully','OK');
+              this._snackBar.open('Estimate edited successfully','OK',{
+                horizontalPosition:'center',
+                verticalPosition:'top',
+              });
               this._dialogRef.close();
             },
             error:(err:any)=>{
-              this._snackBar.open('An error occured unable to edit an estimate','OK')
+            this._snackBar.open('An error occured unable to edit an estimate','OK',{
+              horizontalPosition:'center',
+              verticalPosition:'top',
+            })
             }
           })
 
         }else{
-
           this._estimateService.addEstimate(this.estimateForm.value).subscribe({
             next:(val:any)=>{
-              this._snackBar.open('Estimate added successfully','OK');
+              this._snackBar.open('Estimate added successfully','OK',{
+                horizontalPosition:'center',
+                verticalPosition:'top',
+              });
               this._dialogRef.close();
             },
             error:(err:any)=>{
-              this._snackBar.open('An error occured unable to add an estimate','OK')
+              this._snackBar.open('An error occured unable to add an estimate','OK',{
+                horizontalPosition:'center',
+                verticalPosition:'top',
+              })
             }
           })
-
         }
-
       }else{
         this._snackBar.open('An error occured','OK');
       }
     }
 
-    get contactName(){
-      return this.estimateForm.get('contact_name');
-    }
-
-    get total(){
-      return this.estimateForm.get('total');
-    }
-
-    get status(){
-      return this.estimateForm.get('status');
-    }
-
-    get date(){
-      return this.estimateForm.get('date');
+    get f (){
+      return this.estimateForm.controls;
     }
 }

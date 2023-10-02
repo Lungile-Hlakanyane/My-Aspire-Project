@@ -19,9 +19,7 @@
     <h3 class="i-name">Overview</h3>
     <div class="values">
         <div class="val-box">
-
             <a href="#" routerLink="/clients"> <i class="fa-solid fa-address-book" style="color:#fff;"></i></a>
-           
             <div>
                 <span>Total Clients</span>
                 <h4>{{getTotalClients()}}</h4>
@@ -142,10 +140,15 @@
               
                 <div class="row">
                     <div class="col-lg-10">
-                        <canvas id="estimateChart">
-                            
-                            <canvas id="estimateChart"></canvas>
-                        </canvas>
+                        <div id="estimate-graph">
+                            <canvas baseChart
+                            [datasets]="estimateChartData.datasets"
+                            [labels]="chartData.labels"
+                            [options]="chartOptions"
+                            [legend]="true"
+                            >
+                            ></canvas>
+                        </div>
                     </div>
                 </div> 
 
@@ -157,16 +160,19 @@
         <div class="latest-tasks">
             <h3 class="title">Invoice</h3>
             <div class="div-image-chart">
-
-
                 <div class="row">
                     <div class="col-lg-10">
-                        <canvas id="piechart">
-                            <canvas id="piechart"></canvas>
-                        </canvas>
+                        <div id="invoice-graph">
+                            <canvas baseChart
+                            [datasets]="chartData.datasets"
+                            [labels]="chartData.labels"
+                            [options]="chartOptions"
+                            [legend]="true"
+                            >
+                            ></canvas>
+                        </div>
                     </div>
                 </div> 
-
             </div>
         </div>
 

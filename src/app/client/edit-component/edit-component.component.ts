@@ -19,7 +19,5 @@ export class EditComponentComponent {
     this._dialog.open(AddClientComponent,{
       data
     });
-  }
-
-  
+  }  
 }
