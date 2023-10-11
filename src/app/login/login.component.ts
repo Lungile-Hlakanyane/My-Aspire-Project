@@ -4,7 +4,8 @@ import { Router } from '@angular/router';
 import { FormBuilder,FormGroup,Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
+import { LoginService } from './service/login.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -12,31 +13,43 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  disableSelect = new FormControl(false);//cannnot recall why this is here!!!
 
+  rememberMe: boolean = false;
   public loginForm!:FormGroup;
 
-  constructor(private _router:Router,private _formBuilder:FormBuilder,
-    private _http:HttpClient,private _snackBar:MatSnackBar){}
 
+  disableSelect = new FormControl(false);//cannnot recall why this is here!!!
+
+  constructor(
+    private _rememberMeService:LoginService,
+    private _router:Router,
+    private _formBuilder:FormBuilder,
+    private _http:HttpClient,
+    private _snackBar:MatSnackBar){
+      this.rememberMe = this._rememberMeService.getRememberMe();
+    }
     
   ngOnInit(): void {
     this.loginForm = this._formBuilder.group({
-      email:['',Validators.required,Validators.email],//TODO: Fix email verification
-      password:['',Validators.required]
+      email: ['', [Validators.required, Validators.email]], 
+    password: ['', Validators.required],
+    rememberMe: [this.rememberMe]
     })
+  }
+
+  toggleRememberMe(){
+    this.rememberMe = !this.rememberMe;
+    this._rememberMeService.setRememberMe(this.rememberMe);
   }
 
  get f (){
   return this.loginForm.controls;
  }
-
-  
+ 
   navigateToRegisterPage():void{
     this._router.navigateByUrl('/register-page');
   }
 
- 
   navigateToForgotPassword():void{
     this._router.navigateByUrl('/forgot-password');
   }

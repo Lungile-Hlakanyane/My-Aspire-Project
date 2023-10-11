@@ -58,10 +58,11 @@ import { AddInvoiceComponent } from './invoice/add-invoice/add-invoice/add-invoi
 import { InvoiceInforComponent } from './invoice/invoice-infor/invoice-infor.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { AddStageComponent } from './lead/add-lead-stage/add-stage/add-stage.component';
-import { DragDropModule } from '@angular/cdk/drag-drop';
+import { DragDropModule } from '@angular/cdk/drag-drop';//included
 import { DeleteLeadStageComponent } from './lead/delete-lead-stage/delete-lead-stage.component';
 import { LeadInfoComponent } from './lead/lead-info/lead-info.component';
 import { NgChartsModule } from 'ng2-charts';
+
 
 @NgModule({
   declarations: [
@@ -129,9 +130,9 @@ import { NgChartsModule } from 'ng2-charts';
     MatMenuModule,
     MatButtonModule,
     MatTabsModule,
-    DragDropModule,
+    DragDropModule,//included
     NgChartsModule,
-
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -301,12 +301,9 @@ body{
 }
 
 .stagaes-container .column{
-    // background-color: #fff;
-    // border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
     min-width: 200px;
-    // box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 }
 
 .stagaes-container h3{
@@ -315,8 +312,6 @@ body{
 }
 
 .stagaes-container .task {
-    // background-color: #f9f9f9;
-    // border: 1px solid #ddd;
     border-radius: 5px;
     padding: 5px;
     margin-bottom: 5px;
@@ -357,8 +352,7 @@ body{
 .vertical-divider {
     height: 100%; 
     width: 2px; 
-    background-color: transparent; 
-    // border-left: 2px solid #868484; 
+    background-color: transparent;  
     margin: 0 auto;
   }
 
@@ -410,4 +404,93 @@ body{
 
   .stage-name-title{
     font-weight: bold;
+  }
+
+
+  .stages-container-horizontal {
+    display: flex;
+    overflow-x: auto; /* Add horizontal scrolling if stages overflow */
+    white-space: nowrap; /* Prevent line breaks for stages */
+  }
+  
+  .stage {
+    width: 300px; /* Adjust the width of each stage card as needed */
+    border: 1px solid #ccc;
+    margin-right: 10px; /* Add space between stages */
+    padding: 10px;
+  }
+
+
+//   Kanbon board styles here
+.kanban-board {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.column {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 30%;
+    padding: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.column h2 {
+    font-size: 18px;
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+    background-color: #2196F3;
+    color: #fff;
+    border-radius: 5px 5px 0 0;
+}
+
+.task {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+//   End kanbon board styles here
+.column .task .lead-budget{
+    color: #007bff;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.name-action-lead-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.name-action-lead-container .lead-of-action{
+    display: flex;
+    gap: 5px;
+}
+
+.name-action-lead-container .lead-of-action i {
+    color: #007bff;
+}
+
+.search-lead-container{
+    position: relative;
+    left:350px;
+}
+
+.search-lead-container p{
+    font-size: 16px;
+    color: #ce3a15;
+    font-weight: bold;
+}
+
+.disabled {
+    opacity: 0.5; 
+    cursor: not-allowed; 
+    pointer-events: none; 
   }

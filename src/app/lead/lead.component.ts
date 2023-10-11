@@ -13,11 +13,9 @@ import { Lead } from './lead.interface';
 import { CurrencyPipe } from '@angular/common';
 import { AddStageComponent } from './add-lead-stage/add-stage/add-stage.component';
 import { AddStageService } from './add-lead-stage/service/add-stage.service';
-import { CdkDragDrop, DragDropModule,moveItemInArray,transferArrayItem } from '@angular/cdk/drag-drop';
 import { DeleteLeadStageComponent } from './delete-lead-stage/delete-lead-stage.component';
 import { LeadInfoComponent } from './lead-info/lead-info.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
 
 @Component({
   selector: 'app-lead',
@@ -28,9 +26,13 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class LeadComponent implements OnInit {
 
-  filteredLeads:any[] =[];
+  filteredLeads: any[] = [];//included
 
-  stageList:any[]=[];
+  stageList:any[]=[];//included
+
+  newFilteredLeads:any[] =[];
+
+  disableEditButton: boolean[] = [];
 
   stages:string[]=['New Lead', 'Deal', 'Quotation', 'Lost', 'Win'];
 
@@ -41,59 +43,63 @@ export class LeadComponent implements OnInit {
   dataSource = new MatTableDataSource<any>();
 
   currentItem:any;
-
-  newLead: Lead[] = [
-    {
-      leadId: "lead-001",
-      leadName: "Lungile",
-      status: "New Lead"
-    },
-    {
-      leadId: "lead-002",
-      leadName: "Sinawo",
-      status: "Deal"
-    },
-    {
-      leadId: "lead-004",
-      leadName: "Blessing",
-      status: "Quotation"
-    },
-    {
-      leadId: "lead-005",
-      leadName: "Pride",
-      status: "Win"
-    },
-    {
-      leadId: "lead-006",
-      leadName: "Tk",
-      status: "Lost"
-    }
-  ];
-
-  onDragStart(item:any){
-   
+ 
+  onDragStart(item: any) {
     this.currentItem = item;
+    console.log('onDragStart');
   }
 
-  filterLeads(status:string){
-    return this.newLead.filter(m=>m.status == status)
-  }
+  item: any;
 
-  onDrop(event:any, status:string){
-
+  onDrop(event: any, status: string) {
     event.preventDefault();
-    const record = this.newLead.find(m=>m.leadId == this.currentItem.leadId);
-    if(record!=undefined){
-      record.status = status;
+  
+    if (this.currentItem) {
+      const originalStatus = this.currentItem.status;
+      this.currentItem.status = status;
+  
+      // If the current status is 'deal' and the new status is not 'deal', disable edit button
+      if (originalStatus === 'deal' && status !== 'deal') {
+        this.disableEditButton[this.currentItem.id] = true;
+      }
+  
+      // Rest of your onDrop logic
+      this._leadService.updateLeadStatus(this.currentItem.id, status).subscribe(() => {
+        const message = status === 'win'
+          ? `Congratulations, You have a new client - Status: ${status}`
+          : `Lead status updated to ${status} successfully`;
+  
+        this._snackBar.open(message, 'OK');
+  
+        this._leadService.moveLeadToClients(this.currentItem).subscribe((response) => {
+          // this._snackBar.open('Added successfully as a Client','Ok');
+        }, (error) => {
+          console.log('Error adding lead to clients', error);
+        });
+      });
+  
+      if (status === 'win') {
+        this._snackBar.open('Congratulations, You have a new Client', 'Ok', {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'top'
+        });
+      } else {
+        this._snackBar.open('Lead status updated successfully updated', 'OK', {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'top'
+        });
+      }
+      this.currentItem = null;
     }
-    this.currentItem = null;
-  }
-
-  onDragOver(event:any){
-    event.preventDefault();
   }
   
-
+  onDragOver(event: any, status: string) {
+    event.preventDefault();
+    console.log('OnDragOver');
+  }
+  
   openAddLeadStage():void{
     const dialogRef = this._dialog.open(AddStageComponent,{
       width:'400px',
@@ -106,20 +112,10 @@ export class LeadComponent implements OnInit {
     })
   }
 
-  leads:any[]=[];
+  leads:any[]=[];//included
 
   searchTerm:string ='';
-
-  displayedColumns:string[]=[
-    'person',
-    'organization',
-    'email',
-    'mobile',
-    'country',
-    'region',
-    'budget',
-    'action'
-  ]
+  searchUnavailable:boolean=false;
 
   constructor(
     private _http:HttpClient,
@@ -131,29 +127,48 @@ export class LeadComponent implements OnInit {
     ){}
 
     applyFilter() {
-      if (this.searchTerm) {
-        this.filteredLeads = this.leads.filter((lead) =>
-          lead.person.toLowerCase().includes(this.searchTerm.toLowerCase())
-        );
-      } else {
-        this.filteredLeads = this.leads.slice();
-      }
+      this.filteredLeads = this.leads.filter((lead) =>
+        lead.person && lead.person.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+    
+      this.searchUnavailable = this.filteredLeads.length === 0;
     }
+    
 
     ngOnInit(): void {
 
-      this.filteredLeads = this.leads.slice();
+      this._http.get<any[]>('http://localhost:3000/leads').subscribe((data)=>{
+        this.leads = data;
+      })
 
       this._addStageService.getAllStages().subscribe((stages)=>{
         this.stageList = stages;
       })
 
+      this.leads.forEach((lead)=>{
+        this.disableEditButton[lead.id] = lead.status !== 'deal';
+      })
+
       this._http.get<any[]>('http://localhost:3000/leads').subscribe((data)=>{
         this.leads=data;
+        this.filteredLeads = this.filterLeadByStage(1);
+        this.filteredLeads = this.leads.slice();
         this.dataSource = new MatTableDataSource(this.leads);
       });
+
       this._leadService.getAllLeads().subscribe((data:Lead[])=>{
         this.dataSource.data = data;
+      })
+    }
+
+    //included
+    newFilterLeads(status:string):any[]{
+      return this.leads.filter((lead)=>lead.status === status);
+    }
+
+    filterLeadByStage(stageId:number){
+      return this.leads.filter((lead)=>{
+        return lead.stageId === stageId;
       })
     }
     
@@ -169,33 +184,10 @@ export class LeadComponent implements OnInit {
     const dialogRef = this._dialog.open(AddLeadComponent);
   }
 
-  onDropLead(event: CdkDragDrop<Lead[]>): void {
-    
-    if (event.previousContainer === event.container) {
-
-      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
-
-    } else {
-      
-      transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
-  
-      const movedLead = event.item.data;
-
-      const newStageId = Number(event.container.id);
-  
-      this._leadService.updateLeadStage(movedLead.id, newStageId).subscribe(
-        (response) => {
-          // this._snackBar.open('Moved Lead Successfully', 'Ok');
-          console.log('Moved Lead Successfully');
-        },
-        (error) => {
-          this._snackBar.open('Error: Unable to move Lead', 'Ok');
-        }
-      );
-    }
+  openLeadInfoDialogBox(){
+    this._dialog.open(LeadInfoComponent);
   }
-  
-  
+
   openDialog():void{
     const dialogRef = this._dialog.open(ConfrmDialogComponent);
 
@@ -243,9 +235,7 @@ export class LeadComponent implements OnInit {
   }
 
   navigateToInvoicePage():void{
-
     this._router.navigateByUrl('invoice');
-
   }
 
   navigateToSettingsPage():void{
@@ -262,11 +252,6 @@ export class LeadComponent implements OnInit {
     if (index !== -1) {
       this.leads[index].stage = newStage;
     }
-  }
-   
-  updateLeadStage(lead: any) {
-    const apiUrl = `http://localhost:3000/leads/${lead.id}`;
-    return this._http.patch(apiUrl, { stage: lead.stage });
   }
   
   openEditStage(data:any){

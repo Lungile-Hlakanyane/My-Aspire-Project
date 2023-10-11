@@ -25,71 +25,43 @@
   "recievers": {},
   "leads": [
     {
-      "person": "Pick 'n Pay",
-      "organization": "Pick 'n Pay",
-      "email": "picknpay@gmail.com",
-      "mobile": "0585775",
+      "person": "Boxer Store Center",
+      "organization": "Retailer",
+      "email": "boxer@gmail.com",
+      "mobile": "053462527",
       "country": "south africa",
       "region": "free state province",
-      "budget": "66565657",
-      "currency_type": "united states dollar ",
-      "description": "",
-      "note": "",
-      "id": 4
-    },
-    {
-      "person": "Lungile",
-      "organization": "Aspire",
-      "email": "lungile@gmail.com",
-      "mobile": "09474874",
-      "country": "south africa",
-      "region": "gauteng province",
-      "budget": "900000",
+      "budget": "890505",
       "currency_type": "south african rand",
       "description": "",
       "note": "",
-      "id": 5
-    },
-    {
-      "person": "Shoprite",
-      "organization": "Shoprite",
-      "email": "shoprite@gmail.com",
-      "mobile": "9409484",
-      "country": "south africa",
-      "region": "free state province",
-      "budget": "87666",
-      "currency_type": "united states dollar ",
-      "description": "",
-      "note": "",
-      "id": 6
-    },
-    {
-      "person": "Checkers",
-      "organization": "Checkers",
-      "email": "checkers@gmail.com",
-      "mobile": "5353633",
-      "country": "south africa",
-      "region": "gauteng province",
-      "budget": "50000",
-      "currency_type": "united states dollar ",
-      "description": "",
-      "note": "",
-      "id": 7
+      "status": "quotation",
+      "id": 1
     }
   ],
-  "clients": [],
+  "clients": [
+    {
+      "contact_name": "Vincent",
+      "email": "lungile@gmail.com",
+      "author": "Vincent",
+      "mobile": 5363783,
+      "type": "Individual",
+      "date": "2023-10-29T22:00:00.000Z",
+      "id": 1
+    }
+  ],
   "stages": [
     {
       "stage_name": "Deal",
       "id": 1
     },
     {
-      "stage_name": "Quotation",
-      "id": 2
-    },
-    {
       "stage_name": "Win",
       "id": 3
+    },
+    {
+      "stage_name": "Lost",
+      "id": 4
     }
   ],
   "invoices": [
@@ -177,6 +149,13 @@
       "status": "Paid",
       "date": "2023-09-23T22:00:00.000Z",
       "id": 1
+    },
+    {
+      "contact_name": "Msebenzi",
+      "total": 90676,
+      "status": "Paid",
+      "date": "2023-12-25T22:00:00.000Z",
+      "id": 2
     }
   ],
   "registerd_users": [
@@ -185,6 +164,18 @@
       "email": "admin@gmail.com",
       "password": "Admin@123",
       "id": 1
+    },
+    {
+      "name": "Lungile",
+      "email": "lungilehlakanyane@gmail.com",
+      "password": "L@ngile2190",
+      "id": 2
+    },
+    {
+      "name": "stober",
+      "email": "stober@gmail.com",
+      "password": "123",
+      "id": 3
     }
   ]
 }

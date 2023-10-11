@@ -8,7 +8,6 @@ import { LeadService } from '../service/lead.service';
 import { DialogRef } from '@angular/cdk/dialog';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
-
 @Component({
   selector: 'app-add-lead',
   templateUrl: './add-lead.component.html',
@@ -17,7 +16,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class AddLeadComponent implements OnInit{
 
   leadForm:FormGroup;
-  leads:any[]=[];
+  leads: any[] = [];
 
   countries =[
     {value: 'south africa',viewValue:'South Africa'},
@@ -40,40 +39,73 @@ export class AddLeadComponent implements OnInit{
   ]
 
   ngOnInit(): void {
-    // fetch leads from json server API
     this.leadForm.patchValue(this.data);
-    
     this._http.get<any[]>('http://localhost:3000/leads').subscribe(data=>{
       this.leads = data;
-
     })
   }
 
-  saveLeadDetails(){
-   
-      if(this.data){
-        this._leadService.updateLead(this.data.id,this.leadForm.value).subscribe({
-          next:(val:any)=>{
-            this._snackBar.open('Lead details edited successfuly','OK');
-            this._dialogRef.close();
-          },
-          error:(error:any)=>{
-            this._snackBar.open('An error occured unable to update lead','Ok');
-          }
-        })
-      }else{
-        this._leadService.addLead(this.leadForm.value).subscribe({
-          next:(val:any)=>{
-            this._snackBar.open('Lead added successfully', 'Ok');
-            this._dialogRef.close();
-          },
-          error:(err:any)=>{
-            this._snackBar.open('An error occured unable to add a lead','Ok');
-          }
-        } 
-        )
-      }
+  saveLeadDetails() {
+    if (this.data) {
+      // Make sure the 'status' property is set to 'deal' when updating
+      this.leadForm.value.status = 'deal';
+  
+      this._leadService.updateLead(this.data.id, this.leadForm.value).subscribe({
+        next: (val: any) => {
+          this._snackBar.open('Lead details updated successfully', 'OK');
+          this._dialogRef.close();
+        },
+        error: (error: any) => {
+          this._snackBar.open('An error occurred; unable to update lead', 'OK');
+        }
+      });
+    } else {
+      const newLeadData = this.leadForm.value;
+      // Make sure the 'status' property is set to 'deal' when adding a new lead
+      newLeadData.status = 'deal';
+  
+      this._leadService.addLead(newLeadData).subscribe({
+        next: (val: any) => {
+          this._snackBar.open('Lead added successfully', 'OK');
+          this._dialogRef.close();
+        },
+        error: (err: any) => {
+          this._snackBar.open('An error occurred; unable to add a lead', 'OK');
+        }
+      });
+    }
   }
+  
+  // saveLeadDetails(){
+  //     if(this.data){
+
+  //       // Make sure the 'status' property is set to 'deal' when updating
+  //        this.leadForm.value.status = 'deal';
+
+  //       this._leadService.updateLead(this.data.id,this.leadForm.value).subscribe({
+  //         next:(val:any)=>{
+  //           this._snackBar.open('Lead details updated successfuly','OK');
+  //           this._dialogRef.close();
+  //         },
+  //         error:(error:any)=>{
+  //           this._snackBar.open('An error occured unable to update lead','OK');
+  //         }
+  //       })
+  //     }else{
+  //       const newLeadData = this.leadForm.value;
+  //       newLeadData.status = 'deal';
+  //       this._leadService.addLead(this.leadForm.value).subscribe({
+  //         next:(val:any)=>{
+  //           this._snackBar.open('Lead added successfully', 'Ok');
+  //           this._dialogRef.close();
+  //         },
+  //         error:(err:any)=>{
+  //           this._snackBar.open('An error occured unable to add a lead','Ok');
+  //         }
+  //       } 
+  //      )
+  //     }
+  // }
 
   constructor(
     private _router:Router,
@@ -87,7 +119,7 @@ export class AddLeadComponent implements OnInit{
       this.leadForm = this._fb.group({
         person: ['',Validators.required],
         organization:['',Validators.required],
-        email: ['',Validators.required, Validators.email],
+        email: ['',Validators.required,],
         mobile:['',Validators.required,],
         country:['',Validators.required],
         region:['',Validators.required],
@@ -106,7 +138,6 @@ export class AddLeadComponent implements OnInit{
   get f (){
     return this.leadForm.controls;
   }
-
 
   handleImageUpload(event:any):void{
     const selectedFile = event.target.files[0];

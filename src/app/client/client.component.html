@@ -108,16 +108,12 @@
         </ng-container>
           <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
           <mat-row *matRowDef="let client; columns: displayedColumns;"></mat-row>
-        </mat-table>
-
-        
+        </mat-table>  
       </ng-container>
-
 
       <div class="table-pagination-container" *ngIf="clients.length>0">
           <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
       </div>
-
-
     </div>
+    
 </section>

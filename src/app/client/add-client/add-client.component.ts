@@ -23,7 +23,6 @@ export class AddClientComponent implements OnInit{
 
     this.clientForm.patchValue(this.data);
 
-    // fetch clients from the API
     this._http.get<any[]>('http://localhost:3000/clients').subscribe(data=>{
       this.clients = data;
     })
@@ -40,7 +39,7 @@ export class AddClientComponent implements OnInit{
     ){
     this.clientForm = this._fb.group({
       contact_name: ['',Validators.required],
-      email:['',Validators.required,Validators.email],
+      email:['',Validators.required],
       author:['',Validators.required],
       mobile:['',Validators.required],
       type:['',Validators.required],

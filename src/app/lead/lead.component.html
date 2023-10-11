@@ -29,60 +29,115 @@
       <div class="doc-div-container">
           <i class="fa-solid fa-file"></i>
       </div>
+
       <div class="search-container">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <input type="text" class="search-input" placeholder=" Search Lead" [(ngModel)]="searchTerm" (keyup)="applyFilter()">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" class="search-input" placeholder="Search Lead" [(ngModel)]="searchTerm" (input)="applyFilter()">
       </div>
   </div>
-
-  <div class="leads-stages">
-     <div class="title"><h4 class="leads">Leads Stages Here</h4></div>
-     <div class="add-stage-button">
-      <button mat-raised-button color="primary" (click)="openAddLeadStage()">+Add Stage</button>
-     </div>
-  </div>
-
-  <div class="whole-stages-container">
-    <div class="stages-container" class="stages-container" cdkDropList id="new-lead-list" (cdkDropListDropped)="onDropLead($event)">
-      <div class="column">
-        <div class="heading-text-edit-icon">
-          <div class="stage-name-content" id="looped">
-            <h3 class="stage-name-title">New Lead</h3>
-            <div id="looped-lead" *ngFor="let lead of filteredLeads" cdkDrag>
-              <div class="name_plus_action_currency">
-                <div  class="name">
-                  <span (click)="displayMoreLeadInfo()">{{lead.person}}</span><br>
-                </div>
-                <div class="action-icons">
-                  <i class="fa-solid fa-trash" (click)="openDeleteLeadDialog(lead.id)"></i>
-                  <i class="fa-solid fa-pen-to-square" (click)="openEditForm(lead)"></i>
-                </div>
+    <div class="leads-stages">
+      <div class="title"><h4 class="leads">Leads Stages Here</h4></div>
+    </div>
+    <div *ngIf="searchUnavailable; else searchResults" class="search-lead-container">
+      <p><i class="fa-solid fa-triangle-exclamation"></i> Ops! No Leads Available</p>
+    </div>
+    <ng-template  #searchResults> 
+      <div class="kanban-board">
+        <div class="column" (dragover)="onDragOver($event, 'deal')" (drop)="onDrop($event, 'deal')">
+          <h2>Deal</h2>
+          <div
+          class="task"
+          draggable="true"
+          *ngFor="let item of newFilterLeads('deal')"
+          (dragstart)="onDragStart(item)"
+          (drop)="onDrop($event, 'deal')"
+          >
+            <div class="name-action-lead-container">
+              <div class="name-of-lead">
+                {{ item.person }}
               </div>
-              <span class="currency">{{lead.budget | currency}}</span>
+              <div class="lead-of-action">
+                <span (click)="openLeadInfoDialogBox()"><i class="fa-solid fa-circle-info"></i></span>
+                <span (click)="openDeleteLeadDialog(item.id)"><i class="fa-solid fa-trash"></i></span>
+                <span (click)="openEditForm(item)">
+                  <i class="fa-solid fa-pen-to-square"></i>
+                </span>
+              </div>
+            </div>
+            <br />
+            <span class="lead-budget">R{{ item.budget }}</span>
+          </div>
+        </div>
+        
+        <div class="column" (dragover)="onDragOver($event, 'quotation')" (drop)="onDrop($event, 'quotation')">
+          <h2>Quotation</h2>
+          <div
+            class="task"
+            draggable="true"
+            *ngFor="let item of newFilterLeads('quotation')"
+            (dragstart)="onDragStart(item)"
+          >
+          <div class="name-action-lead-container">
+            <div class="name-of-lead">
+              {{ item.person }}
+            </div>
+            <div class="lead-of-action">
+              <span (click)="openLeadInfoDialogBox()"><i class="fa-solid fa-circle-info"></i></span>
+              <span (click)="openDeleteLeadDialog(item.id)"><i class="fa-solid fa-trash"></i></span>
+              <span (click)="openEditForm(item)" [ngClass]="{ 'disabled': disableEditButton[item.id] }">
+                <i class="fa-solid fa-pen-to-square"></i>
+              </span>
             </div>
           </div>
-          <div class="action-icons">
-            <div class="vertical-divider"></div>
+            <br />
+            <span class="lead-budget">R{{ item.budget }}</span>
+          </div>
+        </div>
+        <div class="column" (dragover)="onDragOver($event, 'lost')" (drop)="onDrop($event, 'lost')">
+          <h2>Lost</h2>
+          <div
+            class="task"
+            draggable="true"
+            *ngFor="let item of newFilterLeads('lost')"
+            (dragstart)="onDragStart(item)"
+          >
+          <div class="name-action-lead-container">
+            <div class="name-of-lead" (click)="openLeadInfoDialogBox()">
+              {{ item.person }} 
+            </div>
+            <div class="lead-of-action">
+              <span (click)="openLeadInfoDialogBox()"><i class="fa-solid fa-circle-info"></i></span>
+              <span (click)="openDeleteLeadDialog(item.id)"><i class="fa-solid fa-trash"></i></span>
+              <span (click)="openEditForm(item)" [ngClass]="{ 'disabled': disableEditButton[item.id] }">
+                <i class="fa-solid fa-pen-to-square"></i>
+              </span>
+              
+            </div>
+          </div>
+            <br />
+            <span class="lead-budget">R{{ item.budget }}</span>
+          </div>
+        </div>
+        <div class="column" (dragover)="onDragOver($event, 'win')" (drop)="onDrop($event, 'win')">
+          <h2>Won</h2>
+          <div class="task" draggable="true" *ngFor="let item of newFilterLeads('win')" (dragstart)="onDragStart(item)"
+          >
+          <div class="name-action-lead-container">
+            <div class="name-of-lead">
+              {{ item.person }}
+            </div>
+            <div class="lead-of-action">
+              <span (click)="openLeadInfoDialogBox()"><i class="fa-solid fa-circle-info"></i></span>
+              <span (click)="openDeleteLeadDialog(item.id)"><i class="fa-solid fa-trash"></i></span>
+              <span (click)="openEditForm(item)" [ngClass]="{ 'disabled': disableEditButton[item.id] }">
+                <i class="fa-solid fa-pen-to-square"></i>
+              </span>
+            </div>
+          </div>
+            <br />
+            <span class="price">Budget: {{item.budget | currency:item.currency_code}}</span>
           </div>
         </div>
       </div>
-    </div>
-  
-    <!-- Other Stages -->
-    <div class="stages-container" *ngFor="let stage of stageList" cdkDropList [id]="stage.id" (cdkDropListDropped)="onDropLead($event)">
-      <div class="column">
-        <div class="heading-text-edit-icon">
-          <div class="stage-name-content">
-            <h3 class="stage-name-title">{{ stage.stage_name }}</h3>
-          </div>
-          <div class="action-icons">
-            <span><i class="fa-solid fa-pen-to-square" (click)="openEditLeadStageForm(stage)"></i></span>
-            <span><i class="fa-solid fa-trash" (click)="openDeleteLeadStageDialogBox(stage.id)"></i></span>
-            <span>|</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
+    </ng-template>
 </section>
