@@ -25,28 +25,33 @@
   "recievers": {},
   "leads": [
     {
-      "person": "Boxer Store Center",
+      "person": "Boxer",
       "organization": "Retailer",
       "email": "boxer@gmail.com",
-      "mobile": "053462527",
+      "mobile": "053637673",
       "country": "south africa",
-      "region": "free state province",
-      "budget": "890505",
-      "currency_type": "south african rand",
+      "region": "gauteng province",
+      "budget": "5377873",
+      "currency_type": "united states dollar ",
       "description": "",
       "note": "",
-      "status": "quotation",
+      "status": "win",
       "id": 1
     }
   ],
   "clients": [
     {
-      "contact_name": "Vincent",
-      "email": "lungile@gmail.com",
-      "author": "Vincent",
-      "mobile": 5363783,
-      "type": "Individual",
-      "date": "2023-10-29T22:00:00.000Z",
+      "person": "Boxer",
+      "organization": "Retailer",
+      "email": "boxer@gmail.com",
+      "mobile": "053637673",
+      "country": "south africa",
+      "region": "gauteng province",
+      "budget": "5377873",
+      "currency_type": "united states dollar ",
+      "description": "",
+      "note": "",
+      "status": "win",
       "id": 1
     }
   ],

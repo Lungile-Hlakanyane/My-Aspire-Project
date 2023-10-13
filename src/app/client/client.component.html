@@ -19,10 +19,6 @@
        <div class="title-of-page">
          <h4 class="i-name">Clients</h4>
        </div>
-        <div class="add-invoice-div">
-            <button mat-raised-button color="primary" class="add-invoice-btn" (click)="openAddClientDialogBox()"> + Add Client</button>
-            <button mat-raised-button><i class="fa-solid fa-ellipsis"></i></button>
-        </div>
     </div>
     <div class="invoice-table" *ngIf="clients.length>0">
         <div class="move-up">
@@ -57,11 +53,10 @@
       <ng-container *ngIf="clients.length>0; else noClients">
 
         <mat-table [dataSource]="dataSource" matSort matSortActive="date" matSortDirection="asc">
+          
           <ng-container matColumnDef="contact_name">
             <mat-header-cell *matHeaderCellDef class="heading-title">Contact Name</mat-header-cell>
-            <mat-cell *matCellDef="let client"> <p>
-              <mat-checkbox class="client-check-box"></mat-checkbox>
-            </p><span class="profile-icon" (click)="navigateToClientProfile(client.id)"><i class="fa-solid fa-user"></i> </span> {{ client.contact_name }}</mat-cell>
+            <mat-cell *matCellDef="let client">{{ client.person }}</mat-cell>
           </ng-container>
         
           <ng-container matColumnDef="email">
@@ -74,19 +69,19 @@
             <mat-cell *matCellDef="let client">{{ client.mobile }}</mat-cell>
           </ng-container>
         
-          <ng-container matColumnDef="type">
-            <mat-header-cell *matHeaderCellDef class="heading-title">Type</mat-header-cell>
-            <mat-cell *matCellDef="let client">{{ client.type }}</mat-cell>
+          <ng-container matColumnDef="budget">
+            <mat-header-cell *matHeaderCellDef class="heading-title">Budget</mat-header-cell>
+            <mat-cell *matCellDef="let client">{{ client.budget }}</mat-cell>
           </ng-container>
 
-          <ng-container matColumnDef="author">
-              <mat-header-cell *matHeaderCellDef class="heading-title">Author</mat-header-cell>
-              <mat-cell *matCellDef="let client">{{ client.author }}</mat-cell>
+          <ng-container matColumnDef="country">
+              <mat-header-cell *matHeaderCellDef class="heading-title">Country</mat-header-cell>
+              <mat-cell *matCellDef="let client">{{ client.country | currency:client.currency_code}}</mat-cell>
             </ng-container>
 
-          <ng-container matColumnDef="date">
-              <mat-header-cell *matHeaderCellDef class="heading-title">Date</mat-header-cell>
-              <mat-cell *matCellDef="let client">{{ client.date | date: 'dd/MM/yyyy' }}</mat-cell>
+          <ng-container matColumnDef="note">
+              <mat-header-cell *matHeaderCellDef class="heading-title">Note</mat-header-cell>
+              <mat-cell *matCellDef="let client">{{ client.note}}</mat-cell>
           </ng-container>
 
           <ng-container matColumnDef="actions">

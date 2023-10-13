@@ -22,7 +22,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   templateUrl: './lead.component.html',
   styleUrls: ['./lead.component.scss'],
   providers:[CurrencyPipe],
-  
 })
 export class LeadComponent implements OnInit {
 
@@ -57,11 +56,15 @@ export class LeadComponent implements OnInit {
     if (this.currentItem) {
       const originalStatus = this.currentItem.status;
       this.currentItem.status = status;
-  
-      // If the current status is 'deal' and the new status is not 'deal', disable edit button
-      if (originalStatus === 'deal' && status !== 'deal') {
-        this.disableEditButton[this.currentItem.id] = true;
-      }
+
+    if(originalStatus!=='win' && status ==='win'){
+      // If the lead is moved to "win" from a different status, send an HTTP POST request to store it in "clients".
+      this._http.post('http://localhost:3000/clients', this.currentItem).subscribe((response) => {
+        console.log('Lead moved to clients:', response);
+      });
+    }else{
+      
+    }
   
       // Rest of your onDrop logic
       this._leadService.updateLeadStatus(this.currentItem.id, status).subscribe(() => {
@@ -70,12 +73,6 @@ export class LeadComponent implements OnInit {
           : `Lead status updated to ${status} successfully`;
   
         this._snackBar.open(message, 'OK');
-  
-        this._leadService.moveLeadToClients(this.currentItem).subscribe((response) => {
-          // this._snackBar.open('Added successfully as a Client','Ok');
-        }, (error) => {
-          console.log('Error adding lead to clients', error);
-        });
       });
   
       if (status === 'win') {
@@ -95,6 +92,7 @@ export class LeadComponent implements OnInit {
     }
   }
   
+
   onDragOver(event: any, status: string) {
     event.preventDefault();
     console.log('OnDragOver');
@@ -184,8 +182,10 @@ export class LeadComponent implements OnInit {
     const dialogRef = this._dialog.open(AddLeadComponent);
   }
 
-  openLeadInfoDialogBox(){
-    this._dialog.open(LeadInfoComponent);
+  openLeadInfoDialogBox(lead: any): void {
+    this._dialog.open(LeadInfoComponent, {
+      data: { lead }
+    });
   }
 
   openDialog():void{

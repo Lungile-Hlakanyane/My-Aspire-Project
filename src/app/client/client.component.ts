@@ -11,17 +11,20 @@ import { HttpClient } from '@angular/common/http';
 import { DeleteClientComponent } from './delete-client/delete-client.component';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
+import { CurrencyPipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-client',
   templateUrl: './client.component.html',
-  styleUrls: ['./client.component.scss']
+  styleUrls: ['./client.component.scss'],
+  providers:[CurrencyPipe],
 })
 export class ClientComponent implements OnInit {
 
   dataSource = new MatTableDataSource<any>();
   
-  displayedColumns: string[]=['contact_name','email','mobile','type','author','date','actions'];
+  displayedColumns: string[]=['contact_name','email','mobile','budget','country','note','actions'];
   
   clients:any[]=[];
 
