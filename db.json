@@ -23,38 +23,8 @@
     "mobile": 642242118
   },
   "recievers": {},
-  "leads": [
-    {
-      "person": "Boxer",
-      "organization": "Retailer",
-      "email": "boxer@gmail.com",
-      "mobile": "053637673",
-      "country": "south africa",
-      "region": "gauteng province",
-      "budget": "5377873",
-      "currency_type": "united states dollar ",
-      "description": "",
-      "note": "",
-      "status": "win",
-      "id": 1
-    }
-  ],
-  "clients": [
-    {
-      "person": "Boxer",
-      "organization": "Retailer",
-      "email": "boxer@gmail.com",
-      "mobile": "053637673",
-      "country": "south africa",
-      "region": "gauteng province",
-      "budget": "5377873",
-      "currency_type": "united states dollar ",
-      "description": "",
-      "note": "",
-      "status": "win",
-      "id": 1
-    }
-  ],
+  "leads": [],
+  "clients": [],
   "stages": [
     {
       "stage_name": "Deal",

@@ -12,6 +12,7 @@ import { DeleteClientComponent } from './delete-client/delete-client.component';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { CurrencyPipe } from '@angular/common';
+import { ClientInfoComponent } from './client-info/client-info.component';
 
 
 @Component({
@@ -50,7 +51,6 @@ export class ClientComponent implements OnInit {
     this.showClientOptions = !this.showClientOptions;
   }
 
-
   constructor(
     private _router:Router,
     private _dialog:MatDialog,
@@ -76,7 +76,6 @@ export class ClientComponent implements OnInit {
   }
 
   navigateToClientProfile(clientId: string) {
-   
     this._router.navigate(['/client', clientId]);
   }
 
@@ -90,15 +89,14 @@ export class ClientComponent implements OnInit {
     })
   };
 
+
   deleteClient(clientId: number): void {
     const url = `http://localhost:3000/clients/${clientId}`;
   
     this._http.delete(url).subscribe(
       () => {
         
-        this.clients = this.clients.filter(client => client.id !== clientId);
-  
-       
+        this.clients = this.clients.filter(client => client.id !== clientId);     
         this._snackBar.open('Client successfully deleted', 'Close', {
           duration: 3000,
           panelClass: ['success-snackbar']
@@ -119,7 +117,8 @@ export class ClientComponent implements OnInit {
       data
     });
   }
-  
+
+
   displayClientsOnConsole(clients:Client[]):void{
     console.log('Client Data: ',clients);
   }

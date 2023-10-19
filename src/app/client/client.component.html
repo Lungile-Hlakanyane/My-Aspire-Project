@@ -43,8 +43,7 @@
         <div class="lead-content" id="show-when-no-clients">
           <div class="lead-content-file">
             <i class="fa-solid fa-file-circle-plus"></i>
-            <p>You have not added any Client yet.</p>
-            <button mat-raised-button color="primary" (click)="openAddClientDialogBox()">+ Let's start Adding</button>
+            <p class="warn-message">No clients available now</p>
           </div>
         </div>
 
@@ -56,7 +55,9 @@
           
           <ng-container matColumnDef="contact_name">
             <mat-header-cell *matHeaderCellDef class="heading-title">Contact Name</mat-header-cell>
-            <mat-cell *matCellDef="let client">{{ client.person }}</mat-cell>
+            <mat-cell *matCellDef="let client">
+              <span (click)="navigateToClientProfile(client.id)"><i class="fa-solid fa-user"></i></span>
+              {{ client.person }}</mat-cell>
           </ng-container>
         
           <ng-container matColumnDef="email">
@@ -94,7 +95,6 @@
                   <i class="fa-solid fa-ellipsis"></i>
                 </button>
                 <mat-menu #menu="matMenu">
-                  <button mat-menu-item (click)="openEditForm(client)">Edit</button>
                   <button mat-menu-item (click)="openDeleteClietDialog(client.id)">Delete</button>
                 </mat-menu>
               </td>

@@ -25,20 +25,20 @@
             </div>
             <div class="info-details-edit">
                 <div class="contact-name">
-                    <h1>{{client.contact_name}}</h1>
+                    <h1>{{client.person}}</h1>
                 </div>
                 <div class="edit-btn">
-                    <button mat-raised-button color="primary" (click)="openEditForm(client)">Edit</button>
+                    <button mat-raised-button color="primary">Contact</button>
                 </div>
             </div>
             <div class="more-details-info">
                 <h4 class="email">{{client.email}}</h4> <br>
-                <h4 class="organization">Organization: </h4>
+                <h4 class="organization">Organization: {{client.organization}}</h4>
             </div>
         </div>
         <div class="status-profile">
             <div>
-                <p>Status: <button mat-raised-button color="primary">Active</button></p>
+                <p>Status: <button mat-raised-button color="primary">{{client.status}}</button></p>
             </div>
             <div class="options-btn-div">
                 <button mat-raised-button class="options-btn" color="primary"><i class="fa-solid fa-ellipsis"></i></button>
@@ -63,8 +63,6 @@
     <div class="div-main-container">
         
         <div class="add-more-infor">
-
-            
             <div class="navigation">
                 <ul>
                     <li>Task & Activity</li>
@@ -75,9 +73,7 @@
                     <li>Project</li>
                 </ul>
             </div>
-
             <div class="main-content-body">
-
                 <div class="add-task">
                     <h4 class="add-task-title">Add task & activity</h4>
                     <ul class="btn-list">
@@ -108,6 +104,7 @@
         <p>Website:</p>
         <br>
         <p>Address:</p>
-        <p>AL Mahamah, Bahrain</p>
+        <p>{{client.region}}</p> <br>
+        <p>{{client.country}}</p>
     </div>
 </section>

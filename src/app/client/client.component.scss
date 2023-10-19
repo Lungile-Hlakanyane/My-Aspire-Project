@@ -547,3 +547,24 @@ table {
     padding-top: 20px;
     padding-bottom: 20px;
 }
+.fa-solid{
+    padding-right: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#show-when-no-clients{
+    padding-top: 150px;
+    padding-bottom: 150px;
+}
+
+#show-when-no-clients i{
+    color: #190dc0;
+    font-size: 50px;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+#show-when-no-clients .warn-message{
+    font-size: 16px;
+}
