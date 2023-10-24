@@ -1,0 +1,16 @@
+<section id ="menu" *ngIf="shouldDisplayMenu()">
+    <div class="logo">
+        <i class="fa-solid fa-bars"> <span>INVOICE</span></i>
+    </div>
+    <div class="items">
+        <li> <span class="icon"><i class="fa-solid fa-chart-line"></i></span> <a href="#" routerLink="/dashboard" >DASHBOARD</a></li>
+        <li> <span class="icon"><i class="fa-solid fa-user-tie"></i></span><a href="#" routerLink="/lead" >LEAD</a></li>
+        <li> <span class="icon"><i class="fa-solid fa-file-invoice"></i></span> <a href="#">DEAL</a></li>
+        <li> <span class="icon"><i class="fa-solid fa-book-bookmark"></i></span> <a href="#">QUOTE</a></li>
+        <li> <span class="icon"><i class="fa-solid fa-file-invoice"></i></span><a href="#" routerLink="/invoice">INVOICE</a></li>
+        <li> <span class="icon"><i class="fa-solid fa-gear"></i></span>  <a href="#" routerLink="/settings"  >SETTIGS</a></li>
+    </div>
+    <div class="log-out-btn">
+        <button mat-raised-button color="primary" (click)="openExitDialog()"> <span class="icon"><i class="fa-solid fa-right-from-bracket"></i></span>  LOGOUT</button>
+    </div>
+</section>

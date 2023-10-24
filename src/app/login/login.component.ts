@@ -74,7 +74,7 @@ export class LoginComponent implements OnInit {
         this.loginForm.reset();
         this._router.navigateByUrl('/dashboard');
       
-        this.showSnackBar('Login Successful!');
+        this.showSnackBar('Successfully Logged In!');
       }else {
         this.showSnackBar('Enter your correct login credentials to log in');
       }

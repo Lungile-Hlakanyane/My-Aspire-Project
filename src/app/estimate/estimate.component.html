@@ -1,19 +1,4 @@
-<section id ="menu">
-    <div class="logo">
-        <i class="fa-solid fa-bars"> <span>Invoice</span></i>
-    </div>
-    <div class="items">
-        <li><a href="#" routerLink="/dashboard" (click) ="navigateToDashboard()" >DASHBOARD</a></li>
-        <li><a href="#" routerLink="/lead" (click)="navigateToLeadPage()" >LEAD</a></li>
-        <li><a href="#">DEAL</a></li>
-        <li><a href="#">QUOTE</a></li>
-        <li><a href="#" routerLink="/invoice" (click)="navigateToInvoicePage()">INVOICE</a></li>
-        <li><a href="#" routerLink="/settings" (click)="navigateToSettingsPage()" >SETTIGS</a></li>
-    </div>
-    <div class="log-out-btn">
-        <button (click)="openDialog()" mat-raised-button color="primary">LOGOUT</button>
-    </div>
-</section>
+<app-sidebar></app-sidebar>
 
 
 <section id="interface">
@@ -66,7 +51,6 @@ z
                   </ng-container>
                   <ng-container matColumnDef="total">
                     <th mat-header-cell *matHeaderCellDef>Total</th>
-                    <td mat-cell *matCellDef="let estimate">{{ estimate.total }}</td>
                   </ng-container>
                   <ng-container matColumnDef="status">
                     <th mat-header-cell *matHeaderCellDef>Status</th>

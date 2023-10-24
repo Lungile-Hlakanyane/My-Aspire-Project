@@ -1,20 +1,4 @@
-<section id ="menu" class="menu">
-  <div class="logo">
-     <h3 class="pagae-title">Invoice</h3>
-  </div>
-  <div class="items">
-      <li><a href="#" rounterLink="dashboard">DASHBOARD</a></li>
-      <li><a href="#" routerLink="/lead" (click)="navigateToLeadPage()">LEAD</a></li>
-      <li><a href="#">DEAL</a></li>
-      <li><a href="#">QUOTE</a></li>
-      <li><a href="#" rounterLink="/invoice" (click)="navigateToInvoicePage()">INVOICE</a></li>
-      <li><a href="#" routerLink="/settings" (click)=" navigateToSettingsPage()">SETTIGS</a></li>
-  </div>
-  <div class="log-out-btn">
-      <button (click)="openDialog()" mat-raised-button color="primary">LOGOUT</button>
-  </div> 
-</section>
-
+<app-sidebar></app-sidebar>
 <section id="interface">
   <div class="invoice-container">
       <h4 class="i-name">Leads</h4>
@@ -84,9 +68,7 @@
             <div class="lead-of-action">
               <span (click)="openLeadInfoDialogBox(item)"><i class="fa-solid fa-circle-info"></i></span>
               <span (click)="openDeleteLeadDialog(item.id)"><i class="fa-solid fa-trash"></i></span>
-              <span (click)="openEditForm(item)" [ngClass]="{ 'disabled': disableEditButton[item.id] }">
-                <i class="fa-solid fa-pen-to-square"></i>
-              </span>
+             
             </div>
           </div>
             <br />
@@ -108,9 +90,7 @@
             <div class="lead-of-action">
               <span (click)="openLeadInfoDialogBox(item)"><i class="fa-solid fa-circle-info"></i></span>
               <span (click)="openDeleteLeadDialog(item.id)"><i class="fa-solid fa-trash"></i></span>
-              <span (click)="openEditForm(item)" [ngClass]="{ 'disabled': disableEditButton[item.id] }">
-                <i class="fa-solid fa-pen-to-square"></i>
-              </span>
+              
               
             </div>
           </div>
@@ -128,10 +108,7 @@
             </div>
             <div class="lead-of-action">
               <span (click)="openLeadInfoDialogBox(item)"><i class="fa-solid fa-circle-info"></i></span>
-              <span (click)="openDeleteLeadDialog(item.id)"><i class="fa-solid fa-trash"></i></span>
-              <span (click)="openEditForm(item)" [ngClass]="{ 'disabled': disableEditButton[item.id] }">
-                <i class="fa-solid fa-pen-to-square"></i>
-              </span>
+              
             </div>
           </div>
             <br />

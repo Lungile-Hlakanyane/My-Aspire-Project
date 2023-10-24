@@ -62,6 +62,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';//included
 import { DeleteLeadStageComponent } from './lead/delete-lead-stage/delete-lead-stage.component';
 import { LeadInfoComponent } from './lead/lead-info/lead-info.component';
 import { NgChartsModule } from 'ng2-charts';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 
 @NgModule({
@@ -103,6 +104,7 @@ import { NgChartsModule } from 'ng2-charts';
     AddStageComponent,
     DeleteLeadStageComponent,
     LeadInfoComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,

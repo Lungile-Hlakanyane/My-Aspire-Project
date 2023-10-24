@@ -23,8 +23,66 @@
     "mobile": 642242118
   },
   "recievers": {},
-  "leads": [],
-  "clients": [],
+  "leads": [
+    {
+      "person": "Boxer",
+      "organization": "retailer",
+      "email": "boxer@gmail.com",
+      "mobile": "0635653",
+      "country": "south africa",
+      "region": "gauteng province",
+      "budget": "90000",
+      "currency_type": "united states dollar ",
+      "description": "",
+      "note": "",
+      "status": "win",
+      "id": 1
+    },
+    {
+      "person": "Boxer",
+      "organization": "boxer store",
+      "email": "boxer@gmail.com",
+      "mobile": "053446223",
+      "country": "south africa",
+      "region": "gauteng province",
+      "budget": "708364",
+      "currency_type": "united states dollar ",
+      "description": "",
+      "note": "",
+      "status": "win",
+      "id": 2
+    }
+  ],
+  "clients": [
+    {
+      "person": "Boxer",
+      "organization": "retailer",
+      "email": "boxer@gmail.com",
+      "mobile": "0635653",
+      "country": "south africa",
+      "region": "gauteng province",
+      "budget": "90000",
+      "currency_type": "united states dollar ",
+      "description": "",
+      "note": "",
+      "status": "win",
+      "id": 1
+    },
+    {
+      "person": "Boxer",
+      "organization": "boxer store",
+      "email": "boxer@gmail.com",
+      "mobile": "053446223",
+      "country": "south africa",
+      "region": "gauteng province",
+      "budget": "708364",
+      "currency_type": "united states dollar ",
+      "description": "",
+      "note": "",
+      "status": "win",
+      "id": 2
+    }
+  ],
   "stages": [
     {
       "stage_name": "Deal",

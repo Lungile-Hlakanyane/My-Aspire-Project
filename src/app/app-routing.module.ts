@@ -21,10 +21,11 @@ import { InvoiceSettingsComponent } from './settings/estimate-invoice-settings/i
 import { AddClientComponent } from './client/add-client/add-client.component';
 import { ClientInfoComponent } from './client/client-info/client-info.component';
 import { InvoiceInforComponent } from './invoice/invoice-infor/invoice-infor.component';
-
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 const routes: Routes = [
-  {path:'',redirectTo:'login',pathMatch:'full'},//For testing !!
+  {path:'sidebar',component:SidebarComponent},
+  {path:'',redirectTo:'login',pathMatch:'full'},
   {path:'',component:RegisterComponent},
   {path:'register-page',component:RegisterComponent},
   {path:'login',component:LoginComponent},

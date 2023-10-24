@@ -12,12 +12,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { UpdatePasswordComponent } from './update-password/update-password.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ConfrmDialogComponent } from './confrm-dialog/confrm-dialog.component';
 import { MatIconModule } from '@angular/material/icon';
 import { SearchBarComponent } from './search-bar/search-bar.component';
-import { SettingsComponent } from './settings/settings.component';
 import { MatTableModule } from '@angular/material/table';
 import { EstimateComponent } from './estimate/estimate.component';
 import { LeadSettingsComponent } from './settings/lead-settings/lead-settings.component';
@@ -41,10 +39,8 @@ import { EditInvoiceComponent } from './invoice/edit-invoice/edit-invoice/edit-i
 
 @NgModule({
   declarations: [
-    UpdatePasswordComponent,
     ConfrmDialogComponent,
     SearchBarComponent,
-    SettingsComponent,
     EstimateComponent,
     LeadSettingsComponent,
     DealSettingsComponent,

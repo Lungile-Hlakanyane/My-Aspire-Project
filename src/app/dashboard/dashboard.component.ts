@@ -146,51 +146,6 @@ export class DashboardComponent implements OnInit{
     };
   }
 
-
-  // createInvoiceChart() {
-  //   const invoicesByMonth = {}; 
-  //   this.invoicesByMonth = {}; 
-  //   this.invoices.forEach((invoice) => {
-  //     const date = new Date(invoice.invoice_date);
-  //     const month = date.toLocaleString('default', { month: 'short' });
-  //     if (this.invoicesByMonth[month]) {
-  //       this.invoicesByMonth[month]++;
-  //     } else {
-  //       this.invoicesByMonth[month] = 1;
-  //     }
-  //   });
-  //   const months = Object.keys(invoicesByMonth);
-  //   const counts = Object.values(invoicesByMonth);
-  //   const ctx = document.getElementById('invoiceChart');
-  //   if(ctx instanceof HTMLCanvasElement){
-  //     new Chart(ctx, {
-  //       type: 'bar',
-  //       data: {
-  //         labels: months,
-  //         datasets: [
-  //           {
-  //             label: 'Number of Invoices',
-  //             data: counts,
-  //             backgroundColor: 'rgba(75, 192, 192, 0.2)',
-  //             borderColor: 'rgba(75, 192, 192, 1)',
-  //             borderWidth: 1,
-  //           },
-  //         ],
-  //       },
-  //       options: {
-  //         scales: {
-  //           y: {
-  //             beginAtZero: true,
-  //           },
-  //         },
-  //       },
-  //     });
-  //   }else{
-  //     console.log('Canvas element width: "invoiceChart" not found.');
-  //   }
-  // }
-    
-
   navigateToLeadPage():void{
     this._router.navigateByUrl('/lead');
   }
