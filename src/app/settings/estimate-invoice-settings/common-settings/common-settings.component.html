@@ -27,33 +27,38 @@
     </div>
     <div class="second-div">
         <h4 class="i-name">Estimate and Invoice: Common Settings</h4>
-        <div class="common-settings-menu">
-            <ul>
-                <li><a href="" class="active-selected-link">Currency</a></li>
-                <li><a href="">Quantity Type</a></li>
-                <li><a href="">Tax</a></li>
-                <li><a href="">Fee</a></li>
-                <li><a href="">Discount</a></li>
-            </ul>
-        </div>
-        <div class="sub-commn-settings">
+
+    <mat-tab-group>
+          <mat-tab label="Currency">
+
+            <br>
+            <br>
             <label for="">Currency</label>
             <div class="currency-input">
                 <div class="input-group mb-3">
-                    <input formControlName="text" placeholder="USD($)" type="text" class="form-control form-control bg-light fs-6 custom-height">
+                    <input placeholder="USD($)" type="text" class="form-control form-control bg-light fs-6 custom-height">
                 </div>
             </div>
+
             <label for="">Language</label>
             <div class="currency-input">
                 <div class="input-group mb-3">
-                    <input formControlName="text" placeholder="English"  type="text" class="form-control form-control bg-light fs-6 custom-height">
+                    <input  placeholder="English"  type="text" class="form-control form-control bg-light fs-6 custom-height">
                 </div>
             </div>
+
             <div class="save-common-btn">
                 <button mat-raised-button color="primary">Save</button>
             </div>
-        </div>
-        <div class="more-common-sub-settings">
+
+            
+         
+          </mat-tab>
+
+        <mat-tab label="Quantity Type">
+
+            <br>
+            <br>
             <span class="type">Quantity Type</span>
             <div class="first-div">
                 <div class="first-actions">
@@ -74,6 +79,7 @@
                     </div>
                 </div>
             </div>
+
             <span class="type">Text Fields</span>
             <div class="first-div">
                 <div class="first-actions">
@@ -94,7 +100,7 @@
                     </div>
                 </div>
             </div>
-            <div class="last-divs">
+
             <span class="type">Fee Fields</span>
             <div class="first-div">
                 <div class="first-actions">
@@ -137,8 +143,24 @@
                     </div>
                 </div>
             </div>
+
+            <div class="save-common-btn">
+                <button mat-raised-button color="primary">Save</button>
             </div>
-        </div>
+    
+        </mat-tab>
+        <mat-tab label="Tax">
+    
+
+        </mat-tab>
+        <mat-tab label="Fee">
+
+        </mat-tab>
+        <mat-tab label="Discount">
+         
+        </mat-tab>
+    </mat-tab-group>
+
     </div>
  </div>
 </section>

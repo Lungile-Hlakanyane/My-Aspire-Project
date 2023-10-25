@@ -1,5 +1,4 @@
 <app-sidebar></app-sidebar>
-
 <section id="interface">
 <div class="interface-container">
 
@@ -29,83 +28,82 @@
     <div class="second-div">
         <h4 class="i-name">Estimate and Invoice: Invoice Settings</h4>
         <div class="common-settings-menu">
-            <ul>
-                <li><a href="" class="active-selected-link">General</a></li>
-                <li><a href="">Reminder</a></li>
-            </ul>
-        </div>
-        <div class="sub-commn-settings">
-            
-            <label for="">Estimate Number Prefix</label>
-            <div class="input-group mb-3">
-                <input type="text" class="form-control form-control bg-light fs-6 custom-height">
-            </div>
-            
-            <div class="save-btn-div">
-                <button mat-raised-button color="primary"> Save</button>
-            </div>
+           
+            <mat-tab-group>
 
-            <div class="second-div">
-                <div class="common-settings-menu">
-                    <ul>
-                        <li><a href="" class="active-selected-link">General</a></li>
-                        <li><a href="">Reminder</a></li>
-                    </ul>
-                </div>
-    
-                <div class="toggle-slider-div">
-                    <div class="toggle-slider-title">
-                        <span>Status</span>
-                    </div>
-                    <!-- <div class="toggle-slider" style="padding-left: 30px;">
-                        <mat-slide-toggle  [checked]="toggleValue"
-                        (change)="onToggleChange($event)"></mat-slide-toggle>
-                    </div> -->
-                </div>
+                <mat-tab label="General">
 
-                <div class="rem-div">
-                    <span>Reminder</span>
-                    <div class="checkbox-div">
-                        <p>
-                            <mat-checkbox>On Due Date</mat-checkbox>
-                        </p>
+                    <br>
+                    <br>
+                    <label for="">Estimate Number Prefix</label>
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control form-control bg-light fs-6 custom-height">
                     </div>
-                </div>
-                
-                <div class="more-check-box">
+            
+                    <div class="save-btn-div">
+                      <button mat-raised-button color="primary"> Save</button>
+                    </div>
+
+                </mat-tab>
+
+                <mat-tab label="Reminder">
+
+                    <div class="toggle-slider-div">
+                        <!-- <div class="toggle-slider-title">
+                            <span>Status</span>
+                        </div> -->
+                    </div>
+
+                    <div class="rem-div">
+                        <span>Reminder</span>
+                        <div class="checkbox-div">
+                            <p>
+                                <mat-checkbox>On Due Date</mat-checkbox>
+                            </p>
+                        </div>
+                    </div>
                     
-                    <div class="check-box-first-div">
-                        <span>Reminder Before</span>
-                        <p>
-                            <mat-checkbox>1 Day</mat-checkbox>
-                        </p>
-                        <p>
-                            <mat-checkbox>7 Days</mat-checkbox>
-                        </p>
-                        <p>
-                            <mat-checkbox>15 Days</mat-checkbox>
-                        </p>
+                    <div class="more-check-box">
+                        
+                        <div class="check-box-first-div">
+                            <span>Reminder Before</span>
+                            <p>
+                                <mat-checkbox>1 Day</mat-checkbox>
+                            </p>
+                            <p>
+                                <mat-checkbox>7 Days</mat-checkbox>
+                            </p>
+                            <p>
+                                <mat-checkbox>15 Days</mat-checkbox>
+                            </p>
+                        </div>
+                        <div class="check-box-first-div" id="second-div-check">
+                            <span>Reminder After</span>
+                            <p>
+                                <mat-checkbox>1 Day</mat-checkbox>
+                            </p>
+                            <p>
+                                <mat-checkbox>7 Days</mat-checkbox>
+                            </p>
+                            <p>
+                                <mat-checkbox>15 Days</mat-checkbox>
+                            </p>
+                        </div>
                     </div>
-                    <div class="check-box-first-div" id="second-div-check">
-                        <span>Reminder After</span>
-                        <p>
-                            <mat-checkbox>1 Day</mat-checkbox>
-                        </p>
-                        <p>
-                            <mat-checkbox>7 Days</mat-checkbox>
-                        </p>
-                        <p>
-                            <mat-checkbox>15 Days</mat-checkbox>
-                        </p>
+    
+                    <div class="save-btn-div">
+                        <button mat-raised-button color="primary"> Save</button>
                     </div>
+    
+                </mat-tab>
 
-                   
-                </div>
-                <div class="save-btn-div">
-                    <button mat-raised-button color="primary"> Save</button>
-                </div>
-        </div>
-        <div class="more-common-sub-settings">
+            </mat-tab-group>
+
+         </div>
+
+    </div>
+
+</div>         
             
         
 

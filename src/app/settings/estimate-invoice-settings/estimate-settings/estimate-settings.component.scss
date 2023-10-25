@@ -411,13 +411,14 @@ label{
 
  .more-check-box{
     position: relative;
-    right: 20px;
-    display: flex;
-    justify-content: space-around;
+    right: 10px;
     padding-top: 20px;
     padding-bottom: 15px;
  }
 
- #second-div-check{
-    padding-left: 400px;
- }
+.more-check-box .check-box-first-div .reminder-text{
+    padding-left: 10px;
+    padding-top: 15px;
+    font-weight: bold;
+    color: #464646;
+}
