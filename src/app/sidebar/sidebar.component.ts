@@ -23,12 +23,16 @@ export class SidebarComponent {
   }
 
   shouldDisplayMenu(): boolean {
+
     const currentRoute = this._router.url;
-    // List of routes where the menu should be hidden
-    const hiddenRoutes = ['/login', '/register', '/forgot-password', '/update-password'];
+    const hiddenRoutes = ['/login', '/register-page', '/forgot-password',];
+    
+
+    const secondCurentRoute = this._router.url;
+    const otherSecondRoutes = ['/update-password']
   
-    // Check if the current route is not in the hiddenRoutes array
-    return !hiddenRoutes.includes(currentRoute);
+    return !hiddenRoutes.includes(currentRoute) && !otherSecondRoutes.includes(secondCurentRoute);
+    
   }
 
   openExitDialog():void{

@@ -7,9 +7,6 @@ import {Chart,registerables} from 'chart.js';
 import { ChartServiceService } from './chartservice/chart-service.service';
 Chart.register(...registerables);
 
-interface InvoicesByMonth {
-  [key: string]: number;
-}
 
 @Component({
   selector: 'app-dashboard',
@@ -19,14 +16,13 @@ interface InvoicesByMonth {
 
 export class DashboardComponent implements OnInit{
 
-  invoices:any[] =[];// Store the invoices data
-  chartData:any ={}; // Store data for the chart
-  chartOptions: any = {}; // Define chartOptions
+  invoices:any[] =[];
+  chartData:any ={};
+  chartOptions: any = {};
 
-  estimates:any[] =[]; // Store the estimates data
-  estimateChartData:any ={}; // Store data for the chart
-  estimateChartOptions:any ={}; // Define chartOptions
-
+  estimates:any[] =[];
+  estimateChartData:any ={}; 
+  estimateChartOptions:any ={};
 
   clients:any[] =[];
   leads:any[] =[];
@@ -40,25 +36,19 @@ export class DashboardComponent implements OnInit{
 
     ngOnInit(): void {
 
-      //fetch all the clients
       this._http.get<any[]>('http://localhost:3000/clients').subscribe(data=>{
         this.clients = data;
       })
 
-      //fetch all the invoices
       this._http.get<any[]>('http://localhost:3000/invoices').subscribe(data=>{
         this.invoices = data;
 
-        //Process data and create chart
         this.createInvoiceChart();
-
       })
 
-      //fetch all the estimates
       this._http.get<any[]>('http://localhost:3000/estimates').subscribe(data=>{
         this.estimates = data;
 
-        //Process data and create chart
         this.createEstimateChart();
       });
 
@@ -109,15 +99,11 @@ export class DashboardComponent implements OnInit{
     };
   }
 
-
-
   createInvoiceChart() {
-    // Group invoices by month and count the number of invoices in each month
     const groupedData = this.invoices.reduce((acc, invoice) => {
       const invoiceDate = new Date(invoice.invoice_date);
       const month = invoiceDate.toLocaleString('default', { month: 'long' });
-      // const monthYear = `${invoiceDate.getFullYear()}-${invoiceDate.getMonth() + 1}`;
-
+    
       if (!acc[month]) {
         acc[month] = 0;
       }
@@ -127,11 +113,9 @@ export class DashboardComponent implements OnInit{
       return acc;
     }, {});
 
-    // Extract months and counts for the chart
     const months = Object.keys(groupedData);
     const invoiceCounts = Object.values(groupedData);
 
-    // Create the chart
     this.chartData = {
       labels: months,
       datasets: [
@@ -144,22 +128,6 @@ export class DashboardComponent implements OnInit{
         }
       ]
     };
-  }
-
-  navigateToLeadPage():void{
-    this._router.navigateByUrl('/lead');
-  }
-
-  navigateToSettingsPage():void{
-    this._router.navigateByUrl('/settings');
-  }
-
-  navigateToInvoicePage():void{
-    this._router.navigateByUrl('/invoice');
-  }
-
-  navigateToDashboard():void{
-    this._router.navigateByUrl('/dashboard');
   }
 
   getTotalInvoices():number{

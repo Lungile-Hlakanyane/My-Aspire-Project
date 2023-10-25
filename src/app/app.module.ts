@@ -63,6 +63,7 @@ import { DeleteLeadStageComponent } from './lead/delete-lead-stage/delete-lead-s
 import { LeadInfoComponent } from './lead/lead-info/lead-info.component';
 import { NgChartsModule } from 'ng2-charts';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { SubSideBarComponent } from './settings/sub-side-bar/sub-side-bar.component';
 
 
 @NgModule({
@@ -105,6 +106,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     DeleteLeadStageComponent,
     LeadInfoComponent,
     SidebarComponent,
+    SubSideBarComponent,
   ],
   imports: [
     BrowserModule,

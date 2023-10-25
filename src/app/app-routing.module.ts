@@ -22,6 +22,8 @@ import { AddClientComponent } from './client/add-client/add-client.component';
 import { ClientInfoComponent } from './client/client-info/client-info.component';
 import { InvoiceInforComponent } from './invoice/invoice-infor/invoice-infor.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { SubSideBarComponent } from './settings/sub-side-bar/sub-side-bar.component';
+
 
 const routes: Routes = [
   {path:'sidebar',component:SidebarComponent},
@@ -46,7 +48,9 @@ const routes: Routes = [
   {path:'invoice-settings',component:InvoiceSettingsComponent},
   {path:'add-client',component:AddClientComponent},
   {path:'client/:clientId', component: ClientInfoComponent },
-  {path:'invoice/:id',component:InvoiceInforComponent}
+  // {path:'invoice/:id',component:InvoiceInforComponent},
+  { path: 'invoice/:id', component: InvoiceInforComponent },
+  {path:'sub-side-bar',component:SubSideBarComponent}
 ];
  
 @NgModule({

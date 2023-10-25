@@ -3,11 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class InvoiceService {
+
+  private apiUrl = 'http://localhost:3000/invoices'; 
 
   constructor(private _http:HttpClient) { }
 
@@ -33,5 +34,10 @@ export class InvoiceService {
   getInvoiceDetails(id:number):Observable<any>{
     const url = `http://localhost:3000/invoices/${id}`;
     return this._http.get<any>(url);
+  }
+
+  getInvoiceById(invoiceId: string): Observable<any> {
+    const url = `${this.apiUrl}/${invoiceId}`;
+    return this._http.get(url);
   }
 }

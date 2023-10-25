@@ -1,23 +1,9 @@
-<section id ="menu">
-    <div class="logo">
-        <i class="fa-solid fa-bars"> <span>INVOICE</span></i>
-    </div>
-    <div class="items">
-        <li><a href="#" routerLink="/dashboard" (click) ="navigateToDashboard()" >DASHBOARD</a></li>
-        <li><a href="#" routerLink="/lead" (click)="navigateToLeadPage()" >LEAD</a></li>
-        <li><a href="#">DEAL</a></li>
-        <li><a href="#">QUOTE</a></li>
-        <li><a href="#" routerLink="/invoice" (click)="navigateToInvoicePage()">INVOICE</a></li>
-        <li><a href="#" routerLink="/settings" (click)="navigateToSettingsPage()" >SETTIGS</a></li>
-    </div>
-    <div class="log-out-btn">
-        <button (click)="openDialog()" mat-raised-button color="primary">LOGOUT</button>
-    </div>
-</section>
+<app-sidebar></app-sidebar>
 
-<div class="container" id="container">
+<div class="container" id="container" *ngIf="selectedInvoice">
     <div class="address-infor-icon">
         <div class="address">
+            <p>Sender Details</p>
             <p class="address-text">{{invoice.sender_contact_name}}</p>
             <p>{{invoice.sender_physical_address}}</p>
             <p>{{invoice.sender_email}}</p>
@@ -29,6 +15,7 @@
     </div>
     <div class="second-address">
         <div class="address">
+            <p>Reciever Details</p>
             <p class="address-text">{{invoice.receiver_contact_name}}</p>
             <p>{{invoice.receiver_physical_address}}</p>
             <p>{{invoice.receiver_email}}</p>
@@ -41,41 +28,32 @@
         </div>
     </div>
 
-    <div class="invoice-table">
-        <mat-table [dataSource]="invoices">
 
-            <ng-container matColumnDef="item">
-                <mat-header-cell *matHeaderCellDef class="heading-title">Item</mat-header-cell>
-                <mat-cell *matCellDef="let invoice">{{ invoice.title }}</mat-cell>
-            </ng-container>
-
-            <ng-container matColumnDef="unitPrice">
-                <mat-header-cell *matHeaderCellDef class="heading-title">Unit Price</mat-header-cell>
-                <mat-cell *matCellDef="let invoice">{{ invoice.unitPrice }}</mat-cell>
-            </ng-container>
-
-            <ng-container matColumnDef="description">
-                <mat-header-cell *matHeaderCellDef class="heading-title">Description</mat-header-cell>
-                <mat-cell *matCellDef="let invoice">{{ invoice.description }}</mat-cell>
-            </ng-container>
-
-            <ng-container matColumnDef="quantity">
-                <mat-header-cell *matHeaderCellDef class="heading-title">Quantity</mat-header-cell>
-                <mat-cell *matCellDef="let invoice">{{ invoice.quantity }}</mat-cell>
-            </ng-container>
-
-            <ng-container matColumnDef="amount">
-                <mat-header-cell *matHeaderCellDef class="heading-title">Amount</mat-header-cell>
-                <mat-cell *matCellDef="let invoice">{{ invoice.amount | currency }}</mat-cell>
-            </ng-container>
-
-          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-          <mat-row *matRowDef="let invoice; columns: displayedColumns;"></mat-row>
-        </mat-table>
-      </div>    
+    <div class="container" style="overflow-x: auto;">
+        <h2>Invoice Details</h2>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Rate</th>
+              <th>Description</th>
+              <th>Quantity</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{invoice.title}}</td>
+              <td>{{invoice.rate}}</td>
+              <td>{{invoice.description}}</td>
+              <td>{{invoice.quantity}}</td>
+              <td>{{invoice.amount | currency}}</td>
+            </tr>
+            <tr>  
+          </tbody>
+        </table>
+      </div>
 </div>
 
-<div class="total-amount-div">
-    <p>Subtotal: {{total}} </p>
-    <p>Total: {{total}} </p>
-</div>
+
+

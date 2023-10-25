@@ -84,25 +84,9 @@ export class InvoiceComponent implements OnInit{
     this.dataSource.paginator = this.paginator;
   }
 
-  navigateToLeadPage():void{
-    this._router.navigateByUrl('lead');
-  }
 
-  navigateToInvoicePage():void{
-    this._router.navigateByUrl('/invoice');
-  }
-
-  navigateToSettingsPage():void{
-    this._router.navigateByUrl('/settings');
-  }
-
-  openAddInvoicePage():void{
-    this._router.navigateByUrl('/add-invoice');
-  }
-
-  navigateToInvoiceDetails(invoiceId:string){
-    this._router.navigate(['/invoice',invoiceId]);
-   
+  navigateToInvoiceDetails(invoiceId: string) {
+    this._router.navigate(['/invoice', invoiceId]);
   }
 
   openDialog():void{

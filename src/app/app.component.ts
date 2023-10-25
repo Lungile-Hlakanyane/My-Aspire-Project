@@ -8,7 +8,6 @@ import { Chart,LinearScale } from 'chart.js';
 })
 export class AppComponent {
 
-  
-  
+
 }
 

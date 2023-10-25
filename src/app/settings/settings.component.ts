@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfrmDialogComponent } from '../confrm-dialog/confrm-dialog.component';
 import { FormBuilder,FormGroup,Validators } from '@angular/forms';
+// import { SubSideBarComponent } from './sub-side-bar/sub-side-bar.component';
 
 
 @Component({
@@ -18,12 +19,12 @@ export class SettingsComponent implements OnInit {
     this.showEstimateInvoiceOptions =!this.showEstimateInvoiceOptions;
   }
 
-
   public settingsForm!:FormGroup;
 
   constructor(private _router:Router,
     private _dialog:MatDialog,
-    private _formBuilder:FormBuilder
+    private _formBuilder:FormBuilder,
+    // private _subSideBar:SubSideBarComponent
     ){}
 
   ngOnInit(){
@@ -37,44 +38,8 @@ export class SettingsComponent implements OnInit {
     })
   }
 
-  navigateToDashboard():void{
-    this._router.navigateByUrl('dashboard');
-  }
-
-  navigateToLeadPage():void{
-    this._router.navigateByUrl('/lead');
-  }
-
-  navigateToInvoicePage():void{
-    this._router.navigateByUrl('/invoice');
-  }
-  
-  navigateToSettingsPage():void{
-    this._router.navigateByUrl('/settings');
-  }
-
-  get name(){
-    return this.settingsForm.get('name');
-  }
-
-  get website(){
-    return this.settingsForm.get('website');
-  }
-  get email(){
-    return this.settingsForm.get('email');
-  }
-  get mobile(){
-    return this.settingsForm.get('mobile');
-  }
-  get zipcode(){
-    return this.settingsForm.get('zipcode');
-  }
-  get address(){
-    return this.settingsForm.get('address');
-  }
-
-  storeUserSettings(){
-
+  get f (){
+    return this.settingsForm.controls;
   }
 
   openDialog(){
@@ -85,7 +50,5 @@ export class SettingsComponent implements OnInit {
         this._router.navigateByUrl('/login');
       }
     })
-
   }
-
 }
