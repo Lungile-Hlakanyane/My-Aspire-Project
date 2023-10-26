@@ -193,13 +193,6 @@ body{
     border-radius: 50%;
 }
 
-#container{
-    position: relative;
-    left: 295px;
-    flex: 1;
-    overflow-x:auto;
-}
-
 .log-out-btn{
     position: relative;
     left: 30px;
@@ -207,5 +200,9 @@ body{
 }
 
 #container{
-    overflow-x: auto;
+    flex: 1;
+    position: relative;
+    left: 380px;
+    overflow-x: hidden;
+    width: 800px;
 }

@@ -1,29 +1,7 @@
 <app-sidebar></app-sidebar>
 <section id="interface">
 <div class="interface-container">
-
-    <div class="settings-options">
-        <div class="items">
-            <li><a href="#" routerLink="/settings">General</a></li>
-            <li><a href="#" routerLink="/lead-settings">Lead</a></li>
-            <li><a href="#" routerLink="/deal-settings">Deal</a></li>
-            <li (click)="toggleEstimateInvoice()">Estimate & Invoice </li>
-            <div class="options-container-displayed" [ngClass]="{'show':showEstimateInvoiceOptions}">
-                <ul class="show-more-options">
-                    <li><a href="" routerLink="/common-settigs">Common</a></li>
-                    <li><a href="" routerLink="/estimate-settings">Estimate</a></li>
-                    <li><a href="" routerLink="/invoice-settings"></a>Invoice</li>
-                </ul>
-            </div>
-            <li><a href="#">Project</a></li>
-            <li><a href="#" routerLink="/bank-settings">Payment</a></li>
-            <li><a href="#">Email Template</a></li>
-            <li><a href="#">Task & Activity</a></li>
-            <li><a href="#">Tag</a></li>
-            <li><a href="#">Custom Field</a></li>
-            <li><a href="#">Integration</a></li>
-        </div>
-    </div>
+    <app-sub-side-bar></app-sub-side-bar>
 
     <div class="second-div">
         <h4 class="i-name">Estimate and Invoice: Invoice Settings</h4>

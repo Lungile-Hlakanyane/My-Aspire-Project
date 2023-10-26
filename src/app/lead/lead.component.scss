@@ -409,14 +409,14 @@ body{
 
   .stages-container-horizontal {
     display: flex;
-    overflow-x: auto; /* Add horizontal scrolling if stages overflow */
-    white-space: nowrap; /* Prevent line breaks for stages */
+    overflow-x: auto;
+    white-space: nowrap; 
   }
   
   .stage {
-    width: 300px; /* Adjust the width of each stage card as needed */
+    width: 300px; 
     border: 1px solid #ccc;
-    margin-right: 10px; /* Add space between stages */
+    margin-right: 10px;
     padding: 10px;
   }
 
@@ -493,4 +493,4 @@ body{
     opacity: 0.5; 
     cursor: not-allowed; 
     pointer-events: none; 
-  }
+}
