@@ -5,8 +5,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfrmDialogComponent } from 'src/app/confrm-dialog/confrm-dialog.component';
 import { AddClientComponent } from '../add-client/add-client.component';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-
+import { MessageclientComponent } from 'src/app/messageclient/messageclient.component';
 
 @Component({
   selector: 'app-client-info',
@@ -26,7 +25,6 @@ export class ClientInfoComponent implements OnInit{
     private _http:HttpClient,
     private _router:Router,
     private _dialog:MatDialog){
-      
     }
 
   ngOnInit():void{
@@ -46,19 +44,6 @@ export class ClientInfoComponent implements OnInit{
     });
   }
 
-  navigateToDashboard():void{
-    this._router.navigateByUrl('/lead');
-  }
-  navigateToLeadPage():void{
-    this._router.navigateByUrl('/settings');
-  }
-  navigateToInvoicePage():void{
-    this._router.navigateByUrl('/invoice');
-  }
-  navigateToSettingsPage():void{
-    this._router.navigateByUrl('/dashboard');
-  }
-
   openDialog():void{
     const dialogRef = this._dialog.open(ConfrmDialogComponent);
     dialogRef.afterClosed().subscribe((result)=>{
@@ -66,5 +51,9 @@ export class ClientInfoComponent implements OnInit{
         this._router.navigateByUrl('/login');
       }
     })
+  }
+
+  openMessageDialogBox(){
+    this._dialog.open(MessageclientComponent);
   }
 }

@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h2>Send Message</h2>
+            <form [formGroup]="emailForm">
+                <div class="mb-3">
+                    <input formControlName="email" placeholder="Email" [class.is-invalid]="f['email'].invalid && f['email'].touched" type="email" class="form-control form-control bg-light fs-6 custom-height">
+                </div>
+                <div class="mb-3">
+                    <input formControlName="subject" placeholder="Subject" [class.is-invalid]="f['subject'].invalid && f['subject'].touched" type="text" class="form-control form-control bg-light fs-6 custom-height">
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control" formControlName="message" id="emailMessage" rows="4" placeholder="Compose your message" [class.is-invalid]="f['message'].invalid && f['message'].touched"></textarea>
+                </div>
+                <div class="actions">
+                    <button class="btn btn-primary" (click)="onCancelClick()" >Cancel
+                        <span><i class="fa-solid fa-ban"></i></span>
+                    </button>
+                    <button type="submit" class="btn btn-primary" (click)="sendEmail()">
+                        Send Email <span><i class="fa-solid fa-paper-plane"></i></span></button>
+                </div>
+            </form>
+       </div>
+    </div>
+</div>

@@ -17,7 +17,6 @@ import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { FPasswordComponent } from './f-password/f-password.component';
 import { UpdatePasswordComponent } from './update-password/update-password.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ConfrmDialogComponent } from './confrm-dialog/confrm-dialog.component';
 import { LeadComponent } from './lead/lead.component';
@@ -43,7 +42,7 @@ import { AddClientComponent } from './client/add-client/add-client.component'; /
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';import { observeOn } from 'rxjs';
 import { DeleteClientComponent } from './client/delete-client/delete-client.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { ClientInfoComponent } from './client/client-info/client-info.component';
 import { AddEstimateComponent } from './estimate/add-estimate/add-estimate.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -58,12 +57,13 @@ import { AddInvoiceComponent } from './invoice/add-invoice/add-invoice/add-invoi
 import { InvoiceInforComponent } from './invoice/invoice-infor/invoice-infor.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import { AddStageComponent } from './lead/add-lead-stage/add-stage/add-stage.component';
-import { DragDropModule } from '@angular/cdk/drag-drop';//included
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { DeleteLeadStageComponent } from './lead/delete-lead-stage/delete-lead-stage.component';
 import { LeadInfoComponent } from './lead/lead-info/lead-info.component';
 import { NgChartsModule } from 'ng2-charts';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { SubSideBarComponent } from './settings/sub-side-bar/sub-side-bar.component';
+import { MessageclientComponent } from './messageclient/messageclient.component';
 
 
 @NgModule({
@@ -107,6 +107,8 @@ import { SubSideBarComponent } from './settings/sub-side-bar/sub-side-bar.compon
     LeadInfoComponent,
     SidebarComponent,
     SubSideBarComponent,
+    MessageclientComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -121,6 +123,7 @@ import { SubSideBarComponent } from './settings/sub-side-bar/sub-side-bar.compon
     MatSelectModule,
     MatCheckboxModule,  
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
     MatDialogModule,
     MatIconModule,
@@ -136,7 +139,7 @@ import { SubSideBarComponent } from './settings/sub-side-bar/sub-side-bar.compon
     MatTabsModule,
     DragDropModule,//included
     NgChartsModule,
-    
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

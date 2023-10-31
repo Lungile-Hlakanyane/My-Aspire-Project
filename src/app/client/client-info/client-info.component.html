@@ -1,5 +1,4 @@
 <app-sidebar></app-sidebar>
-
 <section id="interface" class="interface">
     <div class="main-profile-content">
         <div class="profile-info-div">
@@ -11,7 +10,7 @@
                     <h1>{{client.person}}</h1>
                 </div>
                 <div class="edit-btn">
-                    <button mat-raised-button color="primary">Contact</button>
+                    <button mat-raised-button color="primary" (click)="openMessageDialogBox()">Email</button>
                 </div>
             </div>
             <div class="more-details-info">
@@ -27,13 +26,9 @@
                 <button mat-raised-button class="options-btn" color="primary"><i class="fa-solid fa-ellipsis"></i></button>
             </div>
         </div>
-
     </div>
-
     <div class="more-more-options">
-
         <div class="horizontal-line"></div>
-
     </div>
     <div class="more-options">
         <ul class="list-options">
@@ -42,9 +37,7 @@
             <li>Deal: 0</li>
         </ul>
     </div>
-
     <div class="div-main-container">
-        
         <div class="add-more-infor">
             <div class="navigation">
                 <ul>
